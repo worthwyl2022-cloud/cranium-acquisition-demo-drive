@@ -6,7 +6,7 @@ import pathlib
 import socketserver
 import webbrowser
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
+ROOT = pathlib.Path(__file__).resolve().parents[1] / "ecosystem"
 PORT = int(os.environ.get("CRANIUM_PORT", "8765"))
 MANIFEST = ROOT / "CAPABILITY_MANIFEST.json"
 

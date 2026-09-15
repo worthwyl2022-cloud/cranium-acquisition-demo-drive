@@ -24,7 +24,7 @@ Cranium exists to help people turn ambiguous goals into evidence-grounded, safe,
 1. Cranium shall assist legitimate owners through official account recovery, backup, reset, restore, and manufacturer-support procedures.
 2. Cranium shall verify the user, device, account, and requested action as far as reasonably possible.
 3. Cranium shall not treat personal knowledge, verbal claims, conversational confidence, or a declaration of ownership as a substitute for cryptographic authentication.
-4. Cranium shall not bypass or weaken passcodes, patterns, PINs, encryption, Android Factory Reset Protection, Apple Activation Lock, mobile-device-management controls, or equivalent safeguards.
+4. Cranium shall not bypass or weaken passcodes, patterns, PINs, encryption, device recovery locks, mobile-device-management controls, or equivalent safeguards.
 5. Verified ownership authorizes a recovery workflow. It does not authorize Cranium to defeat the device’s security architecture.
 6. If recovery cannot be completed without defeating a security control, Cranium shall explain the limitation and direct the user to the official recovery authority.
 7. Cranium shall warn clearly when an authorized recovery step will erase local data.
@@ -52,7 +52,7 @@ user_verification: official-account-or-authority-status
 device_identity: model-and-serial-or-imei-status
 ownership_evidence: evidence-types-and-scope
 requested_outcome: account-recovery-reset-restore-or-support
-security_boundary: passcode-encryption-frp-activation-lock-or-mdm
+security_boundary: device-authentication-encryption-or-management-control
 policy_decision: permitted-guided-or-blocked
 approval: reviewer-and-timestamp-when-required
 expected_data_loss: none-possible-or-confirmed

@@ -4,13 +4,45 @@
   "mode": "offline-acquisition-demo",
   "truthPolicy": "Only capabilities marked available may be presented as runnable.",
   "capabilities": {
-    "offlineDocumentation": { "available": true, "evidence": "bundled markdown and static demo" },
-    "offlineSourceInspection": { "available": true, "evidence": "bundled ecosystem source payload" },
-    "offlineHealthChecks": { "available": true, "evidence": "HEALTH_CHECK.sh" },
-    "offlineLocalInference": { "available": false, "reason": "No local model runtime and model weights are bundled in this drive" },
-    "hostedModelInference": { "available": false, "reason": "Requires explicit network configuration and provider credentials" },
-    "externalConnectors": { "available": false, "reason": "No credentials or connector configuration is bundled" },
-    "externalActions": { "available": false, "reason": "Acquisition demo is read-only by design" },
-    "persistentEncryptedWorkspace": { "available": false, "reason": "Requires a separately configured writable encrypted partition" }
+    "offlineDocumentation": {
+      "available": true,
+      "evidence": "bundled markdown and static demo"
+    },
+    "offlineSourceInspection": {
+      "available": true,
+      "evidence": "bundled ecosystem source payload"
+    },
+    "offlineHealthChecks": {
+      "available": true,
+      "evidence": "HEALTH_CHECK.sh"
+    },
+    "offlineLocalInference": {
+      "available": false,
+      "reason": "No local model runtime and model weights are bundled in this drive"
+    },
+    "hostedModelInference": {
+      "available": false,
+      "reason": "Requires explicit network configuration and provider credentials"
+    },
+    "externalConnectors": {
+      "available": false,
+      "reason": "No credentials or connector configuration is bundled"
+    },
+    "externalActions": {
+      "available": false,
+      "reason": "Acquisition demo is read-only by design"
+    },
+    "persistentEncryptedWorkspace": {
+      "available": false,
+      "reason": "Requires a separately configured writable encrypted partition"
+    },
+    "comaPolicyAndSource": {
+      "available": true,
+      "evidence": "bundled file-backed Coma state boundary and tests"
+    },
+    "comaRuntimeEnforcement": {
+      "available": false,
+      "reason": "The offline acquisition demo does not start the full Cranium server or external connector runtime"
+    }
   }
 }

@@ -14,6 +14,8 @@ Each product can operate independently. Together, Cranium AI, Core, Synapse, Ult
 - **Offline mode:** browse documentation, inspect source, run local tests, and use local capabilities that do not require network access.
 - **Connected mode:** enable explicitly configured providers and connectors after the user reviews permissions.
 
+`CAPABILITY_MANIFEST.json` is the source of truth for what this drive can actually do in its current offline acquisition-demo build. It explicitly reports that documentation, source inspection, and health checks are available, while local inference, hosted inference, external connectors, external actions, and encrypted persistence require additional runtime configuration.
+
 ## Safety defaults
 
 The appliance is read-only by default. It contains no live credentials. External actions require a visible approval step. The system must not change repository visibility, modify permissions, publish, spend money, delete data, or deploy infrastructure without explicit authorization.

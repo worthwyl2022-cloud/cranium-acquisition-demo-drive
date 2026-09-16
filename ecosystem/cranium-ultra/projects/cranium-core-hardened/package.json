@@ -1,7 +1,7 @@
 {
   "name": "cranium-core-hardened",
   "version": "1.0.0",
-  "description": "Cranium Core — Sole Authority Issuance Boundary. Authority is not claimed. It is granted—only through Cranium Core.",
+  "description": "Cranium Core \u2014 Sole Authority Issuance Boundary. Authority is not claimed. It is granted\u2014only through Cranium Core.",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
@@ -18,12 +18,15 @@
   "author": "Wyl Mathes",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@types/jest": "^29.0.0",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.0.0",
-    "jest": "^29.0.0",
-    "ts-jest": "^29.2.5",
+    "jest": "^30.5.1",
+    "ts-jest": "^29.4.12",
     "ts-node": "^10.9.0",
     "tsx": "^4.19.3",
     "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=24.0.0 <25.0.0"
   }
 }

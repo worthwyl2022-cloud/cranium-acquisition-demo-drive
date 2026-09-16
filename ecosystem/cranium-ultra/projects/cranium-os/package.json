@@ -1,7 +1,7 @@
 {
   "name": "cranium-os",
   "version": "1.0.0",
-  "description": "Cranium OS — Cognitive Operating Environment built on Cranium Core. Authority is not claimed. It is granted—only through Cranium Core.",
+  "description": "Cranium OS \u2014 Cognitive Operating Environment built on Cranium Core. Authority is not claimed. It is granted\u2014only through Cranium Core.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -29,5 +29,8 @@
     "vitest": "^5.0.0"
   },
   "author": "Wyl Mathes",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=24.0.0 <25.0.0"
+  }
 }

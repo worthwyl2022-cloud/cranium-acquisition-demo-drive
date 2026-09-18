@@ -1,6 +1,6 @@
-# Cranium Acquisition Demo Drive
+# Convertible Cranium Acquisition Demo Drive
 
-The **Cranium Acquisition Demo Drive** is a Linux-first, offline, buyer-facing demonstration of the WorthWyl / Cranium ecosystem. It boots into an interactive Cranium AI presentation rather than an ordinary file browser.
+The **Convertible Cranium Acquisition Demo Drive** is a Linux-first, offline, buyer-facing demonstration of the WorthWyl / Convertible Cranium ecosystem. It boots into an interactive Convertible Cranium AI presentation rather than an ordinary file browser.
 
 ## What a buyer sees on boot
 
@@ -8,7 +8,7 @@ The drive opens a visual executive overview with a guided tour, ecosystem archit
 
 ## Ecosystem included
 
-The payload contains the assembled local source and documentation surfaces for Cranium AI, Cranium Core, Cranium Synapse, Cranium Ultra, Miracle Memory, Cognitive Tracker, WorthWyl Forge, the acquisition package, the Constitution, architecture documentation, deployment guidance, and health checks.
+The payload contains the assembled local source and documentation surfaces for Convertible Cranium AI, Core, Synapse, Ultra, Miracle Memory, Cognitive Tracker, WorthWyl Forge, the acquisition package, the Constitution, architecture documentation, deployment guidance, and health checks.
 
 Each product is presented as independently valuable. The demonstration also explains how the products compose into the Cognitive Substrate Governance Ecosystem.
 
@@ -29,7 +29,7 @@ Building the ISO requires a Linux host with `live-build`, `xorriso`, `debootstra
 sudo ./BUILD_ACQUISITION_ISO.sh
 ```
 
-The output is written to `dist/cranium-acquisition-demo.iso`. The build script installs the demo, ecosystem payload, and an autostart entry that opens the local Cranium acquisition experience after the graphical desktop starts.
+The output is written to `dist/cranium-acquisition-demo.iso`. The build script installs the demo, ecosystem payload, and an autostart entry that opens the local Convertible Cranium acquisition experience after the graphical desktop starts.
 
 ## Security and scope
 

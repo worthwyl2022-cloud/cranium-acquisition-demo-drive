@@ -136,7 +136,7 @@ Built by Wyl Mathes
 
 IP Available for Acquisition
 Technical Diligence / NDA on Request
-worthwyl2022@gmail.com
+wyl.mathes@cranium.ambi.cc
 ```
 
 ### Voiceover (Word-for-Word)

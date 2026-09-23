@@ -4,11 +4,11 @@
 
 ### Executive proposition
 
-The WorthWyl/Cranium portfolio is a family of independently valuable products that can also operate together as an integrated **Cognitive Substrate Governance Ecosystem**. Each product addresses a distinct problem in the development and operation of intelligent systems. Each product can be deployed, evaluated, licensed, or acquired independently. When combined through shared identity, evidence, event, and permission contracts, the products provide a broader system that can reason, remember, connect, evaluate, authorize, execute, and improve under accountable human oversight.
+The WorthWyl/Cranium portfolio is a family of distinct product identities that can also compose into an integrated **Cognitive Substrate Governance Ecosystem**. Each product is described at its actual maturity level: implemented, partial, foundation, or concept. Only a product with a documented, runnable boundary should be treated as independently deployable. When implemented components are combined through shared identity, evidence, event, and permission contracts, they provide a broader system under accountable human oversight.
 
-> **Each product is complete enough to stand alone. Together, they form a governed cognitive substrate whose combined value is greater than the value of any isolated component.**
+> **Each product has a distinct boundary and value proposition. Implemented products may stand alone; clearly labeled partial, foundation, and concept surfaces must not be presented as complete. Together, the implemented components can form a governed cognitive substrate.**
 
-This distinction is central to the acquisition opportunity. The portfolio is neither a collection of unrelated repositories nor a monolithic application divided into arbitrary modules. It is a product family with two valid modes of value: **standalone product value** and **ecosystem composition value**.
+This distinction is central to the acquisition opportunity. The portfolio is neither a collection of unrelated repositories nor a monolithic application divided into arbitrary modules. It is a product family with two valid modes of value: **standalone product value where the implementation boundary is real** and **ecosystem composition value where the integration is actually present and documented**.
 
 ## The product family
 

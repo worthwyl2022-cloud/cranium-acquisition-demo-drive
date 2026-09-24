@@ -57,7 +57,7 @@ cd "$WORK"
 lb config \
   --distribution noble \
   --archive-areas 'main restricted universe multiverse' \
-  --binary-images iso-hybrid \
+  --binary-images iso \
   --bootappend-live 'boot=live components username=live hostname=cranium-demo'
 
 lb build
@@ -68,10 +68,13 @@ elif [[ -f binary.hybrid.iso ]]; then
   cp -f binary.hybrid.iso "$ISO"
 elif [[ -f binary.iso ]]; then
   cp -f binary.iso "$ISO"
-  echo 'WARNING: non-hybrid ISO produced' >&2
 else
   echo 'ERROR: no ISO artifact found' >&2
   exit 1
 fi
+
+# Finalize the completed ISO as a hybrid image outside live-build.
+command -v isohybrid >/dev/null || { echo 'ERROR: isohybrid is required to finalize hybrid ISO' >&2; exit 1; }
+sudo isohybrid "$ISO"
 
 printf 'Built %s\n' "$ISO"

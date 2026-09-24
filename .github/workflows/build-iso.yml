@@ -28,8 +28,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install ISO build dependencies
         run: sudo apt-get update && sudo apt-get install -y live-build xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools dosfstools
+      - name: Check out canonical Kernel for lineage
+        uses: actions/checkout@v4
+        with:
+          repository: worthwyl2022-cloud/cranium-kernel
+          path: .canonical-kernel
+          fetch-depth: 1
       - name: Resolve canonical Kernel revision
-        run: echo "CRANIUM_KERNEL_REVISION=$(git ls-remote https://github.com/worthwyl2022-cloud/cranium-kernel.git HEAD | cut -f1)" >> "$GITHUB_ENV"
+        run: echo "CRANIUM_KERNEL_REVISION=$(git -C .canonical-kernel rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Build ISO
         run: sudo -E bash BUILD_ACQUISITION_ISO.sh
       - name: Verify ISO artifact

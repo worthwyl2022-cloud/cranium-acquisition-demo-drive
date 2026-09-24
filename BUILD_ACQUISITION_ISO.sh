@@ -73,8 +73,4 @@ else
   exit 1
 fi
 
-# Finalize the completed ISO as a hybrid image outside live-build.
-command -v isohybrid >/dev/null || { echo 'ERROR: isohybrid is required to finalize hybrid ISO' >&2; exit 1; }
-sudo isohybrid "$ISO"
-
 printf 'Built %s\n' "$ISO"

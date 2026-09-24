@@ -14,12 +14,14 @@ mkdir -p "$WORK/config/includes.chroot/opt/cranium-acquisition-demo"
 
 # Record the exact source revision used for this appliance build.
 REVISION="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null || printf 'unversioned')"
+KERNEL_REVISION="${CRANIUM_KERNEL_REVISION:?CRANIUM_KERNEL_REVISION must be supplied for a traceable release build}"
 cat > "$ROOT/RELEASE_LINEAGE.json" <<EOF
 {
   "product": "Convertible Cranium Acquisition Demonstration Drive",
   "source_repository": "worthwyl2022-cloud/cranium-acquisition-demo-drive",
   "source_revision": "$REVISION",
   "authority_source": "cranium-kernel",
+  "authority_source_revision": "$KERNEL_REVISION",
   "architecture_boundaries": ["cognition", "authority", "execution"],
   "generated_by": "BUILD_ACQUISITION_ISO.sh"
 }

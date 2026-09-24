@@ -12,6 +12,20 @@ command -v xorriso >/dev/null || { echo 'Missing xorriso.' >&2; exit 1; }
 rm -rf "$WORK"
 mkdir -p "$WORK/config/includes.chroot/opt/cranium-acquisition-demo"
 
+# Record the exact source revision used for this appliance build.
+REVISION="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null || printf 'unversioned')"
+cat > "$ROOT/RELEASE_LINEAGE.json" <<EOF
+{
+  "product": "Convertible Cranium Acquisition Demonstration Drive",
+  "source_repository": "worthwyl2022-cloud/cranium-acquisition-demo-drive",
+  "source_revision": "$REVISION",
+  "authority_source": "cranium-kernel",
+  "architecture_boundaries": ["cognition", "authority", "execution"],
+  "generated_by": "BUILD_ACQUISITION_ISO.sh"
+}
+EOF
+cp -a "$ROOT/RELEASE_LINEAGE.json" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/"
+
 cp -a "$ROOT/demo" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/"
 [[ -d "$ROOT/ecosystem" ]] && cp -a "$ROOT/ecosystem" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/" || true
 for f in README.md CONSTITUTION.md ACQUISITION_PACKAGE.md ECOSYSTEM_ARCHITECTURE.md DEPLOYMENT.md REVIEWER_PATH.md HEALTH_CHECK.sh; do

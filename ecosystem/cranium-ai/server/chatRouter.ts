@@ -10,6 +10,7 @@ import {
 import { formatGroundingContext, retrieveGrounding, type GroundingSource } from "./grounding";
 import { formatWorldKnowledgeContext, retrieveWorldKnowledge, type WorldKnowledgeSource } from "./worldKnowledge";
 import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
+import { governResponse } from "./responseGovernance";
 
 const modelFallbacks = [
   { id: "gpt-5-mini", label: "GPT-5 mini", provider: "OpenAI", note: "Fast workhorse" },

@@ -56,7 +56,6 @@ EOF
 cd "$WORK"
 lb config \
   --distribution noble \
-  --debian-installer live \
   --archive-areas 'main restricted universe multiverse' \
   --binary-images iso-hybrid \
   --bootappend-live 'boot=live components username=live hostname=cranium-demo'

@@ -115,13 +115,19 @@ export const chatRouter = router({
         model: selectedModel,
         messages: llmMessages,
       });
-      const assistantContent = textFromContent(response.choices?.[0]?.message?.content);
-      if (!assistantContent) throw new Error("Cranium AI returned an empty response");
-      const substrate = await submitThroughSubstrate({
-        correlationId: `chat-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`,
-        modelId: response.model || selectedModel,
-        content: assistantContent,
+      const providerContent = textFromContent(response.choices?.[0]?.message?.content);
+      if (!providerContent) throw new Error("Cranium AI returned an empty response");
+      const governed = governResponse({
+        userText,
+        content: providerContent,
+        evidence: {
+          grounded: input.grounded,
+          research: input.research,
+          sourceCount: sources.length,
+          knowledgeCount: knowledge.length,
+        },
       });
+      const assistantContent = governed.content;
 
       let conversationId = input.conversationId;
       if (ctx.user) {
@@ -156,7 +162,7 @@ export const chatRouter = router({
         output: input.output,
         capabilities: capabilityRegistry.map(capability => capability.id),
         knowledge,
-        substrate,
+        governance: governed.receipt,
       };
     }),
 });

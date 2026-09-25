@@ -182,7 +182,7 @@ const DEMO_SCENES: Scene[] = [
       "[DIGEST_FORENSIC] sha256:5f4dcc3b5aa765d61d8327deb882cf992b95ecd5882b530c6e8...",
       "[INVARIANT_CHECK] state_version_before (14.2.0) === state_version_after (14.2.0)",
       "[BENCHMARK] Frozen Drift Corpus + LLM-Judge Adapter validated",
-      "[FOUNDER] Built by Wyl Mathes | worthwyl2022@gmail.com"
+      "[FOUNDER] Built by Wyl Mathes | wyl.mathes@cranium.ambi.cc"
     ],
     stationType: 'receipt',
     visualMetrics: {

@@ -1,6 +1,6 @@
 # Security
 
-Report vulnerabilities to worthwyl2022@gmail.com with:
+Report vulnerabilities to wyl.mathes@cranium.ambi.cc with:
 - affected path
 - command to reproduce
 - whether authority was granted when it should have been denied

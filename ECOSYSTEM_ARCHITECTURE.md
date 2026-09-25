@@ -18,7 +18,7 @@ Local repositories, tests, evidence, and deployment tools
 
 ## Standalone behavior
 
-Each product directory contains its own source payload, documentation, and launch boundary. The appliance can open a product independently without requiring the entire ecosystem. If a product is not yet mapped to a dedicated repository, its directory contains an explicit integration placeholder rather than pretending that an implementation is present.
+Each mapped product directory contains its available source payload, documentation, and launch boundary. The appliance can present a product independently without requiring the entire ecosystem. If a product is not yet implemented or mapped to a dedicated repository, the package labels that status explicitly and does not represent a placeholder, stub, or concept as a working implementation.
 
 ## Combined behavior
 

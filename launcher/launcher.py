@@ -12,7 +12,7 @@ MANIFEST = ROOT / "CAPABILITY_MANIFEST.json"
 
 PRODUCTS = [
     ("Cranium AI", "Intelligence interface and collaborative guide", "cranium-ai"),
-    ("Cranium Core", "Governance, authority, policy, provenance, and recovery", "cranium-core"),
+    ("Cranium Core", "Governance, authority, policy, provenance, and recovery", "cranium-kernel"),
     ("Cranium Synapse", "Providers, connectors, tools, and extensions", "cranium-synapse"),
     ("Cranium Ultra", "Integrated Core–Synapse governed runtime", "cranium-ultra"),
     ("Miracle Memory", "Consent-based continuity and persistent context", "miracle-memory"),

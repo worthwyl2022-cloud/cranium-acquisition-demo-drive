@@ -1,0 +1,18 @@
+{
+  "law": "CRANIUM_COMMAND_LAW",
+  "version": "1.0.0",
+  "constitution_version": "1.0.0",
+  "law_digest": "84daf39234d6fd9c962da9772309a3d26b343d5fa15be08e09a27321bc2a1d05",
+  "canonical_authority": "cranium-kernel",
+  "applies_to": "every Cranium Command component, application, adapter, interface, workflow, boot surface, and governed execution path",
+  "rules": {
+    "authority_is_singular": true,
+    "cognition_may_propose": true,
+    "non_kernel_authority_forbidden": true,
+    "fail_closed": true,
+    "canonical_commit_required": true,
+    "receipt_required_for_authority": true,
+    "replay_resistance_required": true,
+    "evidence_binding_required": true
+  }
+}

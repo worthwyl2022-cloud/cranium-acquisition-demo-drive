@@ -1,0 +1,48 @@
+{
+  "name": "cranium-substrate-kernel",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node ./node_modules/vite/bin/vite.js --port 3000 --host 0.0.0.0",
+    "build": "node ./node_modules/typescript/bin/tsc && node ./node_modules/vite/bin/vite.js build",
+    "preview": "node ./node_modules/vite/bin/vite.js preview --port 3000 --host 0.0.0.0",
+    "lint": "node ./node_modules/typescript/bin/tsc --noEmit",
+    "verify:synapse": "node ./node_modules/tsx/dist/cli.mjs scripts/synapse-integration-check.ts",
+    "verify:memory": "node ./node_modules/tsx/dist/cli.mjs scripts/miracle-memory-check.ts",
+    "atomic:recovery-check": "node ./node_modules/tsx/dist/cli.mjs scripts/atomic-recovery-check.ts",
+    "verify:durable": "node ./node_modules/tsx/dist/cli.mjs scripts/durable-authority-check.ts",
+    "verify:lifecycle": "node ./node_modules/tsx/dist/cli.mjs scripts/authority-lifecycle-matrix.ts",
+    "verify:conformance": "node ./node_modules/tsx/dist/cli.mjs scripts/conformance-vectors.ts",
+    "verify:production-boundary": "ECOSYSTEM_ROOT=.. node scripts/production-boundary-check.mjs",
+    "verify:ecosystem": "node scripts/ecosystem-release-check.mjs",
+    "verify:constitution": "node scripts/constitution-check.mjs",
+    "verify:constitution-runtime": "node ./node_modules/tsx/dist/cli.mjs scripts/constitution-runtime-check.ts",
+    "verify:coma": "node ./node_modules/tsx/dist/cli.mjs scripts/coma-check.ts",
+    "evidence:manifest": "node scripts/evidence-manifest.mjs",
+    "verify": "npm run lint && npm run build && npm run verify:memory && npm run verify:synapse && npm run atomic:recovery-check && npm run verify:durable && npm run verify:lifecycle && npm run verify:conformance && npm run verify:constitution && npm run verify:constitution-runtime && npm run verify:coma",
+    "verify:cognitive-subconscious": "node ./node_modules/tsx/dist/cli.mjs scripts/cognitive-subconscious-check.ts",
+    "verify:proofing": "node ./node_modules/tsx/dist/cli.mjs scripts/proofing-check.ts"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.46.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwind-merge": "^3.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.9",
+    "@types/node": "^26.6.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tailwindcss": "^4.0.9",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.0"
+  },
+  "engines": {
+    "node": ">=24.0.0 <25.0.0"
+  }
+}

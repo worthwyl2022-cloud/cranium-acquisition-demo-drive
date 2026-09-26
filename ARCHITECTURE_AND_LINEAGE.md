@@ -1,19 +1,58 @@
-# Convertible Cranium Acquisition Drive: Architecture and Lineage
+# Convertible Cranium Acquisition Demo Drive: Current Architecture and Lineage
 
-The acquisition appliance exposes three meaningful boundaries: **Cognition, Authority, Execution**.
+The acquisition appliance is a **buyer-facing distribution and evidence surface for the Convertible Cranium substrate**. It is not a separate governance system and does not redefine canonical authority.
 
-The demonstration experience may bundle cognitive components, evidence views, documentation and offline assets. Those bundled components do not become independent authority sources. Protected decisions belong to the canonical `cranium-kernel` implementation represented by the bundled Core snapshot or an explicitly configured canonical Kernel.
+## Canonical substrate model
 
-Internal functions such as challenge, proofing, memory, remediation and governance remain implementation responsibilities within those boundaries rather than additional architectural planes.
+```text
+Human / external intent
+        |
+        v
+Cognition
+        |
+        v
+Cognitive Subconscious
+observe -> associate -> hypothesize -> challenge -> quarantine/propose
+        |
+        +------------------- evidence / proposal -------------------+
+                                                                     |
+                                                                     v
+                 +-----------------------------------------------+
+                 |              CRANIUM KERNEL                    |
+                 | Constitution -> boundary -> authority ->      |
+                 | durable commit -> canonical receipt            |
+                 +----------------------+------------------------+
+                                        |
+                                    authority
+                                        |
+                                        v
+                                  Governed action
+                                        |
+                                        v
+                                  Miracle Memory
 
-## Snapshot rule
+Synapse = bounded capability/evidence plane.
+COMA = cross-cutting containment and operational-state boundary.
+```
 
-This drive is a buyer-facing distributable snapshot. Component revisions must be traceable to their source repositories. A snapshot must not be described as newer, more capable, or more secure than the evidence for the contained revisions establishes.
+## Buyer-facing layers
 
-## Reality rule
+- **Presentation:** offline executive overview and guided tour.
+- **Architecture:** current Core/Synapse, cognition, subconscious, memory, COMA, and authority model.
+- **Evidence:** source snapshots, tests, receipts, manifests, and reproducibility material.
+- **Products:** independently identifiable product surfaces and their integration boundaries.
+- **Deployment:** Linux appliance build and safe operating modes.
 
-Synthetic fixtures are permitted only when explicitly labeled as test fixtures. They are not operational evidence. Hypothetical case studies must be labeled hypothetical. Production, customer, compliance and security claims require traceable evidence.
+The demo explains composition without claiming that presentation code itself is canonical authority.
 
-## Construction evidence
+## Canonicality rule
 
-`BUILD_ACQUISITION_ISO.sh` is the source-of-truth build entrypoint. The current Termux host does not provide `live-build`, so a fresh ISO artifact cannot honestly be claimed from this host. The source tree and build contract are validated independently.
+`cranium-kernel` is the sole canonical authority source. Supporting repositories and bundled snapshots may submit proposals, evidence, requests, or presentation state, but may not issue canonical authority independently.
+
+## Snapshot and evidence rule
+
+Every bundled canonical component must identify its source repository and pinned revision. A demonstration artifact is evidence of the demonstration unless separately reproduced as executable technical evidence. Synthetic fixtures and hypothetical scenarios must remain explicitly labeled.
+
+## Security boundary
+
+The acquisition drive is read-only by default and contains no live credentials. It demonstrates architecture and evidence without pretending that an offline demo is itself a production autonomous deployment.

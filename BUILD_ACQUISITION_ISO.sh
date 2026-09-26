@@ -14,7 +14,13 @@ mkdir -p "$WORK/config/includes.chroot/opt/cranium-acquisition-demo"
 
 # Record the exact source revision used for this appliance build.
 REVISION="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null || printf 'unversioned')"
-CORE_SNAPSHOT_SHA256="$(find "$ROOT/ecosystem/cranium-core" -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | awk '{print $1}')"
+CORE_SNAPSHOT_SHA256="$(find "$ROOT/ecosystem/cranium-kernel" -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | awk '{print $1}')"
+SIGNING_KEY="${CRANIUM_RELEASE_SIGNING_KEY:-}"
+[[ -n "$SIGNING_KEY" && -f "$SIGNING_KEY" ]] || { echo "Missing CRANIUM_RELEASE_SIGNING_KEY: signed releases are mandatory." >&2; exit 1; }
+TRUST_DIR="$ROOT/.cranium-trust"
+rm -rf "$TRUST_DIR"
+mkdir -p "$TRUST_DIR"
+openssl pkey -in "$SIGNING_KEY" -pubout -out "$TRUST_DIR/release-root.pub.pem" >/dev/null 2>&1 || { echo "Invalid release signing key." >&2; exit 1; }
 cat > "$ROOT/RELEASE_LINEAGE.json" <<EOF
 {
   "product": "Convertible Cranium Acquisition Demonstration Drive",
@@ -26,7 +32,13 @@ cat > "$ROOT/RELEASE_LINEAGE.json" <<EOF
   "generated_by": "BUILD_ACQUISITION_ISO.sh"
 }
 EOF
+openssl pkeyutl -sign -rawin -inkey "$SIGNING_KEY" -in "$ROOT/RELEASE_LINEAGE.json" -out "$ROOT/RELEASE_LINEAGE.json.sig"
 cp -a "$ROOT/RELEASE_LINEAGE.json" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/"
+cp -a "$ROOT/RELEASE_LINEAGE.json.sig" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/"
+cp -a "$TRUST_DIR/release-root.pub.pem" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/"
+cp -a "$ROOT/scripts/cranium-trust-gate.sh" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/"
+cp -a "$ROOT/CRANIUM_COMMAND_LAW.json" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/"
+chmod +x "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/cranium-trust-gate.sh"
 
 cp -a "$ROOT/demo" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/"
 [[ -d "$ROOT/ecosystem" ]] && cp -a "$ROOT/ecosystem" "$WORK/config/includes.chroot/opt/cranium-acquisition-demo/" || true
@@ -40,6 +52,7 @@ cat > "$WORK/config/includes.chroot/usr/local/bin/cranium-acquisition-demo" <<'E
 #!/usr/bin/env bash
 set -Eeuo pipefail
 cd /opt/cranium-acquisition-demo
+bash ./cranium-trust-gate.sh
 echo 'Cranium Acquisition Demo Drive is installed at /opt/cranium-acquisition-demo'
 exec python3 -m http.server 8765 --directory demo
 EOF
@@ -56,9 +69,9 @@ EOF
 cd "$WORK"
 lb config \
   --distribution noble \
-  --debian-installer live \
   --archive-areas 'main restricted universe multiverse' \
-  --binary-images iso-hybrid \
+  --binary-images iso \
+  --bootloader grub-efi \
   --bootappend-live 'boot=live components username=live hostname=cranium-demo'
 
 lb build
@@ -69,7 +82,6 @@ elif [[ -f binary.hybrid.iso ]]; then
   cp -f binary.hybrid.iso "$ISO"
 elif [[ -f binary.iso ]]; then
   cp -f binary.iso "$ISO"
-  echo 'WARNING: non-hybrid ISO produced' >&2
 else
   echo 'ERROR: no ISO artifact found' >&2
   exit 1

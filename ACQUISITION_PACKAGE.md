@@ -15,7 +15,7 @@ This distinction is central to the acquisition opportunity. The portfolio is nei
 | Product | Standalone identity | Standalone value | Ecosystem role |
 |---|---|---|---|
 | **Cranium AI** | Conversational intelligence and collaborative agent product | Provides dialogue, research, coding, planning, reflection, and human-readable interaction | Serves as the intelligence interface and orchestration partner for the ecosystem |
-| **Cranium Core** | Governance and authority product | Manages policy, permissions, approvals, state transitions, provenance, auditability, and recovery | Establishes accountable authority for consequential decisions and actions |
+| **Cranium Kernel** | Governance and authority product | Manages policy, permissions, approvals, state transitions, provenance, auditability, and recovery | Establishes accountable authority for consequential decisions and actions |
 | **Cranium Synapse** | Capability, provider, and integration product | Connects models, APIs, tools, providers, workflows, and extensions | Supplies governed capabilities that the ecosystem can discover and invoke |
 | **Cranium Ultra** | Integrated Core–Synapse product | Provides a complete runtime in which governance and capability operate together | Serves as the intertwined execution and governance center of the ecosystem |
 | **Miracle Memory** | Memory and continuity product | Provides persistent, consent-based context with retrieval, provenance, expiration, correction, and deletion | Supplies authorized continuity without turning memory into authority |
@@ -30,9 +30,9 @@ Cranium AI is the intelligence people meet. As a standalone product, it provides
 
 When integrated with the broader ecosystem, Cranium AI becomes the human-facing intelligence interface. It can explain what the other products do, coordinate their use, expose uncertainty and evidence, and present governed actions in language that people can understand.
 
-### Cranium Core
+### Cranium Kernel
 
-Cranium Core is a standalone governance and authority product. It is responsible for defining and enforcing boundaries around policy, permissions, approvals, state transitions, provenance, audit records, recovery, and consequential actions. Core can be useful wherever an intelligent system must distinguish recommendation from authorization and preparation from execution.
+Cranium Kernel is a standalone governance and authority product. It is responsible for defining and enforcing boundaries around policy, permissions, approvals, state transitions, provenance, audit records, recovery, and consequential actions. Core can be useful wherever an intelligent system must distinguish recommendation from authorization and preparation from execution.
 
 Within the ecosystem, Core supplies the authority layer. It does not become the owner of every product. Instead, it provides explicit contracts through which products can request decisions, record evidence, and obtain bounded authorization.
 
@@ -147,7 +147,7 @@ Every package should state its standalone scope, integration scope, dependencies
 
 > **The WorthWyl/Cranium portfolio is a family of independently valuable products that collectively form a Cognitive Substrate Governance Ecosystem.**
 >
-> **Cranium AI thinks and collaborates. Cranium Core governs. Cranium Synapse connects and extends. Cranium Ultra intertwines governance and capability. Miracle Memory provides continuity. Cognitive Tracker measures behavior and improvement. WorthWyl Forge provides the environment in which people create, direct, review, and operate the system.**
+> **Cranium AI thinks and collaborates. Cranium Kernel governs. Cranium Synapse connects and extends. Cranium Ultra intertwines governance and capability. Miracle Memory provides continuity. Cognitive Tracker measures behavior and improvement. WorthWyl Forge provides the environment in which people create, direct, review, and operate the system.**
 >
 > **Each product is valuable alone. Together, they form a governed cognitive substrate capable of reasoning, remembering, connecting, evaluating, authorizing, executing, and improving under human oversight.**
 

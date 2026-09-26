@@ -27,9 +27,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install ISO build dependencies
-        run: sudo apt-get update && sudo apt-get install -y live-build xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools dosfstools
+        run: sudo apt-get update && sudo apt-get install -y live-build xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools dosfstools syslinux-utils
       - name: Build ISO
-        run: sudo -E bash BUILD_ACQUISITION_ISO.sh
+        env:
+          CRANIUM_RELEASE_SIGNING_KEY: ${{ secrets.CRANIUM_RELEASE_SIGNING_KEY }}
+        run: |
+          printf "%s\n" "$CRANIUM_RELEASE_SIGNING_KEY" > /tmp/cranium-release-signing-key.pem
+          chmod 600 /tmp/cranium-release-signing-key.pem
+          CRANIUM_RELEASE_SIGNING_KEY=/tmp/cranium-release-signing-key.pem sudo -E bash BUILD_ACQUISITION_ISO.sh
+          rm -f /tmp/cranium-release-signing-key.pem
       - name: Verify ISO artifact
         run: xorriso -indev dist/cranium-acquisition-demo.iso -toc >/dev/null
       - name: Upload ISO

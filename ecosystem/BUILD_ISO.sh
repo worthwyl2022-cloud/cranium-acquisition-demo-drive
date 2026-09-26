@@ -11,7 +11,7 @@ rm -rf "$WORK"
 mkdir -p "$WORK/config/includes.chroot/opt/cranium-ecosystem-drive"
 cp -a "$ROOT/launcher" "$WORK/config/includes.chroot/opt/cranium-ecosystem-drive/"
 cp -a "$ROOT/README.md" "$ROOT/ECOSYSTEM_ARCHITECTURE.md" "$ROOT/CONSTITUTION.md" "$ROOT/DEPLOYMENT.md" "$ROOT/HEALTH_CHECK.sh" "$WORK/config/includes.chroot/opt/cranium-ecosystem-drive/"
-for d in cranium-ai cranium-core cranium-synapse cranium-ultra miracle-memory cognitive-tracker worthwyl-forge; do
+for d in cranium-ai cranium-kernel cranium-synapse cranium-ultra miracle-memory cognitive-tracker worthwyl-forge; do
   [ -e "$ROOT/$d" ] && cp -a "$ROOT/$d" "$WORK/config/includes.chroot/opt/cranium-ecosystem-drive/" || true
 done
 mkdir -p "$WORK/config/includes.chroot/usr/local/bin" "$WORK/config/includes.chroot/etc/systemd/system" "$WORK/config/includes.chroot/etc/xdg/autostart"

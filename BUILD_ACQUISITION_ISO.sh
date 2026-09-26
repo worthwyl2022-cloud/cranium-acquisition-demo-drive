@@ -71,6 +71,7 @@ lb config \
   --distribution noble \
   --archive-areas 'main restricted universe multiverse' \
   --binary-images iso \
+  --bootloader grub-efi \
   --bootappend-live 'boot=live components username=live hostname=cranium-demo'
 
 lb build

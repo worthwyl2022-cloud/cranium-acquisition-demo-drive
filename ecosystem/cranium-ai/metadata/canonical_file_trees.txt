@@ -219,7 +219,7 @@ generate_audit_report.py
 methodology.json
 receipts_runner.py
 results_mock.json
-run_harness.py
+tests/run_harness.py
 
 ## cranium-provider-integrations
 .env.example

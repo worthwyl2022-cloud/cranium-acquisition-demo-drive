@@ -45,7 +45,7 @@ com.example.core.product.*     ← product/src/main/java/.../product/*.kt
 
 ```bash
 cd benchmark
-python3 run_harness.py                          # mock
+python3 tests/run_harness.py                   # mock/test harness
 export CRANIUM_LLM=gemini GEMINI_API_KEY=...
 python3 receipts_runner.py                      # live
 python3 generate_audit_report.py results_real.json --out audit_report

@@ -39,8 +39,6 @@ import { SelfDrivingDemoPlayer } from "./components/SelfDrivingDemoPlayer";
 import { InteractiveAppTour } from "./components/InteractiveAppTour";
 import { cn } from "./lib/utils";
 import { useSubstrateProjects } from "./core/useSubstrateProjects";
-import { CRANIUM_SUBSTRATE_ZIP_B64 } from "./zipBase64";
-import { FULL_CRANIUM_SUBSTRATE_MD } from "./fullCodeExport";
 
 export default function App() {
   const projectManager = useSubstrateProjects();
@@ -55,7 +53,6 @@ export default function App() {
 
   const [activeView, setActiveView] = useState<'overview' | 'kernel' | 'quarantine' | 'canon' | 'benchmark' | 'console'>('overview');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hasCopiedMd, setHasCopiedMd] = useState(false);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
   const [isInteractiveTourOpen, setIsInteractiveTourOpen] = useState(false);
 
@@ -72,44 +69,6 @@ export default function App() {
   // Diligence Gate State
   const [portalKey, setPortalKey] = useState(() => localStorage.getItem("cranium_custom_password") || "CRANIUM2026");
   const [isGateEnabled, setIsGateEnabled] = useState(() => localStorage.getItem("cranium_gate_enabled") !== "disabled");
-
-  const handleDownloadZip = () => {
-    try {
-      const byteCharacters = atob(CRANIUM_SUBSTRATE_ZIP_B64);
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      const blob = new Blob([byteArray], { type: "application/zip" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "cranium_substrate.zip";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    } catch (e) {
-      console.error("ZIP download failed", e);
-    }
-  };
-
-  const handleDownloadMd = () => {
-    try {
-      const blob = new Blob([FULL_CRANIUM_SUBSTRATE_MD], { type: "text/markdown;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "CRANIUM_SUBSTRATE_ALL.md";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    } catch (e) {
-      console.error("MD download failed", e);
-    }
-  };
 
   const handleCreateProjectSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -508,43 +467,6 @@ export default function App() {
                 >
                   <X size={18} />
                 </button>
-              </div>
-
-              {/* Codebase & Package Exports */}
-              <div className="space-y-2">
-                <label className="text-xs font-black uppercase tracking-wider text-amber-300 block">
-                  Export Substrate Sources & Specifications
-                </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  <button
-                    onClick={handleDownloadMd}
-                    className="p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 flex items-center justify-center gap-2 text-xs font-bold text-emerald-400 hover:border-emerald-400/50 transition-all cursor-pointer"
-                  >
-                    <FileText size={15} />
-                    <span>Export .MD</span>
-                  </button>
-
-                  <button
-                    onClick={handleDownloadZip}
-                    className="p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 flex items-center justify-center gap-2 text-xs font-bold text-amber-400 hover:border-amber-400/50 transition-all cursor-pointer"
-                  >
-                    <Download size={15} />
-                    <span>Download .ZIP</span>
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      navigator.clipboard.writeText(FULL_CRANIUM_SUBSTRATE_MD).then(() => {
-                        setHasCopiedMd(true);
-                        setTimeout(() => setHasCopiedMd(false), 2500);
-                      });
-                    }}
-                    className="p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 flex items-center justify-center gap-2 text-xs font-bold text-white hover:border-white/30 transition-all cursor-pointer"
-                  >
-                    {hasCopiedMd ? <Check size={15} className="text-emerald-400" /> : <Copy size={15} />}
-                    <span>{hasCopiedMd ? "Copied!" : "Copy Code"}</span>
-                  </button>
-                </div>
               </div>
 
               {/* 1-Click RFC-8785 JSON Diligence Pack */}

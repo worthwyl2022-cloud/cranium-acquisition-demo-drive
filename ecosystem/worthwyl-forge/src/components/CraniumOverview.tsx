@@ -6,13 +6,9 @@ import {
   Lock, 
   Layers, 
   FileCheck, 
-  FileText,
   CheckCircle2, 
   AlertTriangle, 
   ArrowRight, 
-  Download, 
-  Copy, 
-  Check, 
   Terminal, 
   ExternalLink,
   ShieldAlert,
@@ -21,8 +17,6 @@ import {
   Activity,
   Award
 } from 'lucide-react';
-import { FULL_CRANIUM_SUBSTRATE_MD } from '../fullCodeExport';
-import { CRANIUM_SUBSTRATE_ZIP_B64 } from '../zipBase64';
 import { cn } from '../lib/utils';
 
 export function CraniumOverview({
@@ -30,53 +24,7 @@ export function CraniumOverview({
 }: {
   onNavigateTab?: (tab: 'overview' | 'kernel' | 'quarantine' | 'canon' | 'benchmark' | 'console') => void;
 }) {
-  const [copiedMd, setCopiedMd] = useState(false);
   const [activeMoatTab, setActiveMoatTab] = useState<'contract' | 'quarantine' | 'immune' | 'constitution'>('contract');
-
-  const handleDownloadZip = () => {
-    try {
-      const byteCharacters = atob(CRANIUM_SUBSTRATE_ZIP_B64);
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      const blob = new Blob([byteArray], { type: 'application/zip' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'cranium_substrate.zip';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    } catch (e) {
-      console.error('ZIP download error:', e);
-    }
-  };
-
-  const handleDownloadMd = () => {
-    try {
-      const blob = new Blob([FULL_CRANIUM_SUBSTRATE_MD], { type: 'text/markdown;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'CRANIUM_SUBSTRATE_ALL.md';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    } catch (e) {
-      console.error('MD download error:', e);
-    }
-  };
-
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText(FULL_CRANIUM_SUBSTRATE_MD).then(() => {
-      setCopiedMd(true);
-      setTimeout(() => setCopiedMd(false), 2500);
-    });
-  };
 
   return (
     <div className="flex-1 flex flex-col p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-8 overflow-y-auto custom-scrollbar">
@@ -126,13 +74,6 @@ export function CraniumOverview({
               <span>Inspect Authority Kernel</span>
             </button>
 
-            <button
-              onClick={handleDownloadZip}
-              className="px-5 py-2.5 rounded-xl bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/40 text-purple-300 font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer"
-            >
-              <Download size={15} />
-              <span>Download 74-File Substrate .ZIP</span>
-            </button>
           </div>
         </div>
       </div>
@@ -352,26 +293,10 @@ export function CraniumOverview({
               Asset Inventory & Diligence Package
             </h3>
             <p className="text-xs text-sleek-muted">
-              Verified complete codebase inventory ready for immediate transfer and execution.
+              Canonical architecture and evidence inventory. Authority remains anchored in the canonical Cranium Kernel.
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleDownloadMd}
-              className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-emerald-400 flex items-center gap-1.5 cursor-pointer"
-            >
-              <FileText size={13} />
-              <span>Export .MD</span>
-            </button>
-            <button
-              onClick={handleCopyCode}
-              className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-slate-200 flex items-center gap-1.5 cursor-pointer"
-            >
-              {copiedMd ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
-              <span>{copiedMd ? "Copied" : "Copy All"}</span>
-            </button>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -379,7 +304,7 @@ export function CraniumOverview({
             <span className="text-[10px] font-mono text-purple-400 uppercase font-bold">Substrate Core</span>
             <h4 className="text-xs font-bold text-white">Kotlin Invariant Reducers</h4>
             <p className="text-[11px] text-slate-400">
-              `SubstrateCore.kt`, `ResonanceField.kt`, `ImmuneIncident.kt`, `FieldPulse.kt`, `MemoryPersistenceBridge.kt`.
+              Canonical governance, memory, receipt, and recovery surfaces are maintained in the authoritative Kernel lineage.
             </p>
           </div>
 
@@ -387,7 +312,7 @@ export function CraniumOverview({
             <span className="text-[10px] font-mono text-cyan-400 uppercase font-bold">Governance Engines</span>
             <h4 className="text-xs font-bold text-white">Dual-Lane Contradiction</h4>
             <p className="text-[11px] text-slate-400">
-              `CanonLane.kt`, `ContradictionEngine.kt` (proxy v2), `OutputEvaluator.kt`, `DeliberationEngine.kt`.
+              Cognition may propose state; the canonical Kernel determines whether any proposal acquires authority.
             </p>
           </div>
 
@@ -395,7 +320,7 @@ export function CraniumOverview({
             <span className="text-[10px] font-mono text-amber-400 uppercase font-bold">Benchmark Harness</span>
             <h4 className="text-xs font-bold text-white">Frozen Corpora & Judges</h4>
             <p className="text-[11px] text-slate-400">
-              `corpus_frozen_v1.json`, `run_harness.py`, `adversarial_stress_test.py`, `receipts_runner.py`.
+              Historical prototype benchmarks are archived separately and are not presented as current production evidence.
             </p>
           </div>
         </div>

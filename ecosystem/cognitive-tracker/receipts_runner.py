@@ -38,7 +38,7 @@ def main() -> int:
     out = ROOT / "results_real.json"
     cmd = [
         sys.executable,
-        str(ROOT / "run_harness.py"),
+        str(ROOT / "tests" / "run_harness.py"),
         "--real",
         "--out",
         str(out),

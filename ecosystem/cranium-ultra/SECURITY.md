@@ -2,7 +2,7 @@
 
 ## Authority boundary
 
-Cranium OS is an operator surface. It must not independently grant authority. Privileged requests must be validated by the hardened Cranium Core authority boundary before they are treated as effective.
+Cranium OS is an operator surface. It must not independently grant authority. Privileged requests must be validated by the hardened Convertible Cranium Core authority boundary before they are treated as effective.
 
 The browser `AuthorityBridge` never evaluates requests or creates receipts. It fails closed until an authenticated transport to `cranium-kernel` is configured. Only a receipt issued and verified by the Kernel authority store may be displayed as authoritative.
 

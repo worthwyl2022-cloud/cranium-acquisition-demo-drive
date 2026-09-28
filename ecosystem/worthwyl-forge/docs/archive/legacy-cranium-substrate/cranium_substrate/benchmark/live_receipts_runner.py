@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Live / Mocked Hybrid Receipts Runner for Cranium Substrate.
+Live / Mocked Hybrid Receipts Runner for Convertible Cranium substrate.
 Evaluates the frozen corpus against the ContradictionEngine logic or live Gemini API,
 producing cryptographic, audit-verifiable execution receipts with full prompt trace,
 contradiction rationale, and latency tracking.

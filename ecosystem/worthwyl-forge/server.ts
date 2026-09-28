@@ -103,7 +103,7 @@ async function startServer() {
     }
   });
 
-  // Chat Streaming Route with Cranium Substrate Reasoning System
+  // Chat Streaming Route with Convertible Cranium substrate Reasoning System
   app.post("/api/chat-stream", async (req, res) => {
     const { messages, isDeepThinking, model = "gemini-3.7-flash" } = req.body;
 
@@ -145,7 +145,7 @@ async function startServer() {
       }));
 
       const systemInstruction = isDeepThinking 
-        ? "You are WorthWyl AI powered by Cranium Substrate Core. You perform deep metacognitive reasoning, explicit candidate verification, dialectic thesis-antithesis synthesis, and coherent long-term continuity across all creative, technical, and analytical queries."
+        ? "You are WorthWyl AI powered by Convertible Cranium substrate Core. You perform deep metacognitive reasoning, explicit candidate verification, dialectic thesis-antithesis synthesis, and coherent long-term continuity across all creative, technical, and analytical queries."
         : "You are WorthWyl AI, a high-performance cognitive assistant with deep creative and analytical capabilities.";
 
       const responseStream = await ai.models.generateContentStream({
@@ -218,7 +218,7 @@ async function startServer() {
         return;
       }
 
-      const prompt = `You are an elite master novelist running on the Cranium Substrate Infinite Writer Engine.
+      const prompt = `You are an elite master novelist running on the Convertible Cranium substrate Infinite Writer Engine.
 You are writing CHAPTER ${chapterIndex} of an infinite, coherent long-form manuscript.
 
 CORE SEED / FOUNDATION:
@@ -319,7 +319,7 @@ STRICT CONTINUITY INSTRUCTIONS:
         return;
       }
 
-      const prompt = `You are an elite master editor and prose stylist on the Cranium Substrate Engine.
+      const prompt = `You are an elite master editor and prose stylist on the Convertible Cranium substrate Engine.
 Your task is to completely rewrite, polish, and transform the following uploaded text according to the target style and instructions.
 
 TARGET STYLE: ${style}
@@ -456,7 +456,7 @@ OUTPUT REQUIREMENTS:
         });
       }
 
-      const prompt = `You are the lead Cognitive Continuity Auditor on the Cranium Substrate Engine.
+      const prompt = `You are the lead Cognitive Continuity Auditor on the Convertible Cranium substrate Engine.
 Audit the following long-form manuscript for strict narrative cohesion, character continuity, causal contradictions, and long-range coherence across hundreds or thousands of pages.
 
 FOUNDATION / SEED PREMISE:
@@ -1423,7 +1423,7 @@ Return JSON: {"hasConflict": boolean, "explanation": string}`;
       lane2Triggered = true;
       const lane2Start = performance.now();
       try {
-        const prompt = `You are the formal Natural Language Inference (NLI) Contradiction Arbitrator for Cranium Core Substrate.
+        const prompt = `You are the formal Natural Language Inference (NLI) Contradiction Arbitrator for Convertible Cranium Core Substrate.
 Evaluate if the HYPOTHESIS contradicts, violates, or drifts from the canonical PREMISE constraint.
 
 PREMISE (CANONICAL INVARIANT):
@@ -1546,7 +1546,7 @@ Return valid JSON matching:
         });
       }
 
-      const prompt = `You are a formal Natural Language Inference (NLI) logic judge for the Cranium Core Cognitive Governance Substrate.
+      const prompt = `You are a formal Natural Language Inference (NLI) logic judge for the Convertible Cranium Core Cognitive Governance Substrate.
 Determine if the HYPOTHESIS CONTRADICTS the canonical PREMISE.
 PREMISE: "${premise}"
 HYPOTHESIS: "${hypothesis}"
@@ -1854,7 +1854,7 @@ Return valid JSON: {"isContradiction": boolean, "confidence": number, "reasoning
 
     const coreAttestationPayload = {
       specVersion: "RFC-8785-CRANIUM-V1",
-      generator: "Cranium Core Sovereign Cognitive Substrate",
+      generator: "Convertible Cranium Core Sovereign Cognitive Substrate",
       timestamp: new Date().toISOString(),
       merkleRootHash: merkleRoot,
       projectId: proj.id,
@@ -1985,7 +1985,7 @@ Return valid JSON: {"isContradiction": boolean, "confidence": number, "reasoning
     });
   });
 
-  // 14. Real Side-by-Side Naive RAG vs Cranium Core Live Battle Test
+  // 14. Real Side-by-Side Naive RAG vs Convertible Cranium Core Live Battle Test
   app.post("/api/substrate/live-battle-test", async (req, res) => {
     const { premise, probeViolation, projectId = "proj-aetherius" } = req.body;
     const proj = substrateProjects[projectId] || substrateProjects["proj-aetherius"];
@@ -2017,7 +2017,7 @@ Generate a vivid 2-sentence scene:`;
     }
     const naiveRagLatency = Math.round((performance.now() - naiveRagStart) * 10) / 10;
 
-    // 2. Cranium Core: Dual-lane evaluation & Quarantine Interception
+    // 2. Convertible Cranium Core: Dual-lane evaluation & Quarantine Interception
     const craniumStart = performance.now();
     let isQuarantineTriggered = false;
     let craniumResolution = "";
@@ -2093,7 +2093,7 @@ Corrective Resolution: The operator directive enforces constitutional permanence
         verdict: "HALLUCINATION_ACCEPTED_INTO_CONTEXT"
       },
       craniumCore: {
-        name: "Cranium Core (Directive-Governed Substrate)",
+        name: "Convertible Cranium Core (Directive-Governed Substrate)",
         output: craniumResolution,
         latencyMs: craniumLatency,
         quarantineProtection: true,

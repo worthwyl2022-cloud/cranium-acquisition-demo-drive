@@ -1,7 +1,7 @@
 {
   "name": "cranium-core-hardened",
   "version": "1.0.0",
-  "description": "Cranium Core \u2014 Sole Authority Issuance Boundary. Authority is not claimed. It is granted\u2014only through Cranium Core.",
+  "description": "Convertible Cranium Core \u2014 Sole Authority Issuance Boundary. Authority is not claimed. It is granted\u2014only through Convertible Cranium Core.",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {

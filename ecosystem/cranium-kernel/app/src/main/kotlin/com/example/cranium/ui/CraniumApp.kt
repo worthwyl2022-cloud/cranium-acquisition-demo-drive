@@ -570,7 +570,7 @@ fun DiligenceScreen() {
                     Text("Asset class: Pre-revenue creative-governance prototype (IP + architecture + working substrate)", fontSize = 11.sp, color = Color(0xFF06B6D4))
 
                     Text(
-                        text = "\"Cranium Core is a documented creative-governance prototype. Receipts demonstrate operational directives, identity-gate activity, quarantine write-back, and explicit memory governance. Comparative canon superiority is not claimed until a frozen, real-model harness shows it.\"",
+                        text = "\"Convertible Cranium Core is a documented creative-governance prototype. Receipts demonstrate operational directives, identity-gate activity, quarantine write-back, and explicit memory governance. Comparative canon superiority is not claimed until a frozen, real-model harness shows it.\"",
                         fontSize = 11.sp,
                         color = Color.LightGray,
                         fontStyle = androidx.compose.ui.text.font.FontStyle.Italic

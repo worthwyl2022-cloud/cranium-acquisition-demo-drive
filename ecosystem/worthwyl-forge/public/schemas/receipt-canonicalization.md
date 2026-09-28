@@ -1,4 +1,4 @@
-# Cranium Substrate™ Receipt Canonicalization Specification
+# Convertible Cranium substrate™ Receipt Canonicalization Specification
 **Standard:** RFC-8785 JSON Canonicalization Scheme (JCS)  
 **Hashing:** SHA-256 (FIPS 180-4)  
 **Signature Scheme:** Ed25519 (RFC 8032) / PureEd25519

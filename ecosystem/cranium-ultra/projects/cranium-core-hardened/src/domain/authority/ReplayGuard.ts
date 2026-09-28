@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Replay Guard
+ * Convertible Cranium Core — Replay Guard
  *
  * Enforces the Idempotent Replay Boundary (CONST-03).
  * A reused idempotency key with a different canonical hash is ConflictingReuse.

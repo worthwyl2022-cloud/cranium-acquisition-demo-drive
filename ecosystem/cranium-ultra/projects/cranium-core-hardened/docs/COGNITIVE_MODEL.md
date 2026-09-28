@@ -1,8 +1,8 @@
-# Cranium Core — Cognitive Model
+# Convertible Cranium Core — Cognitive Model
 
 ## Cognitive Atoms
 
-A Cognitive Atom is the fundamental epistemic unit of Cranium Core.
+A Cognitive Atom is the fundamental epistemic unit of Convertible Cranium Core.
 
 Properties:
 - **id** — stable identifier

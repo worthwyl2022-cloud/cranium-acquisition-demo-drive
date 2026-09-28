@@ -1,4 +1,4 @@
-# Legacy Cranium Substrate Archive
+# Legacy Convertible Cranium substrate Archive
 
 This directory preserves the historical `cranium_substrate` prototype and its benchmark/export artifacts for provenance and historical reference.
 

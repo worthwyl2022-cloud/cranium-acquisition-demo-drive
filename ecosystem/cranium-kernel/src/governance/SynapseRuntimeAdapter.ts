@@ -117,7 +117,7 @@ export function validateSynapseAttestation(
   return violations;
 }
 
-/** Cranium Synapse bridge; it validates evidence but never grants authority. */
+/** Convertible Cranium Synapse bridge; it validates evidence but never grants authority. */
 export class SynapseRuntimeAdapter {
   constructor(private readonly kernelPort: GovernedKernelPort) {}
 
@@ -129,7 +129,7 @@ export class SynapseRuntimeAdapter {
   ): SynapseAdmission {
     const attestation = request.synapseAttestation;
     if (!attestation && envelope.protectedAction) {
-      return { accepted: false, reason: 'Protected action requires a Cranium Synapse attestation.' };
+      return { accepted: false, reason: 'Protected action requires a Convertible Cranium Synapse attestation.' };
     }
     if (!attestation) {
       const governance = this.kernelPort.evaluate(request, state, context);
@@ -142,7 +142,7 @@ export class SynapseRuntimeAdapter {
     if (violations.length > 0) {
       return {
         accepted: false,
-        reason: `Cranium Synapse admission rejected: ${violations.join(', ')}`,
+        reason: `Convertible Cranium Synapse admission rejected: ${violations.join(', ')}`,
         attestation,
       };
     }

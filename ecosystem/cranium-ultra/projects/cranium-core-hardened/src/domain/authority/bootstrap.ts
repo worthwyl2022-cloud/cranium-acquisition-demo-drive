@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Bootstrap Initial Kernel State
+ * Convertible Cranium Core — Bootstrap Initial Kernel State
  */
 
 import { AuthorityClass, AuthorityLevel } from "./types";
@@ -15,7 +15,7 @@ export function createBootstrapState(): KernelState {
       id: "atom-dir-001",
       kind: AtomKind.DIRECTIVE,
       status: CognitiveStatus.COMMITTED,
-      content: "Authority is not claimed. It is granted—only through Cranium Core.",
+      content: "Authority is not claimed. It is granted—only through Convertible Cranium Core.",
       authority: AuthorityLevel.of(AuthorityClass.ENTERPRISE, 0.95),
       provenance: {
         source: "FOUNDATIONAL_CONSTITUTION",
@@ -28,7 +28,7 @@ export function createBootstrapState(): KernelState {
       id: "atom-fact-002",
       kind: AtomKind.FACT,
       status: CognitiveStatus.COMMITTED,
-      content: "Cranium Core is the sole authority issuance boundary.",
+      content: "Convertible Cranium Core is the sole authority issuance boundary.",
       authority: AuthorityLevel.of(AuthorityClass.FACTUAL, 0.88),
       provenance: {
         source: "CONSTITUTIONAL_RECORD",

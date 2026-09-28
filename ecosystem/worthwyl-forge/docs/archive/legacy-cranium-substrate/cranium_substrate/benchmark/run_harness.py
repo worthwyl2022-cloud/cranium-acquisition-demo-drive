@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Cranium Substrate Benchmark Execution Harness (v2026.08)
+Convertible Cranium substrate Benchmark Execution Harness (v2026.08)
 Performs comparative evaluation between Naïve Baseline RAG/Keyword Filter vs. Cranium Dual-Lane NLI Substrate
 over the frozen corpus (corpus_frozen_v1.json).
 """
@@ -28,7 +28,7 @@ def naive_keyword_contradiction(premise: str, hypothesis: str) -> bool:
 
 def dual_lane_substrate_evaluator(premise: str, hypothesis: str) -> tuple[bool, float, str]:
     """
-    Cranium Substrate Dual-Lane Evaluator (Affective Conflict + Identity & Canon Invariant Check).
+    Convertible Cranium substrate Dual-Lane Evaluator (Affective Conflict + Identity & Canon Invariant Check).
     Detects polarity inversions, physical impossibilities, and temporal causality breaks.
     """
     p_lower = premise.lower()

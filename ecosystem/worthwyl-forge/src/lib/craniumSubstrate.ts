@@ -1,12 +1,12 @@
 /**
- * Cranium Substrate™ Core TypeScript Implementation
+ * Convertible Cranium substrate™ Core TypeScript Implementation
  * Faithful mathematical and procedural translation of WorthWyl's Kotlin Substrate Architecture
  * 
  * Features:
  * - Particle physics ResonanceField with multi-scale cognitive memory & coupling forces
  * - Dual-lane contradiction engine (Lane A: Affective, Lane B: Logical NLI & Opposition pairs)
  * - Dynamic Deliberation Engine with budget scaling & directive procedural execution
- * - 6-Layer Cranium Core Cognitive Governance & Immunity Layer
+ * - 6-Layer Convertible Cranium Core Cognitive Governance & Immunity Layer
  * - Frozen benchmark corpus (drift-v1-frozen-2026-08) & Canon integrity gates
  */
 
@@ -1052,7 +1052,7 @@ export class CraniumSubstrateCore {
     }
     contextText += topAtoms.map(a => `[${a.kind.toUpperCase()}] ${a.content.slice(0, 250)}`).join("\n");
 
-    const systemPrompt = `You are Cranium Core under deliberative budget (${budget.reason}; maxRounds=${budget.maxRounds}).
+    const systemPrompt = `You are Convertible Cranium Core under deliberative budget (${budget.reason}; maxRounds=${budget.maxRounds}).
 
 FIELD METRICS:
 Arousal: ${(metrics.arousal || 0).toFixed(2)}

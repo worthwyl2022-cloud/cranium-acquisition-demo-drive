@@ -23,7 +23,7 @@ export const DiligenceTab: React.FC = () => {
           <div className="flex items-center gap-2">
             <FileText className="w-5 h-5 text-cyan-400" />
             <h2 className="text-sm font-bold text-white tracking-tight">
-              Cranium Core &mdash; Acquisition One-Pager (Honest)
+              Convertible Cranium Core &mdash; Acquisition One-Pager (Honest)
             </h2>
           </div>
           <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
@@ -44,7 +44,7 @@ export const DiligenceTab: React.FC = () => {
         </div>
 
         <blockquote className="p-3 rounded-lg bg-cyan-950/20 border-l-2 border-cyan-500 text-xs text-slate-300 italic leading-relaxed">
-          &quot;Cranium Core is a documented creative-governance prototype. Receipts demonstrate
+          &quot;Convertible Cranium Core is a documented creative-governance prototype. Receipts demonstrate
           operational directives, identity-gate activity, quarantine write-back, and explicit memory
           governance. Comparative canon superiority is <strong>not</strong> claimed until a frozen,
           real-model harness shows it. The acquisition opportunity is the <strong>architecture,

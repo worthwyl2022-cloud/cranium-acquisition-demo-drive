@@ -6,7 +6,7 @@ Cranium must not represent a placeholder, mock, fixture, test double, or
 simulated result as a fact about an authority-bearing execution.
 
 Models, adapters, UIs, test harnesses, and evidence producers may propose or
-supply deterministic input. Only a real Cranium Core evaluation and committed
+supply deterministic input. Only a real Convertible Cranium Core evaluation and committed
 transaction may establish an authority outcome.
 
 ## Authority-path requirements

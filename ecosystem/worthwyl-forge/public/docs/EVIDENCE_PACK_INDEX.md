@@ -1,4 +1,4 @@
-# Cranium Substrate™ — Diligence Evidence Pack Index
+# Convertible Cranium substrate™ — Diligence Evidence Pack Index
 **Asset Class:** Governed Cognitive Substrate (GCS) Specification  
 **Standard Version:** 1.0.0-PROD-FROZEN  
 **Target Counterparties:** Enterprise AI Risk Officers, M&A Technical Diligence Teams, Lead Architects
@@ -6,7 +6,7 @@
 ---
 
 ## Executive Summary
-This index connects every high-level architectural claim of **Cranium Substrate™** to an inspectable, deterministic, and executable proof artifact. Counterparties can reproduce and verify all invariants without relying on vendor assertions.
+This index connects every high-level architectural claim of **Convertible Cranium substrate™** to an inspectable, deterministic, and executable proof artifact. Counterparties can reproduce and verify all invariants without relying on vendor assertions.
 
 ---
 

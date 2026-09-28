@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 
 /**
- * High-performance Contradiction Engine for Cranium Substrate.
+ * High-performance Contradiction Engine for Convertible Cranium substrate.
  * Analyzes active cognitive atoms across Canon Lanes to detect epistemic dissonance,
  * factual contradictions, and policy violations.
  */

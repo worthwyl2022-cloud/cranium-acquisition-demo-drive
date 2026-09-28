@@ -127,7 +127,7 @@ const CRANIUM_TOUR_STATIONS: TourStation[] = [
     title: "Sovereign Directive Console",
     badge: "DIRECTIVE TERMINAL",
     subtitle: "Full-Pipeline Governed LLM Execution",
-    description: "Issue operational directives to Cranium Core. Every prompt undergoes directive ingestion, authority invariant checks, quarantine isolation, and dual-lane NLI review.",
+    description: "Issue operational directives to Convertible Cranium Core. Every prompt undergoes directive ingestion, authority invariant checks, quarantine isolation, and dual-lane NLI review.",
     liveActionLabel: "Issue Operational Directive",
     liveActionDescription: "Send directives in natural language and inspect the generated cryptographic receipts.",
     keyFeatures: [
@@ -189,7 +189,7 @@ export function InteractiveAppTour({
     } else {
       setCompletedStations(prev => [...new Set([...prev, station.id])]);
       setIsAutoAdvancing(false);
-      setActionFeedback("🎉 Full Substrate Tour Complete! You have inspected every architectural layer of Cranium Core.");
+      setActionFeedback("🎉 Full Substrate Tour Complete! You have inspected every architectural layer of Convertible Cranium Core.");
     }
   };
 

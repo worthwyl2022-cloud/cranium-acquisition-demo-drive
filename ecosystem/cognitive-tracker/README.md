@@ -1,4 +1,4 @@
-# Cranium Substrate — Complete (gaps filled)
+# Convertible Cranium substrate — Complete (gaps filled)
 
 **Owner path:** drop these packages into an Android/`com.example.core` tree **or** keep as the acquisition core for `CognitiveCore-`.
 

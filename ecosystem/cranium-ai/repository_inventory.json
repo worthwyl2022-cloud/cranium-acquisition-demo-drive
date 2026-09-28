@@ -72,7 +72,7 @@
 [1;38m{[m
 [1;34m"archived"[m[1;38m:[m [33mfalse[m[1;38m,[m
 [1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
-[1;34m"description"[m[1;38m:[m [32m"Hardened Cranium Core reference implementation; supporting surface."[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"Hardened Convertible Cranium Core reference implementation; supporting surface."[m[1;38m,[m
 [1;34m"html_url"[m[1;38m:[m [32m"https://github.com/worthwyl2022-cloud/cranium-hardened-core"[m[1;38m,[m
 [1;34m"language"[m[1;38m:[m [32m"TypeScript"[m[1;38m,[m
 [1;34m"name"[m[1;38m:[m [32m"cranium-hardened-core"[m[1;38m,[m
@@ -82,7 +82,7 @@
 [1;38m{[m
 [1;34m"archived"[m[1;38m:[m [33mfalse[m[1;38m,[m
 [1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
-[1;34m"description"[m[1;38m:[m [32m"Cranium Substrate v1 — Governed Cognitive Substrate kernel. Authority can be acquired only through Cranium."[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"Convertible Cranium substrate v1 — Governed Cognitive Substrate kernel. Authority can be acquired only through Cranium."[m[1;38m,[m
 [1;34m"html_url"[m[1;38m:[m [32m"https://github.com/worthwyl2022-cloud/cranium-kernel"[m[1;38m,[m
 [1;34m"language"[m[1;38m:[m [32m"TypeScript"[m[1;38m,[m
 [1;34m"name"[m[1;38m:[m [32m"cranium-kernel"[m[1;38m,[m
@@ -142,7 +142,7 @@
 [1;38m{[m
 [1;34m"archived"[m[1;38m:[m [33mfalse[m[1;38m,[m
 [1;34m"default_branch"[m[1;38m:[m [32m"main"[m[1;38m,[m
-[1;34m"description"[m[1;38m:[m [32m"Cranium Synapse bounded attestation, evidence, and trust-ring integration."[m[1;38m,[m
+[1;34m"description"[m[1;38m:[m [32m"Convertible Cranium Synapse bounded attestation, evidence, and trust-ring integration."[m[1;38m,[m
 [1;34m"html_url"[m[1;38m:[m [32m"https://github.com/worthwyl2022-cloud/cranium-synapse"[m[1;38m,[m
 [1;34m"language"[m[1;38m:[m [32m"TypeScript"[m[1;38m,[m
 [1;34m"name"[m[1;38m:[m [32m"cranium-synapse"[m[1;38m,[m

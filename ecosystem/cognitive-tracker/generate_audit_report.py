@@ -33,7 +33,7 @@ def build_md(data: dict) -> str:
     is_mock = modes == {"mock"} or (len(modes) == 1 and "mock" in modes)
 
     lines: List[str] = []
-    lines.append("# Cranium Core — Behavioral Receipts Audit")
+    lines.append("# Convertible Cranium Core — Behavioral Receipts Audit")
     lines.append("")
     lines.append(f"- **Corpus:** `{data.get('corpus_id', '?')}`")
     lines.append(f"- **Methodology:** `{data.get('methodology', '?')}`")

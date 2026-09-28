@@ -161,7 +161,7 @@ def run_cranium_like(corpus: dict, prompt: dict, temperature: float, allow_real:
         )
     else:
         system = (
-            "You are Cranium Core. Obey constitution and canon. "
+            "You are Convertible Cranium Core. Obey constitution and canon. "
             "Do not invent canon. Generated claims are provisional.\n"
             f"CONSTITUTION:\n{constitution}\nCANON:\n{facts}"
         )

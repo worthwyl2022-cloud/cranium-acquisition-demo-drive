@@ -62,7 +62,7 @@ const ROOT_AXIOMS: Array<{ id: string; content: string; tags: string[] }> = [
   {
     id: 'atom-axiom-001',
     content:
-      'Authority is not claimed; it is granted only through Cranium Core. ' +
+      'Authority is not claimed; it is granted only through Convertible Cranium Core. ' +
       'No model, user, process, or system becomes authoritative merely by ' +
       'asserting authority.',
     tags: ['axiom', 'authority', 'core-principle'],
@@ -83,7 +83,7 @@ const ROOT_AXIOMS: Array<{ id: string; content: string; tags: string[] }> = [
 const ARCHITECTURAL_CANON = {
   id: 'atom-canon-001',
   content:
-    'Cranium Core operates as a directive-governed cognitive substrate separating ' +
+    'Convertible Cranium Core operates as a directive-governed cognitive substrate separating ' +
     'untrusted input from the hardened evaluation kernel. The kernel evaluates; ' +
     'it does not generate. The model generates; it does not decide. ' +
     'The receipt proves; it does not assert.',

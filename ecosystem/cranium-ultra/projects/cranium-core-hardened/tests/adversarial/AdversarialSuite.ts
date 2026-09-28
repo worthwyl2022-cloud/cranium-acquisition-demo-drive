@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Adversarial Suite
+ * Convertible Cranium Core — Adversarial Suite
  *
  * Verifies that the sole authority issuance boundary cannot be bypassed.
  */

@@ -49,7 +49,7 @@ export default function GlobalAiBar({
     {
       id: 'welcome-1',
       role: 'assistant',
-      text: "Hey! I'm your Cranium Core AI co-pilot. You can talk to me with the mic or type anything below. Ask me to write the next episode, explain canon, or direct the scene.",
+      text: "Hey! I'm your Convertible Cranium AI co-pilot. You can talk to me with the mic or type anything below. Ask me to write the next episode, explain canon, or direct the scene.",
       timestamp: 'Just now'
     }
   ]);
@@ -203,7 +203,7 @@ export default function GlobalAiBar({
         const assistantMessage: Message = {
           id: `ai-${Date.now()}`,
           role: 'assistant',
-          text: data.reply || "Understood! Cranium Core is synchronized.",
+          text: data.reply || "Understood! Convertible Cranium Core is synchronized.",
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           action: data.action
         };
@@ -224,7 +224,7 @@ export default function GlobalAiBar({
         role: 'assistant',
         text: circuitOpen
           ? 'Session protection is active after repeated async failures. New actions are temporarily blocked while the circuit cools down.'
-          : `Got it! Cranium Core is holding coherence steady at ${(metrics.coherence * 100).toFixed(0)}%. What narrative beat or system component would you like to explore next?`,
+          : `Got it! Convertible Cranium Core is holding coherence steady at ${(metrics.coherence * 100).toFixed(0)}%. What narrative beat or system component would you like to explore next?`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages(prev => [...prev, fallbackMessage]);
@@ -261,7 +261,7 @@ export default function GlobalAiBar({
     { label: "⚡ Write next episode", query: "Write the next episode of the serial right now under current canon." },
     { label: "🛡️ Audit canon continuity", query: "Audit our current novel's canon continuity and character arcs." },
     { label: "🔬 Show resonance field", query: "Take me to the resonance lab to inspect field tension and cognitive atoms." },
-    { label: "🎬 Acquisition demo", query: "Show me the acquisition demo comparing Cranium Core to Naive RAG." }
+    { label: "🎬 Acquisition demo", query: "Show me the acquisition demo comparing Convertible Cranium Core to Naive RAG." }
   ];
 
   return (
@@ -359,7 +359,7 @@ export default function GlobalAiBar({
               {isLoading && (
                 <div className="flex items-center gap-2 text-neutral-400 text-xs font-mono p-2">
                   <RefreshCw className="w-3.5 h-3.5 animate-spin text-amber-400" />
-                  <span>Cranium Core is synthesizing response...</span>
+                  <span>Convertible Cranium Core is synthesizing response...</span>
                 </div>
               )}
 
@@ -407,7 +407,7 @@ export default function GlobalAiBar({
                   handleSendMessage();
                 }
               }}
-              placeholder={isListening ? "Listening to your voice... speak now" : "Talk or type to Cranium Core (e.g. 'Write next scene', 'What is canon?')..."}
+              placeholder={isListening ? "Listening to your voice... speak now" : "Talk or type to Convertible Cranium Core (e.g. 'Write next scene', 'What is canon?')..."}
               className={`w-full bg-neutral-950 border ${
                 isListening ? 'border-red-500/80 ring-2 ring-red-500/20' : 'border-neutral-800 focus:border-amber-500'
               } text-white placeholder:text-neutral-500 text-xs md:text-sm px-3.5 py-2.5 rounded-xl focus:outline-none transition pr-8`}
@@ -426,7 +426,7 @@ export default function GlobalAiBar({
           {/* Voice Input Microphone Button */}
           <button
             onClick={toggleListening}
-            title={isListening ? "Stop listening" : "Talk to Cranium Core"}
+            title={isListening ? "Stop listening" : "Talk to Convertible Cranium Core"}
             className={`p-2.5 rounded-xl transition flex items-center justify-center shrink-0 ${
               isListening
                 ? 'bg-red-600 text-white animate-pulse shadow-lg shadow-red-600/30'

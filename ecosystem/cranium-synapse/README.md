@@ -1,6 +1,6 @@
-# Cranium Synapse
+# Convertible Cranium Synapse
 
-Cranium Synapse is the evidence-producing half of the Cranium architecture.
+Convertible Cranium Synapse is the evidence-producing half of the Cranium architecture.
 It assesses a proposed cognitive action and emits a deterministic, hash-bound
 attestation. It does not grant authority, mutate Core state, or execute tools.
 

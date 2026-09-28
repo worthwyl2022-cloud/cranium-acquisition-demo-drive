@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Constitutional Layer
+ * Convertible Cranium Core — Constitutional Layer
  *
  * These principles are non-bypassable. Any transition that would violate them
  * is denied by construction.
@@ -19,7 +19,7 @@ export const CORE_CONSTITUTION: readonly ConstitutionalPrinciple[] = [
     name: "Sole Issuance Boundary",
     category: "AUTHORITY",
     statement:
-      "Authority is not claimed. It is granted—only through Cranium Core. Cranium Core is the sole authority issuance boundary.",
+      "Authority is not claimed. It is granted—only through Convertible Cranium Core. Convertible Cranium Core is the sole authority issuance boundary.",
     enforcement: "No Granted decision may be produced outside AuthorityTransitionEngine.evaluate",
   },
   {

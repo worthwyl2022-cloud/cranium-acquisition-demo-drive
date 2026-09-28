@@ -1,18 +1,18 @@
-# Cranium Core — Value & IP Narrative
+# Convertible Cranium Core — Value & IP Narrative
 
 ## Novelty Statement
 
-Cranium Core introduces a formal **Authority Issuance Boundary** as a first-class runtime primitive for cognitive systems.
+Convertible Cranium Core introduces a formal **Authority Issuance Boundary** as a first-class runtime primitive for cognitive systems.
 
 In existing systems, authority is typically:
 - Implicit (the model simply produces an answer),
 - Advisory (policy filters that can be circumvented), or
 - External (human-in-the-loop or post-hoc approval).
 
-Cranium Core makes authority an explicit, scarce resource that can only be obtained through a single, deterministic, cryptographically receipted transition. The governing rule is absolute:
+Convertible Cranium Core makes authority an explicit, scarce resource that can only be obtained through a single, deterministic, cryptographically receipted transition. The governing rule is absolute:
 
-> Authority is not claimed. It is granted—only through Cranium Core.
-> Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
+> Authority is not claimed. It is granted—only through Convertible Cranium Core.
+> Convertible Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
 
 This combination of:
 
@@ -40,7 +40,7 @@ Organizations deploying high-stakes AI (regulated industries, critical infrastru
 
 > “At what exact moment, under what exact evidence, and against what exact state was this authority granted?”
 
-Cranium Core provides that primitive.
+Convertible Cranium Core provides that primitive.
 
 ## IP Positioning
 
@@ -53,4 +53,4 @@ Trade-secret candidates include:
 
 ## Acquisition Fit
 
-Cranium Core is designed to be evaluated as a foundational substrate that can sit beneath or alongside existing model serving, agent frameworks, and governance platforms — supplying the missing formal authority layer rather than replacing them.
+Convertible Cranium Core is designed to be evaluated as a foundational substrate that can sit beneath or alongside existing model serving, agent frameworks, and governance platforms — supplying the missing formal authority layer rather than replacing them.

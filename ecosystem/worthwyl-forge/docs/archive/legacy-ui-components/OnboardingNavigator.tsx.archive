@@ -62,9 +62,9 @@ export function OnboardingNavigator({
   const tourSteps: TourStep[] = [
     {
       id: "intro",
-      title: "Welcome to Cranium Substrate",
+      title: "Welcome to Convertible Cranium substrate",
       badge: "Architecture Overview",
-      description: "Cranium Substrate is an autonomous metacognitive reasoning engine and epistemic immune system. It enforces strict truth boundaries, protected canon lanes, and mathematical contradiction resolution.",
+      description: "Convertible Cranium substrate is an autonomous metacognitive reasoning engine and epistemic immune system. It enforces strict truth boundaries, protected canon lanes, and mathematical contradiction resolution.",
       icon: <Brain className="text-sleek-accent" size={24} />,
       highlightArea: "Metacognitive Workspace",
       suggestedAction: {

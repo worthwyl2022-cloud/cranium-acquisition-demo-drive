@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Canonical SHA-256 Request Hasher
+ * Convertible Cranium Core — Canonical SHA-256 Request Hasher
  *
  * Produces a deterministic, canonical hash of an AuthorityTransitionRequest.
  * This hash is the basis for replay detection and receipt binding.

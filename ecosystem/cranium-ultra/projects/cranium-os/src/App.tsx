@@ -112,7 +112,7 @@ function Sidebar({
             <div>
               <div className="font-bold text-zinc-100 tracking-tight">Cranium OS</div>
               <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
-                on Cranium Core
+                on Convertible Cranium Core
               </div>
             </div>
           </div>
@@ -171,7 +171,7 @@ function Sidebar({
           </div>
           <div className="text-[10px] text-zinc-600 font-mono leading-relaxed pt-1">
             Authority is not claimed.<br />
-            It is granted—only through Cranium Core.
+            It is granted—only through Convertible Cranium Core.
           </div>
         </div>
       </div>

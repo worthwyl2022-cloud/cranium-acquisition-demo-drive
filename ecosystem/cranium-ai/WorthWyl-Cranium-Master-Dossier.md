@@ -1,11 +1,11 @@
-# WorthWyl — Cranium AI Master Dossier
+# WorthWyl — Convertible Cranium AI Master Dossier
 
 ## Governed Intelligence Infrastructure for Accountable AI Action
 
-**Dossier date:** 2026-09-12  
-**Prepared for:** WorthWyl  
-**Prepared by:** Product Strategy & Technical Writing  
-**Scope:** Repository-led technical, product, and acquisition assessment  
+**Dossier date:** 2026-09-12
+**Prepared for:** WorthWyl
+**Prepared by:** Product Strategy & Technical Writing
+**Scope:** Repository-led technical, product, and acquisition assessment
 **Source set:** Full supplied inventory of 18 public repository records, supplemented by the verified core repository research provided for this dossier.
 
 > **Decision-grade framing.** This dossier separates what is **observed** in the supplied repository research and inventory from **interpretation** and **recommendation**. It does not treat demonstrations, fixtures, local browser state, generated reports, documentation claims, or archive artifacts as proof of a production authority service. It does not make legal ownership, security-certification, deployment, revenue, or competitive-performance claims that are not supported by the supplied evidence.
@@ -14,22 +14,22 @@
 
 ## Contents
 
-1. [Executive thesis](#1-executive-thesis)  
-2. [Assumptions and verification status](#2-assumptions-and-verification-status)  
-3. [Ecosystem overview](#3-ecosystem-overview)  
-4. [Repository portfolio](#4-repository-portfolio)  
-5. [Canonicality and governance model](#5-canonicality-and-governance-model)  
-6. [Architecture narrative](#6-architecture-narrative)  
-7. [Cranium AI product layer](#7-cranium-ai-product-layer)  
-8. [Real-world intelligence and voice](#8-real-world-intelligence-and-voice)  
-9. [Competitive positioning](#9-competitive-positioning)  
-10. [Use cases](#10-use-cases)  
-11. [Business and acquisition value](#11-business-and-acquisition-value)  
-12. [Roadmap](#12-roadmap)  
-13. [Risks and gaps](#13-risks-and-gaps)  
-14. [Operating model](#14-operating-model)  
-15. [Suggested evidence package](#15-suggested-evidence-package)  
-16. [Conclusion](#16-conclusion)  
+1. [Executive thesis](#1-executive-thesis)
+2. [Assumptions and verification status](#2-assumptions-and-verification-status)
+3. [Ecosystem overview](#3-ecosystem-overview)
+4. [Repository portfolio](#4-repository-portfolio)
+5. [Canonicality and governance model](#5-canonicality-and-governance-model)
+6. [Architecture narrative](#6-architecture-narrative)
+7. [Convertible Cranium AI product layer](#7-cranium-ai-product-layer)
+8. [Real-world intelligence and voice](#8-real-world-intelligence-and-voice)
+9. [Competitive positioning](#9-competitive-positioning)
+10. [Use cases](#10-use-cases)
+11. [Business and acquisition value](#11-business-and-acquisition-value)
+12. [Roadmap](#12-roadmap)
+13. [Risks and gaps](#13-risks-and-gaps)
+14. [Operating model](#14-operating-model)
+15. [Suggested evidence package](#15-suggested-evidence-package)
+16. [Conclusion](#16-conclusion)
 17. [References](#references)
 
 ---
@@ -40,7 +40,7 @@
 
 **Interpretation.** The strategic asset is therefore not a generic model wrapper or a conventional conversational assistant. It is an emerging **governed-action substrate**: a control-plane design in which cognitive systems may propose or attest, while a narrowly defined authority service decides whether a protected state change may occur. If made operationally complete, this separation can make high-consequence AI workflows more reviewable, repeatable, and controllable than workflows that collapse reasoning, tool use, persistence, and user presentation into one opaque application flow.
 
-**Proposed positioning.** WorthWyl should position Cranium AI as **accountable intelligence infrastructure for governed decisions and actions**. The primary promise is not that Cranium “knows more” than a general AI assistant. The primary promise is that an organization can define what constitutes an admissible proposal, bind evidence and policy to the decision, deny unsafe or stale transitions, persist an authorized transition, and retain a receipt trail before downstream effects occur. This is a positioning hypothesis, not a claim that the current repositories already constitute a production-grade service.
+**Proposed positioning.** WorthWyl should position Convertible Cranium AI as **accountable intelligence infrastructure for governed decisions and actions**. The primary promise is not that Cranium “knows more” than a general AI assistant. The primary promise is that an organization can define what constitutes an admissible proposal, bind evidence and policy to the decision, deny unsafe or stale transitions, persist an authorized transition, and retain a receipt trail before downstream effects occur. This is a positioning hypothesis, not a claim that the current repositories already constitute a production-grade service.
 
 **Strategic conclusion.** The portfolio is strongest when treated as a coherent but unfinished architecture-and-evidence program centered on the Kernel. It contains valuable reference implementations, conformance materials, benchmarks, operator/diligence shells, provider adapters, and historical provenance surfaces. The immediate product and acquisition task is to convert the portfolio’s documented boundary discipline into one versioned, independently testable, securely operated authority service with a small number of evidence-rich vertical workflows.
 
@@ -147,8 +147,8 @@ The following table covers the full supplied inventory. “Evidence tier” dist
 | 5 | `cranium-content-hub` [5] | Not specified | Technical and acquisition-facing Cranium documentation, per inventory. | **Inventory-only**; documentation surface only as described. | Inventory only |
 | 6 | `Cranium-Core-` [6] | Kotlin | Application and cognitive-layer integration surface, per inventory. | **Inventory-only**; supporting status is stated in its inventory description. | Inventory only |
 | 7 | `cranium-diligence-workbench` [7] | TypeScript | React/Vite review workbench, frozen fixtures, integrity utilities, and optional Gemini-backed routes. | **Supporting / archived lineage / demonstration**; no authority issuance. | Verified research |
-| 8 | `cranium-hardened-core` [8] | TypeScript | Hardened Cranium Core reference implementation, per inventory. | **Inventory-only**; classified as supporting by inventory description. It must not be conflated with similarly named nested material in another repository. | Inventory only |
-| 9 | `cranium-kernel` [9] | TypeScript | Cranium Substrate v1 authority kernel with governed transitions, contracts, receipts, replay handling, persistence boundary, and supporting UI/tooling. | **Canonical for stated semantic contract and authority boundary.** | Verified research |
+| 8 | `cranium-hardened-core` [8] | TypeScript | Hardened Convertible Cranium Core reference implementation, per inventory. | **Inventory-only**; classified as supporting by inventory description. It must not be conflated with similarly named nested material in another repository. | Inventory only |
+| 9 | `cranium-kernel` [9] | TypeScript | Convertible Cranium substrate v1 authority kernel with governed transitions, contracts, receipts, replay handling, persistence boundary, and supporting UI/tooling. | **Canonical for stated semantic contract and authority boundary.** | Verified research |
 | 10 | `cranium-operator-os` [10] | TypeScript | Operator, creative-OS, metacognitive demonstration, creator/story, and diligence client surface. | **Supporting / documented archived lineage**; browser state is non-canonical. | Verified research |
 | 11 | `cranium-portfolio` [11] | Not specified | Acquisition-facing portfolio, architecture narrative, evidence-register, security, provenance, and handover documentation. | **Supporting / documented archived marketing shell**; documentation-only in inspected tree. | Verified research |
 | 12 | `cranium-provider-integrations` [12] | JavaScript | Node/Express multi-AI gateway with Claude and Perplexity adapters, routing, research, and news helpers. | **Supporting / non-authoritative**; does not establish Kernel integration. | Verified research |
@@ -275,15 +275,15 @@ sequenceDiagram
 
 ---
 
-## 7. Cranium AI product layer
+## 7. Convertible Cranium AI product layer
 
 ### 7.1 Product definition
 
-**Proposed product definition.** **Cranium AI** is the WorthWyl product layer that enables people and systems to submit consequential proposals, attach or gather bounded evidence, obtain a governed decision from the Cranium authority boundary, and review a receipt-backed outcome. It should be sold and designed as a workflow product for accountable action, not as a claim of universal model superiority.
+**Proposed product definition.** **Convertible Cranium AI** is the WorthWyl product layer that enables people and systems to submit consequential proposals, attach or gather bounded evidence, obtain a governed decision from the Cranium authority boundary, and review a receipt-backed outcome. It should be sold and designed as a workflow product for accountable action, not as a claim of universal model superiority.
 
 A practical product framing is:
 
-> **Cranium AI turns AI-assisted proposals into governed, evidence-bound, receipt-backed decisions before protected actions occur.**
+> **Convertible Cranium AI turns AI-assisted proposals into governed, evidence-bound, receipt-backed decisions before protected actions occur.**
 
 This statement is a proposed positioning line. Its factual predicate depends on a deployed and verified Kernel path; it should therefore be used in external marketing only after the relevant release and evidence package are complete.
 
@@ -300,7 +300,7 @@ This statement is a proposed positioning line. Its factual predicate depends on 
 
 ### 7.3 Product principles
 
-**Recommendation.** The Cranium AI product should obey six principles:
+**Recommendation.** The Convertible Cranium AI product should obey six principles:
 
 1. **No hidden authority.** The UI must never imply that an AI output is approved merely because it is generated, attractive, or confident.
 2. **Evidence before effect.** A request should identify required evidence and freshness conditions before evaluation.
@@ -337,7 +337,7 @@ The wrong first wedge is an unconstrained consumer chat experience. It would obs
 
 ### 8.2 Voice capability
 
-**Verification finding.** No supplied inventory item or verified research establishes a deployed voice feature. The materials do not demonstrate speech-to-text, text-to-speech, telephony, real-time audio streaming, speaker authentication, voice biometrics, audio retention, or consent management. **Voice must therefore be treated as a proposed roadmap capability, not a current Cranium AI feature.**
+**Verification finding.** No supplied inventory item or verified research establishes a deployed voice feature. The materials do not demonstrate speech-to-text, text-to-speech, telephony, real-time audio streaming, speaker authentication, voice biometrics, audio retention, or consent management. **Voice must therefore be treated as a proposed roadmap capability, not a current Convertible Cranium AI feature.**
 
 **Recommendation.** A future voice layer should be built as a strictly bounded adapter, not as an alternative authority channel. It should capture consent, audio/session metadata, transcript confidence, language, timestamps, human corrections, and the distinction between what was said and what the system inferred. The transcript and any extraction should enter the same proposal/evidence pipeline as text. A voice command must not produce a protected action merely because an utterance was recognized.
 
@@ -360,7 +360,7 @@ The product should avoid a misleading “AI knows” posture. The appropriate us
 
 This section does **not** make factual claims about any named competitor. “General AI assistant” is used as a category label for systems primarily experienced as conversational or generative interfaces. The comparison describes a proposed Cranium design intent, not independently benchmarked superiority in accuracy, safety, performance, cost, or usability.
 
-| Dimension | General AI assistant category | Proposed Cranium AI position | Proof required before external claim |
+| Dimension | General AI assistant category | Proposed Convertible Cranium AI position | Proof required before external claim |
 |---|---|---|---|
 | Primary user value | Generate, explain, search, summarize, or converse. | Govern the transition from proposal to permitted organizational action. | Live workflow evidence, user research, and receipt verification. |
 | Decision boundary | Often presented through application/model behavior. | Explicit Kernel authority evaluation separated from cognition/evidence. | Deployed architecture, source review, and end-to-end traces. |
@@ -372,7 +372,7 @@ This section does **not** make factual claims about any named competitor. “Gen
 
 ### 9.2 Defensible message hierarchy
 
-**Proposed message.** “Cranium AI helps organizations govern AI-assisted decisions before they change protected state or trigger consequential actions.”
+**Proposed message.** “Convertible Cranium AI helps organizations govern AI-assisted decisions before they change protected state or trigger consequential actions.”
 
 **Supporting message.** “The architecture separates cognitive evidence from authority, evaluates transitions against defined rules, and is designed to retain receipts for review.” This should be qualified as an architecture and implementation claim until operational proof is completed. [9] [15]
 
@@ -509,7 +509,7 @@ To protect the authority thesis, the first release should not promise autonomous
 
 ### 14.1 Target operating model
 
-**Recommendation.** Cranium AI requires an operating model in which product, policy, platform, security, and customer operations share responsibility but do not collapse the authority boundary. The authority team owns the semantic contract and release integrity. Policy stewards own what may be authorized. Product teams own usable human workflows. Evidence/platform teams own provider and retrieval connectors. Security owns identity, secrets, incident response, and independent challenge. Customers or internal business owners remain accountable for the policies and actions they choose to govern.
+**Recommendation.** Convertible Cranium AI requires an operating model in which product, policy, platform, security, and customer operations share responsibility but do not collapse the authority boundary. The authority team owns the semantic contract and release integrity. Policy stewards own what may be authorized. Product teams own usable human workflows. Evidence/platform teams own provider and retrieval connectors. Security owns identity, secrets, incident response, and independent challenge. Customers or internal business owners remain accountable for the policies and actions they choose to govern.
 
 | Role | Accountable for | Must not do unilaterally | Core artifacts |
 |---|---|---|---|
@@ -555,7 +555,7 @@ To protect the authority thesis, the first release should not promise autonomous
 | **Receipt verification kit** | Receipt schema, verifier source/binary, public/key-distribution approach, test keys, tamper cases, rotation/revocation procedure. | Production receipt implementation, not static generated artifacts. | A third party can verify valid receipts and reject altered, expired, revoked, or untrusted receipts. |
 | **Security and resilience file** | Threat model, access model, secrets/key design, dependency scan, SAST/DAST findings, incident runbook, backup/restore test, availability/failure tests. | Production deployment program. | Open critical findings have an approved disposition; recovery is demonstrated, not asserted. |
 | **Provider evidence** | Adapter version, request/response schema, model/provider identifiers, data classification, rate/error behavior, provenance capture, source/citation test cases. | Provider gateway and approved external adapters. [12] | Provider outages, malformed responses, missing credentials, and policy denials are deterministically handled. |
-| **Human-review evidence** | Role definition, review UI state, override policy, decision identity, timestamps, and accessibility review. | Cranium AI product layer. | Human approvals are distinguishable from model/provider outputs and bound into the audit trace. |
+| **Human-review evidence** | Role definition, review UI state, override policy, decision identity, timestamps, and accessibility review. | Convertible Cranium AI product layer. | Human approvals are distinguishable from model/provider outputs and bound into the audit trace. |
 | **IP and transfer file** | Chain of title, contributor agreements, employment/contractor assignments, third-party/OSS list, generated-material inventory, license decisions, trademark/domain status. | Archive, portfolio, acquisition, and repository legal records. [1] [2] [3] [4] [7] [10] [11] [13] [15] | Counsel confirms the transaction or commercialization scope; open items are explicitly scheduled or excluded. |
 | **Commercial proof** | Pilot charter, baseline, adoption data, user interviews, outcome metrics, security questionnaires, pricing evidence, and customer references where authorized. | Design-partner program. | Demonstrates a repeatable economic and operational outcome rather than technical novelty alone. |
 
@@ -618,7 +618,7 @@ If the package cannot answer a question, the appropriate response is **“not ye
 
 **Recommendation.** WorthWyl should now make one choice decisively: operate Cranium as a narrowly scoped, evidence-backed authority platform rather than a collection of ambitious prototypes. That means centering the Kernel; publishing a canonicality and compatibility model; completing production controls; choosing one high-value workflow; proving grant, denial, replay, receipt, and recovery paths; and resolving legal/provenance gaps. In parallel, it should rationalize archive and demo repositories, provide truthful lifecycle labeling, and build a release evidence package that makes every material claim verifiable.
 
-The resulting narrative is strong and honest: **Cranium AI is not positioned as an all-knowing assistant. It is positioned as the governance layer that can make selected AI-assisted actions reviewable, policy-bound, and accountable.** The opportunity is real; the proof burden is equally real. Success depends on meeting that burden with the same rigor the architecture asks of governed decisions.
+The resulting narrative is strong and honest: **Convertible Cranium AI is not positioned as an all-knowing assistant. It is positioned as the governance layer that can make selected AI-assisted actions reviewable, policy-bound, and accountable.** The opportunity is real; the proof burden is equally real. Success depends on meeting that burden with the same rigor the architecture asks of governed decisions.
 
 ---
 

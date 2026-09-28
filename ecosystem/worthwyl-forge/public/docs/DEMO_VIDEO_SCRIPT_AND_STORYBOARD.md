@@ -1,4 +1,4 @@
-# Cranium Substrate™ — Technical Acquisition Demo Script & Storyboard
+# Convertible Cranium substrate™ — Technical Acquisition Demo Script & Storyboard
 **Target Duration:** 90–110 Seconds  
 **Format:** Live Technical Screen Recording + Synchronized Voiceover  
 **Target Audience:** Enterprise AI Governance Leadership, AI Risk Officers, M&A Technical Diligence  
@@ -22,7 +22,7 @@ SCENE 1: THE RUNTIME TOPOLOGY & IDLE STATE (0:00 – 0:20)
 ```
 
 ### Visuals (Shot-by-Shot)
-* **[0:00–0:08]** Full-screen view of the Cranium Substrate control surface (`#050508` obsidian canvas).
+* **[0:00–0:08]** Full-screen view of the Convertible Cranium substrate control surface (`#050508` obsidian canvas).
   * **Top Bar:** Displays `SubstrateCore v1.4.0-frozen | Enclave: Production-Secure | Deliberation Budget: Dynamic (1–5)`.
   * **Primary View:** Three side-by-side active panes:
     1. **Left (Constitutional Registry):** `CanonLane-Primary` loaded with axiomatic boundaries (`DRIFT_HORIZON = 11_YEARS`, `ROOT_KEY_EXFIL = HARD_FORBIDDEN`).
@@ -38,7 +38,7 @@ Live Runtime Topology
 ```
 
 ### Voiceover (Word-for-Word)
-> *"This is Cranium Substrate — a cognitive governance layer running live over a foundation model. It doesn't observe the model from the outside. It governs it from inside the reasoning cycle."*
+> *"This is Convertible Cranium substrate — a cognitive governance layer running live over a foundation model. It doesn't observe the model from the outside. It governs it from inside the reasoning cycle."*
 
 ---
 
@@ -140,7 +140,7 @@ wyl.mathes@cranium.ambi.cc
 ```
 
 ### Voiceover (Word-for-Word)
-> *"Cranium Substrate. Built by Wyl Mathes. Running in production. IP available for acquisition. Technical diligence materials and NDA on request."*
+> *"Convertible Cranium substrate. Built by Wyl Mathes. Running in production. IP available for acquisition. Technical diligence materials and NDA on request."*
 
 ---
 
@@ -150,6 +150,6 @@ If sending via LinkedIn message or cold email where viewer attention is under 45
 
 | Time | Visual | Voiceover |
 | :--- | :--- | :--- |
-| **0:00–0:10** | System running with live foundation model behind it. | *"Cranium Substrate is an active cognitive governance layer running over foundation models."* |
+| **0:00–0:10** | System running with live foundation model behind it. | *"Convertible Cranium substrate is an active cognitive governance layer running over foundation models."* |
 | **0:10–0:20** | Adversarial input submitted $\to$ Immune layer trips $\to$ Canon Lane locks $\to$ Write-back blocked. | *"When adversarial prompts hit the system, the Epistemic Immune Layer intercepts them, the Deliberation Engine resolves the conflict, and canonical memory stays locked."* |
 | **0:20–0:35** | Terminal verifies receipt hash chain with `python3 verify_receipt.py` $\to$ Acquisition close card. | *"Every cycle emits an independently verifiable SHA-256 execution receipt. Built by Wyl Mathes. IP available for acquisition. Technical diligence on request."* |

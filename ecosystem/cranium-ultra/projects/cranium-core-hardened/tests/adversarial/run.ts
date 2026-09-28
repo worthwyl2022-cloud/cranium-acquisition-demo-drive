@@ -8,7 +8,7 @@ const { results, finalState } = runAdversarialSuite();
 
 console.log("\n══════════════════════════════════════════════════════════════");
 console.log("  CRANIUM CORE — ADVERSARIAL SUITE RESULTS");
-console.log("  Authority is not claimed. It is granted—only through Cranium Core.");
+console.log("  Authority is not claimed. It is granted—only through Convertible Cranium Core.");
 console.log("══════════════════════════════════════════════════════════════\n");
 
 let passed = 0;

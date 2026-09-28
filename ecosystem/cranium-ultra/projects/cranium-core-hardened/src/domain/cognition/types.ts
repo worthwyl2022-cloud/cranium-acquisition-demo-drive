@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Cognitive Substrate Types
+ * Convertible Cranium Core — Cognitive Substrate Types
  */
 
 import { AuthorityLevel } from "../authority/types";

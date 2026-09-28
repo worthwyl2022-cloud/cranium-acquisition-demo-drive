@@ -1,6 +1,6 @@
-# Cranium AI
+# Convertible Cranium AI
 
-**WorthWyl presents Cranium AI** — a conversational intelligence workspace grounded in the Cranium substrate and designed for real-world research, creation, and governed product work.
+**WorthWyl presents Convertible Cranium AI** — a conversational intelligence workspace grounded in the Cranium substrate and designed for real-world research, creation, and governed product work.
 
 ## What is included
 

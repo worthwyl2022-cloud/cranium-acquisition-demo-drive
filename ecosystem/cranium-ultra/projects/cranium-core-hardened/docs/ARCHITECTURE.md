@@ -1,9 +1,9 @@
-# Cranium Core — Hardened Architecture
+# Convertible Cranium Core — Hardened Architecture
 
 **Governing Statement**
 
-> Authority is not claimed. It is granted—only through Cranium Core.
-> Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
+> Authority is not claimed. It is granted—only through Convertible Cranium Core.
+> Convertible Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
 
 ## Architectural Style
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://cranium.network/schemas/receipt-v1.0.json",
-  "title": "Cranium Substrate™ Receipt Standard v1.0",
+  "title": "Convertible Cranium substrate™ Receipt Standard v1.0",
   "description": "Deterministic JSON Schema for Cranium Governed Cognitive Substrate execution and deliberation records.",
   "type": "object",
   "required": [

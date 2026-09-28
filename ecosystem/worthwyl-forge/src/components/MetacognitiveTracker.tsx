@@ -534,7 +534,7 @@ export const MetacognitiveTracker: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <h2 className="text-base sm:text-lg font-black uppercase tracking-wider worthwyl-brand-title">
-                Cranium Core™
+                Convertible Cranium Core™
               </h2>
               <span className="text-[9px] sm:text-[10px] font-mono bg-purple-500/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded-full font-bold">
                 v2026.08 Frozen
@@ -888,11 +888,11 @@ export const MetacognitiveTracker: React.FC = () => {
             <div className="flex items-center gap-2">
               <Layers className="text-purple-400" size={20} />
               <h3 className="text-base font-black uppercase text-white tracking-wider">
-                The 6 Primary Layers of Cranium Core™
+                The 6 Primary Layers of Convertible Cranium Core™
               </h3>
             </div>
             <p className="text-xs text-purple-200/80 leading-relaxed">
-              Cranium Core™ is the central cognitive processor—the "brain inside the brain" coordinating perception, meaning, memory, continuity, and ignition across the WorthWyl media ecosystem.
+              Convertible Cranium Core™ is the central cognitive processor—the "brain inside the brain" coordinating perception, meaning, memory, continuity, and ignition across the WorthWyl media ecosystem.
             </p>
           </div>
 
@@ -1015,7 +1015,7 @@ export const MetacognitiveTracker: React.FC = () => {
                   <strong className="text-white">Artifact Interface:</strong> Exposes structured outputs (Markdown, schemas, logs) with version history and cognitive lineage.
                 </div>
                 <div>
-                  <strong className="text-white">System Integration Bus:</strong> Connects Cranium Core to external engines (AI models, media pipelines, apps) with "think," "generate," "repair," and "reflect" APIs.
+                  <strong className="text-white">System Integration Bus:</strong> Connects Convertible Cranium Core to external engines (AI models, media pipelines, apps) with "think," "generate," "repair," and "reflect" APIs.
                 </div>
               </div>
             </div>

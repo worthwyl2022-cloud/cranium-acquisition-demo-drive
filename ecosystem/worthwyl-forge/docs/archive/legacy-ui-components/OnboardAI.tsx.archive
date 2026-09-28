@@ -82,7 +82,7 @@ export const OnboardAI: React.FC<OnboardAIProps> = ({
       {
         id: "welcome",
         role: "assistant",
-        text: "### WorthWyl Onboard AI Copilot Online\n\nI am your live multimodal intelligence and platform orchestrator powered by **Cranium Substrate Core**.\n\nYou can chat with me, ask for deep-thought analyses, or command me to control any module across the **AI Forge**, **Metacognitive Tracker**, or **Infinite Writer**.\n\nHow can I direct your workflow?",
+        text: "### WorthWyl Onboard AI Copilot Online\n\nI am your live multimodal intelligence and platform orchestrator powered by **Convertible Cranium substrate Core**.\n\nYou can chat with me, ask for deep-thought analyses, or command me to control any module across the **AI Forge**, **Metacognitive Tracker**, or **Infinite Writer**.\n\nHow can I direct your workflow?",
         timestamp: new Date().toLocaleTimeString(),
       }
     ];
@@ -474,7 +474,7 @@ How would you like to direct the next phase of synthesis?`;
                           "🧠 Audit cognitive biases in Tracker",
                           "⚡ Switch to Deep Thought reasoning",
                           "📦 Download complete code as .ZIP",
-                          "🔬 Run Cranium Substrate diagnostics"
+                          "🔬 Run Convertible Cranium substrate diagnostics"
                         ].map((prompt, i) => (
                           <button
                             key={i}
@@ -738,7 +738,7 @@ How would you like to direct the next phase of synthesis?`;
                             <Shield size={22} />
                           </div>
                           <div>
-                            <h4 className="text-sm font-black text-white">Cranium Substrate Architecture</h4>
+                            <h4 className="text-sm font-black text-white">Convertible Cranium substrate Architecture</h4>
                             <p className="text-[11px] text-sleek-muted">Dual-Lane Epistemic Immune System</p>
                           </div>
                         </div>

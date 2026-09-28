@@ -41,7 +41,7 @@ export default function SubstrateTerminal() {
     // Illustrative deliberation trace for the UI
     const steps = [
       { step: "INTENTION_RECEIVED", status: "ACTIVE", detail: "Operator intention accepted by OS layer" },
-      { step: "CANONICAL_HASH", status: "PROCESSING", detail: "Request submitted to Cranium Core for canonical hashing" },
+      { step: "CANONICAL_HASH", status: "PROCESSING", detail: "Request submitted to Convertible Cranium Core for canonical hashing" },
       { step: "BOUNDARY_EVALUATION", status: "PROCESSING", detail: "Sole authority issuance boundary evaluating request" },
       { step: "CONSTITUTIONAL_CHECK", status: "PROCESSING", detail: "CORE_CONSTITUTION principles applied" },
     ];
@@ -76,7 +76,7 @@ export default function SubstrateTerminal() {
         <div>
           <h1 className="text-xl font-bold text-zinc-100 tracking-tight">Substrate Terminal</h1>
           <p className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest mt-0.5">
-            Intention → Cranium Core Issuance Boundary
+            Intention → Convertible Cranium Core Issuance Boundary
           </p>
         </div>
       </header>
@@ -100,7 +100,7 @@ export default function SubstrateTerminal() {
             disabled={isSubmitting || !intention.trim()}
             className="w-full flex items-center justify-center gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 disabled:opacity-30 text-cyan-400 font-medium py-3.5 rounded-xl transition-all font-mono text-xs uppercase tracking-widest"
           >
-            {isSubmitting ? "Submitting to Core…" : "Submit to Cranium Core"}
+            {isSubmitting ? "Submitting to Core…" : "Submit to Convertible Cranium Core"}
             <Send size={15} />
           </button>
 

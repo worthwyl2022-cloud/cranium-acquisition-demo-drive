@@ -1,5 +1,5 @@
 /**
- * Cranium Substrate™ Cryptographic Receipt & Live Runner Engine
+ * Convertible Cranium substrate™ Cryptographic Receipt & Live Runner Engine
  * Direct TypeScript integration of worthwyl2022-cloud/cranium-substrate-reference
  * 
  * Features:
@@ -286,7 +286,7 @@ export class CraniumReceiptsEngine {
     const avgLatency = Number((totalLatency / corpus.length).toFixed(3));
 
     const report: AuditReportData = {
-      title: "Cranium Substrate™ Prototype Evaluation Report",
+      title: "Convertible Cranium substrate™ Prototype Evaluation Report",
       generated_at: new Date().toISOString(),
       status: "PROTOTYPE_BASELINE",
       accuracy: accuracyVal,

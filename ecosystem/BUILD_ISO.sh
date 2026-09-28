@@ -38,7 +38,7 @@ EOF
 cat > "$WORK/config/includes.chroot/etc/xdg/autostart/cranium-welcome.desktop" <<'EOF'
 [Desktop Entry]
 Type=Application
-Name=Cranium AI Welcome Center
+Name=Convertible Cranium AI Welcome Center
 Exec=xdg-open http://127.0.0.1:8765/
 X-GNOME-Autostart-enabled=true
 EOF

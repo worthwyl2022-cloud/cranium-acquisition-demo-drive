@@ -1,14 +1,14 @@
 # Cranium Ecosystem Drive — Linux Edition
 
-This directory is the source package for a bootable Linux appliance that opens directly into **Cranium AI**, with the WorthWyl/Cranium product family available beneath it.
+This directory is the source package for a bootable Linux appliance that opens directly into **Convertible Cranium AI**, with the WorthWyl/Cranium product family available beneath it.
 
 ## Product promise
 
-Each product can operate independently. Together, Cranium AI, Core, Synapse, Ultra, Miracle Memory, Cognitive Tracker, and WorthWyl Forge form the **Cognitive Substrate Governance Ecosystem**.
+Each product can operate independently. Together, Convertible Cranium AI, Core, Synapse, Ultra, Miracle Memory, Cognitive Tracker, and WorthWyl Forge form the **Cognitive Substrate Governance Ecosystem**.
 
 ## Modes
 
-- **Live appliance:** boot a Linux image and open the Cranium AI welcome center.
+- **Live appliance:** boot a Linux image and open the Convertible Cranium AI welcome center.
 - **Persistent mode:** store approved configuration and local work on an encrypted writable partition.
 - **Recovery mode:** inspect files and repair configuration without starting external actions.
 - **Offline mode:** browse documentation, inspect source, run local tests, and use local capabilities that do not require network access.

@@ -170,7 +170,7 @@ export function BenchmarkLab({ externalProjectManager }: BenchmarkLabProps) {
   const handleDownloadAttestation = () => {
     if (!frozenResult) return;
     const attestation = {
-      project: "Cranium Core Directive-Governed Substrate",
+      project: "Convertible Cranium Core Directive-Governed Substrate",
       assetClass: "Creative Governance Prototype (Tier-3 Substrate)",
       attestationDate: new Date().toISOString(),
       frozenCorpus: "corpus_frozen_v1.json (15 pairs)",
@@ -517,7 +517,7 @@ export function BenchmarkLab({ externalProjectManager }: BenchmarkLabProps) {
                 <div className="flex items-center gap-2">
                   <Swords className="text-amber-400" size={20} />
                   <h3 className="text-base font-black uppercase tracking-wider text-white">
-                    Live Arena: Naive RAG vs Cranium Core Substrate
+                    Live Arena: Naive RAG vs Convertible Cranium Core Substrate
                   </h3>
                 </div>
                 <p className="text-xs text-sleek-muted max-w-2xl">
@@ -639,13 +639,13 @@ export function BenchmarkLab({ externalProjectManager }: BenchmarkLabProps) {
                 </p>
               </div>
 
-              {/* Right: Cranium Core Substrate Success */}
+              {/* Right: Convertible Cranium Core Substrate Success */}
               <div className="bg-[#0c0d14] rounded-3xl border border-emerald-500/40 p-6 shadow-2xl space-y-4 relative overflow-hidden">
                 <div className="flex items-center justify-between border-b border-emerald-500/20 pb-3">
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="text-emerald-400" size={18} />
                     <h4 className="text-sm font-black uppercase tracking-wider text-emerald-200">
-                      Cranium Core (Directive-Governed Substrate)
+                      Convertible Cranium Core (Directive-Governed Substrate)
                     </h4>
                   </div>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-bold">

@@ -4,7 +4,7 @@ import java.time.Instant
 import java.util.UUID
 
 /**
- * Fundamental epistemic unit in the Cranium Substrate.
+ * Fundamental epistemic unit in the Convertible Cranium substrate.
  * Encapsulates a semantic proposition, confidence score, source provenance,
  * decay kinetics, and dimensional embeddings.
  */

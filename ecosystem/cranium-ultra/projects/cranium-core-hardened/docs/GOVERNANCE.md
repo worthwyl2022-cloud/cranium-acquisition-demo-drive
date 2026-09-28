@@ -1,10 +1,10 @@
-# Cranium Core — Governance Model
+# Convertible Cranium Core — Governance Model
 
 ## Sole Issuance Boundary
 
-Authority is not claimed. It is granted—only through Cranium Core.
+Authority is not claimed. It is granted—only through Convertible Cranium Core.
 
-Cranium Core is the sole authority issuance boundary. All authority must be validated, scoped, versioned, and receipted before it becomes effective.
+Convertible Cranium Core is the sole authority issuance boundary. All authority must be validated, scoped, versioned, and receipted before it becomes effective.
 
 No other component, adapter, or external system is permitted to mutate the authority of a Cognitive Atom.
 

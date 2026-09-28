@@ -1,7 +1,7 @@
 /**
- * Cranium Core — Public Entry Point
+ * Convertible Cranium Core — Public Entry Point
  *
- * Authority is not claimed. It is granted—only through Cranium Core.
+ * Authority is not claimed. It is granted—only through Convertible Cranium Core.
  */
 
 export { AuthorityService } from "./application/AuthorityService";

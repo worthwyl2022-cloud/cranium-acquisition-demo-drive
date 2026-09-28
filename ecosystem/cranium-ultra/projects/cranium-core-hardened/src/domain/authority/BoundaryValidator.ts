@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Boundary Validator
+ * Convertible Cranium Core — Boundary Validator
  *
  * Performs the mandatory pre-decision checks that uphold the constitutional invariants.
  */

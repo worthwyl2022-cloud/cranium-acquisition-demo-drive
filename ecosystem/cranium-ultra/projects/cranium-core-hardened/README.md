@@ -1,8 +1,8 @@
-# Cranium Core (Hardened)
+# Convertible Cranium Core (Hardened)
 
-**Authority is not claimed. It is granted—only through Cranium Core.**
+**Authority is not claimed. It is granted—only through Convertible Cranium Core.**
 
-Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
+Convertible Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
 
 ---
 
@@ -38,7 +38,7 @@ npm install
 npx ts-node --esm tests/adversarial/run.ts
 
 Governing Statement (Constitutional Root)
-Authority is not claimed. It is granted—only through Cranium Core.Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
+Authority is not claimed. It is granted—only through Convertible Cranium Core.Convertible Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
 
 Ownership
 © 2026 Wyl Mathes · WorthWyl MediaAll rights reserved. No license is granted for reproduction, redistribution, or derivative works without explicit written permission.
@@ -46,8 +46,8 @@ Ownership
 
 ### `cranium-core-hardened/deploy/Dockerfile`
 
-# Cranium Core — Hardened Production Image
-# Authority is not claimed. It is granted—only through Cranium Core.
+# Convertible Cranium Core — Hardened Production Image
+# Authority is not claimed. It is granted—only through Convertible Cranium Core.
 
 FROM node:20-alpine AS builder
 WORKDIR /app

@@ -2,7 +2,7 @@
   "name": "cranium-frozen-corpus-v1",
   "version": "1.0.0",
   "pre_registered": true,
-  "purpose": "Compare Cranium Core vs naive RAG vs long-context on identity preservation, canon accuracy, duplicate rate, constraint adherence, and preference — under real LLM calls.",
+  "purpose": "Compare Convertible Cranium Core vs naive RAG vs long-context on identity preservation, canon accuracy, duplicate rate, constraint adherence, and preference — under real LLM calls.",
   "baselines": [
     {
       "id": "naive_rag",

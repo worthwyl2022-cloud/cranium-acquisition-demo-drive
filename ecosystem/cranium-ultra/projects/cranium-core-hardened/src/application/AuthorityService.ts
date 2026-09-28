@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Application Service
+ * Convertible Cranium Core — Application Service
  *
  * Thin orchestration layer over the sole authority issuance boundary.
  * Adapters (HTTP, UI, CLI) call this service; they never touch the engine directly.

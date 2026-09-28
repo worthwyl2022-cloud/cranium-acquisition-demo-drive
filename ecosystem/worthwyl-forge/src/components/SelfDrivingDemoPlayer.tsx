@@ -128,7 +128,7 @@ const DEMO_SCENES: Scene[] = [
     durationSeconds: 24,
     onScreenBadge: "PARTICLE KINETICS • THERMAL STEERING",
     onScreenTitle: "DYNAMIC RESONANCE PHYSICS & DIRECTIVES",
-    voiceover: "Under the hood, Cranium Substrate treats ideas as physical particles in a simulated resonance space. Conflict pressure and affective tension directly modulate model temperature and steer operational directives like PROTECT, DEEPEN, or REST.",
+    voiceover: "Under the hood, Convertible Cranium substrate treats ideas as physical particles in a simulated resonance space. Conflict pressure and affective tension directly modulate model temperature and steer operational directives like PROTECT, DEEPEN, or REST.",
     telemetryLogs: [
       "[PARTICLE_SIM] 42 semantic nodes active in kinetic field",
       "[ENERGY_DISTRIBUTION] Kinetic Temperature: 0.72 | Coherence: 0.96",
@@ -175,7 +175,7 @@ const DEMO_SCENES: Scene[] = [
     durationSeconds: 24,
     onScreenBadge: "AUDIT TRAIL • WORKING SUBSTRATE PROTOTYPE",
     onScreenTitle: "RFC-8785 PROOFS & CLEAN ACQUISITION PACKAGE",
-    voiceover: "Every cognitive cycle yields a deterministic, cryptographically verifiable RFC-8785 execution receipt with SHA-256 Merkle chains. Built by Wyl Mathes, Cranium Core is a clean IP package ready for diligence.",
+    voiceover: "Every cognitive cycle yields a deterministic, cryptographically verifiable RFC-8785 execution receipt with SHA-256 Merkle chains. Built by Wyl Mathes, Convertible Cranium Core is a clean IP package ready for diligence.",
     telemetryLogs: [
       "[RECEIPT_EMITTED] CRAN-REC-20260830-8E4F1B9C (Sequence #10482)",
       "[CANONICALIZATION] RFC-8785 JSON Canonicalization applied",

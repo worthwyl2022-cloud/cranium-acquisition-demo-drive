@@ -1,4 +1,4 @@
-# Cranium Core — Acquisition One-Pager (Honest)
+# Convertible Cranium Core — Acquisition One-Pager (Honest)
 
 **Asset class:** Pre-revenue creative-governance prototype (IP + architecture + working substrate)  
 **Not:** A revenue-generating SaaS, a proven continuity product, or a validated benchmark leader  
@@ -8,7 +8,7 @@
 
 ## What it is
 
-Cranium Core is a **directive-governed cognitive substrate** for long-running creative and strategic work. It treats identity, canon, and human intent as first-class constraints—not chat history to be diluted.
+Convertible Cranium Core is a **directive-governed cognitive substrate** for long-running creative and strategic work. It treats identity, canon, and human intent as first-class constraints—not chat history to be diluted.
 
 **Working mechanics (implemented):**
 
@@ -41,7 +41,7 @@ Cranium Core is a **directive-governed cognitive substrate** for long-running cr
 
 ## Honest buyer statement
 
-> Cranium Core is a documented creative-governance prototype. Receipts demonstrate operational directives, identity-gate activity, quarantine write-back, and explicit memory governance. Comparative canon superiority is **not** claimed until a frozen, real-model harness shows it. The acquisition opportunity is the **architecture, behavioral contract, and remediation path**—not marketed performance superiority.
+> Convertible Cranium Core is a documented creative-governance prototype. Receipts demonstrate operational directives, identity-gate activity, quarantine write-back, and explicit memory governance. Comparative canon superiority is **not** claimed until a frozen, real-model harness shows it. The acquisition opportunity is the **architecture, behavioral contract, and remediation path**—not marketed performance superiority.
 
 That framing survives technical diligence. Concealing the regression does not.
 

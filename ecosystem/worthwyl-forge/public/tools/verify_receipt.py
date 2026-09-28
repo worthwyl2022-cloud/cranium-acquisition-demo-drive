@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Cranium Substrate™ — Standalone Receipt Verification Tool (Standard v1.0)
+Convertible Cranium substrate™ — Standalone Receipt Verification Tool (Standard v1.0)
 Validates schema compliance, recomputes SHA-256 JCS digests, and checks chain continuity.
 """
 

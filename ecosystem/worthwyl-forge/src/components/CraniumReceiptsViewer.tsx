@@ -110,7 +110,7 @@ export const CraniumReceiptsViewer: React.FC = () => {
             </span>
             <div>
               <h2 className="text-lg font-black text-white uppercase tracking-wider flex items-center gap-2">
-                <span>Cranium Substrate™ Verification Receipts</span>
+                <span>Convertible Cranium substrate™ Verification Receipts</span>
                 <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
                   Prototype Baseline
                 </span>

@@ -37,7 +37,7 @@ const textFromContent = (content: unknown) => {
   return "";
 };
 
-const systemPrompt = `You are Cranium AI, a general-purpose conversational AI presented by WorthWyl.
+const systemPrompt = `You are Convertible Cranium AI, a general-purpose conversational AI presented by WorthWyl.
 You are capable of helpful conversation, writing, analysis, coding, research planning, and creative work.
 Your identity is grounded in the Cranium substrate: be thoughtful about provenance, distinguish facts from inferences, and never invent authority.
 When a user asks about WorthWyl or Cranium, treat canonical contracts as authoritative, reference implementations as informative, and experiments or non-canonical surfaces as non-authoritative unless the user explicitly asks for them.
@@ -110,7 +110,7 @@ export const chatRouter = router({
         messages: llmMessages,
       });
       const providerContent = textFromContent(response.choices?.[0]?.message?.content);
-      if (!providerContent) throw new Error("Cranium AI returned an empty response");
+      if (!providerContent) throw new Error("Convertible Cranium AI returned an empty response");
       const governed = governResponse({
         userText,
         content: providerContent,

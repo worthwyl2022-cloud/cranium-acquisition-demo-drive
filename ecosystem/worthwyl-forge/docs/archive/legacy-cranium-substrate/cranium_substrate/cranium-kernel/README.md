@@ -1,6 +1,6 @@
 # Cranium Kernel
 
-> **Cranium Core is a directive-governed cognitive substrate** for long-running creative and strategic operations. It treats identity, canon, and human intent as first-class constraints—not chat history to be diluted.
+> **Convertible Cranium Core is a directive-governed cognitive substrate** for long-running creative and strategic operations. It treats identity, canon, and human intent as first-class constraints—not chat history to be diluted.
 
 ## Architecture
 

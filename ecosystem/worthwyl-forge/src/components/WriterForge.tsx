@@ -273,7 +273,7 @@ export const WriterForge: React.FC = () => {
     setCurrentAnchorSummary("");
   };
 
-  // The Infinite Recursion Loop with Cranium Substrate Semantic Anchoring
+  // The Infinite Recursion Loop with Convertible Cranium substrate Semantic Anchoring
   const runInfiniteLoop = async () => {
     while (isInfiniteRunningRef.current) {
       setIsSynthesizingChunk(true);
@@ -826,7 +826,7 @@ ${(stressBatchData.chapters || []).map((c: any) => `### ${c.title}
   // Export full infinite manuscript as Markdown
   const handleExportManuscript = () => {
     let fullMd = `# ${seedIdea ? seedIdea.slice(0, 50).toUpperCase() : "INFINITE CONTINUUM MANUSCRIPT"}\n\n`;
-    fullMd += `*Generated via Cranium Substrate Infinite Writer Forge*\n`;
+    fullMd += `*Generated via Convertible Cranium substrate Infinite Writer Forge*\n`;
     fullMd += `*Genre: ${genre} | Tone: ${tone} | Perspective: ${writingPerspective}*\n`;
     fullMd += `*Total Chapters: ${chapters.length} | Total Words: ${totalWordCount}*\n\n---\n\n`;
 
@@ -1116,7 +1116,7 @@ ${(stressBatchData.chapters || []).map((c: any) => `### ${c.title}
               </div>
             </div>
 
-            {/* Cranium Substrate Continuity Status Card */}
+            {/* Convertible Cranium substrate Continuity Status Card */}
             <div className="bg-sleek-surface p-5 rounded-2xl border border-sleek-border space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-black uppercase text-sleek-muted tracking-widest flex items-center gap-1.5">
@@ -1453,7 +1453,7 @@ ${(stressBatchData.chapters || []).map((c: any) => `### ${c.title}
 
             <div className="flex items-center gap-2 text-[11px] text-amber-300/80 font-mono bg-amber-500/10 px-3 py-1 rounded-xl border border-amber-500/20">
               <ShieldCheck size={14} className="text-amber-400" />
-              <span>Cranium Substrate Continuity Core Active</span>
+              <span>Convertible Cranium substrate Continuity Core Active</span>
             </div>
           </div>
 

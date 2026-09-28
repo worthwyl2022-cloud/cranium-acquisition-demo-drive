@@ -1,5 +1,5 @@
 /**
- * Cranium Synapse public evidence contract.
+ * Convertible Cranium Synapse public evidence contract.
  *
  * Authority source: cranium-kernel/docs/CANONICAL_SEMANTIC_CONTRACT.json
  * Synapse may emit bounded evidence; it never grants authority or writes

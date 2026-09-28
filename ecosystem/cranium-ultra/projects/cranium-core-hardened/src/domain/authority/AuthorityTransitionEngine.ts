@@ -1,9 +1,9 @@
 /**
- * Cranium Core — Authority Transition Engine
+ * Convertible Cranium Core — Authority Transition Engine
  *
  * THE SOLE AUTHORITY ISSUANCE BOUNDARY.
  *
- * Authority is not claimed. It is granted—only through Cranium Core.
+ * Authority is not claimed. It is granted—only through Convertible Cranium Core.
  * This engine is the only component permitted to produce a Granted decision.
  */
 

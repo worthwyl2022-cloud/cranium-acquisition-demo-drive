@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Authority Rule Evaluator
+ * Convertible Cranium Core — Authority Rule Evaluator
  *
  * Produces the TransitionDecision after boundary checks have already passed.
  */

@@ -5,7 +5,7 @@ The files under `projects/cranium-os/` and `projects/cranium-core-hardened/` wer
 The bundle contained 36 source/document files. The following operational files were added because they were referenced by the supplied package manifests or required for a reproducible build but were not present in the document bundle:
 
 - Cranium OS: `tsconfig.json`, `vite.config.ts`, `tailwind.config.js`, `postcss.config.js`.
-- Cranium Core: TypeScript module configuration was changed from NodeNext to ESNext/Bundler so the supplied extensionless relative imports compile consistently.
+- Convertible Cranium Core: TypeScript module configuration was changed from NodeNext to ESNext/Bundler so the supplied extensionless relative imports compile consistently.
 
 Validation completed locally:
 

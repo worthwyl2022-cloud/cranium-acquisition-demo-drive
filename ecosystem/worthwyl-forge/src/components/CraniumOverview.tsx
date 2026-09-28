@@ -89,7 +89,7 @@ export function CraniumOverview({
           </div>
 
           <blockquote className="p-4 rounded-xl bg-black/40 border-l-4 border-amber-400 text-xs sm:text-sm text-slate-200 leading-relaxed italic">
-            "Cranium Core is a documented creative-governance prototype. Receipts demonstrate operational directives, identity-gate activity, quarantine write-back, and explicit memory governance. Comparative canon superiority is <strong>not</strong> claimed until a frozen, real-model harness shows it. The acquisition opportunity is the <strong>architecture, behavioral contract, and remediation path</strong>—not marketed performance superiority."
+            "Convertible Cranium Core is a documented creative-governance prototype. Receipts demonstrate operational directives, identity-gate activity, quarantine write-back, and explicit memory governance. Comparative canon superiority is <strong>not</strong> claimed until a frozen, real-model harness shows it. The acquisition opportunity is the <strong>architecture, behavioral contract, and remediation path</strong>—not marketed performance superiority."
           </blockquote>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -250,7 +250,7 @@ export function CraniumOverview({
               </h4>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">
-              Standard LLM implementations immediately commit raw generation to rolling context or vector stores. In Cranium Core, <strong>all generated material lands in a provisional quarantine buffer</strong>. It holds zero authority until certified by dual-lane contradiction filters.
+              Standard LLM implementations immediately commit raw generation to rolling context or vector stores. In Convertible Cranium Core, <strong>all generated material lands in a provisional quarantine buffer</strong>. It holds zero authority until certified by dual-lane contradiction filters.
             </p>
           </div>
         )}

@@ -165,7 +165,7 @@ export const CanonTab: React.FC<CanonTabProps> = ({ state }) => {
               Provisional Quarantine Architecture
             </h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              In Cranium Core, generated model cognition is never written directly to long-term
+              In Convertible Cranium Core, generated model cognition is never written directly to long-term
               memory or canon. It enters a provisional quarantine boundary. Only when proven free
               of contradiction against immutable canon can it be promoted through the formal
               authority pipeline.

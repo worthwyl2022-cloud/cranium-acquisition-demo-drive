@@ -30,7 +30,7 @@ sudo dd if=dist/cranium-ecosystem-linux.iso of=/dev/REPLACE_ME bs=4M status=prog
 
 ## First boot
 
-The image opens the Cranium AI welcome center. It starts in Explore mode with no credentials. The user can inspect the products, run health checks, and review deployment plans. Connected providers and external actions remain disabled until explicitly configured.
+The image opens the Convertible Cranium AI welcome center. It starts in Explore mode with no credentials. The user can inspect the products, run health checks, and review deployment plans. Connected providers and external actions remain disabled until explicitly configured.
 
 ## Credentials
 
@@ -38,4 +38,4 @@ Never place GitHub tokens, API keys, private keys, or passwords in the ISO. Use 
 
 ## Build boundary
 
-A bootable image provides the operating environment and launcher. It does not make an AI model available offline by itself. Offline Cranium AI requires a locally supported model and sufficient hardware. Connected Cranium AI requires an approved provider configuration.
+A bootable image provides the operating environment and launcher. It does not make an AI model available offline by itself. Offline Convertible Cranium AI requires a locally supported model and sufficient hardware. Connected Convertible Cranium AI requires an approved provider configuration.

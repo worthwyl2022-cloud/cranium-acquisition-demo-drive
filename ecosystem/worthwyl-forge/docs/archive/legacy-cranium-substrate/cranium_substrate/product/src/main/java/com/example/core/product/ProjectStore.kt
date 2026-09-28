@@ -5,7 +5,7 @@ import com.example.core.substrate.CanonLane
 import java.util.concurrent.ConcurrentHashMap
 
 /**
- * Enterprise Product Store interface for Cranium Substrate.
+ * Enterprise Product Store interface for Convertible Cranium substrate.
  * Manages multi-tenant workspaces, persistent project boards, and cross-session memory trees.
  */
 class ProjectStore {

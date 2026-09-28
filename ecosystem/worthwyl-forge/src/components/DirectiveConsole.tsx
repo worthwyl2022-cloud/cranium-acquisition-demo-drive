@@ -1,16 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { 
-  Terminal, 
-  Send, 
-  ShieldCheck, 
-  ShieldAlert, 
-  Sparkles, 
-  RefreshCw, 
-  Hash, 
-  Cpu, 
-  Layers, 
-  Flame, 
-  Lock, 
+import {
+  Terminal,
+  Send,
+  ShieldCheck,
+  ShieldAlert,
+  Sparkles,
+  RefreshCw,
+  Hash,
+  Cpu,
+  Layers,
+  Flame,
+  Lock,
   CheckCircle2,
   AlertTriangle
 } from 'lucide-react';
@@ -44,7 +44,7 @@ export function DirectiveConsole({ externalProjectManager }: DirectiveConsolePro
     {
       id: "DIR-001",
       sender: "substrate",
-      text: `Cranium Core Substrate initialized in isolated domain: ${currentProject?.name || "The Aetherius Continuum"}. Monotonic authority reducer active (Tier 0 → Tier 4). All generated outputs are governed by the Creative Constitution and dual-lane NLI contradiction gates.`,
+      text: `Convertible Cranium Core Substrate initialized in isolated domain: ${currentProject?.name || "The Aetherius Continuum"}. Monotonic authority reducer active (Tier 0 → Tier 4). All generated outputs are governed by the Creative Constitution and dual-lane NLI contradiction gates.`,
       timestamp: new Date().toLocaleTimeString(),
       tier: 4,
       quarantinePassed: true,
@@ -92,9 +92,9 @@ export function DirectiveConsole({ externalProjectManager }: DirectiveConsolePro
 
       let accumulated = "";
       const stream = streamChat([
-        { 
-          role: "user", 
-          text: `[SYSTEM GOVERNANCE DIRECTIVE: You are Cranium Core, a directive-governed cognitive substrate. Domain: ${currentProject?.name || "Aetherius Continuum"}. Enforce strict canon permanence, causal invariants, and sovereign operator directives without hallucination or identity drift.]\n\nCONSTITUTIONAL INVARIANTS:\n${activeAxiomsText}\n\nDIRECTIVE:\n${userText}` 
+        {
+          role: "user",
+          text: `[SYSTEM GOVERNANCE DIRECTIVE: You are Convertible Cranium Core, a directive-governed cognitive substrate. Domain: ${currentProject?.name || "Aetherius Continuum"}. Enforce strict canon permanence, causal invariants, and sovereign operator directives without hallucination or identity drift.]\n\nCONSTITUTIONAL INVARIANTS:\n${activeAxiomsText}\n\nDIRECTIVE:\n${userText}`
         }
       ], "gemini-3.7-flash", false);
 
@@ -107,7 +107,7 @@ export function DirectiveConsole({ externalProjectManager }: DirectiveConsolePro
 
       // Fast check against first axiom if present
       const firstAxiom = currentProject?.constitution[0];
-      const arbResult = firstAxiom 
+      const arbResult = firstAxiom
         ? await arbitrateCandidate(firstAxiom.statement, accumulated.slice(0, 300), 0.85)
         : null;
 
@@ -120,7 +120,7 @@ export function DirectiveConsole({ externalProjectManager }: DirectiveConsolePro
       const substrateMsg: ConsoleMessage = {
         id: `SUB-${Math.floor(Math.random() * 9000 + 1000)}`,
         sender: "substrate",
-        text: isQuarantineReject 
+        text: isQuarantineReject
           ? `[QUARANTINE ENFORCED — WRITE-BACK PREVENTED]\nThe generated provisional output contradicted constitutional axiom ${firstAxiom?.id}.\nReason: ${arbResult?.lane2_judge?.reasoning || "Contradiction detected"}.\n\nRaw Provisional Output held in quarantine:\n"${accumulated}"`
           : accumulated,
         timestamp: new Date().toLocaleTimeString(),
@@ -132,8 +132,8 @@ export function DirectiveConsole({ externalProjectManager }: DirectiveConsolePro
         deliberationLog: [
           `Domain: ${currentProject?.name || "The Aetherius Continuum"}`,
           "Monotonicity invariant: PASS (Operator Tier 3 verified)",
-          isQuarantineReject 
-            ? `Dual-Lane NLI check: REJECT (Contradiction detected by ${arbResult?.arbitrationMode || "gate"})` 
+          isQuarantineReject
+            ? `Dual-Lane NLI check: REJECT (Contradiction detected by ${arbResult?.arbitrationMode || "gate"})`
             : "Dual-Lane NLI check: PASS (Zero canon collisions detected)",
           isQuarantineReject
             ? "Quarantine release: BLOCKED → Prevented canon write-back"
@@ -176,7 +176,7 @@ export function DirectiveConsole({ externalProjectManager }: DirectiveConsolePro
               </span>
             </div>
             <p className="text-[11px] text-sleek-muted">
-              Direct terminal access to Cranium Core. Every prompt passes through the complete governance and quarantine pipeline.
+              Direct terminal access to Convertible Cranium Core. Every prompt passes through the complete governance and quarantine pipeline.
             </p>
           </div>
         </div>

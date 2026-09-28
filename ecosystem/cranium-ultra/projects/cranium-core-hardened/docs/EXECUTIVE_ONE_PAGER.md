@@ -1,8 +1,8 @@
-# Cranium Core — Executive Brief
+# Convertible Cranium Core — Executive Brief
 
-**Authority is not claimed. It is granted—only through Cranium Core.**
+**Authority is not claimed. It is granted—only through Convertible Cranium Core.**
 
-Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
+Convertible Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
 
 ---
 
@@ -17,7 +17,7 @@ Modern AI systems generate cognition freely. They do not possess a formal, enfor
 
 ### The Solution
 
-Cranium Core is a directive-governed cognitive kernel that makes authority a first-class, runtime-enforced property.
+Convertible Cranium Core is a directive-governed cognitive kernel that makes authority a first-class, runtime-enforced property.
 
 - Every elevation of authority must pass through a single issuance boundary.
 - Requests are canonically hashed (SHA-256), version-locked, and checked for replay.
@@ -25,11 +25,11 @@ Cranium Core is a directive-governed cognitive kernel that makes authority a fir
 - Successful grants produce an immutable, receipted transition.
 - Denied attempts are recorded and contribute to a live threat assessment.
 
-The result is a system in which the statement “Authority is not claimed. It is granted—only through Cranium Core” is not marketing language — it is an enforceable runtime invariant.
+The result is a system in which the statement “Authority is not claimed. It is granted—only through Convertible Cranium Core” is not marketing language — it is an enforceable runtime invariant.
 
 ### Differentiation
 
-Cranium Core does not attempt to make models safer by filtering tokens.
+Convertible Cranium Core does not attempt to make models safer by filtering tokens.
 It makes authority itself a scarce, issued resource that can only be obtained through a formal, audited boundary.
 
 This is a different layer of the stack from prompt guards, policy engines, or post-hoc logging.
@@ -48,6 +48,6 @@ Technical and strategic evaluation by organizations that require formal control 
 
 ---
 
-Cranium Core
+Convertible Cranium Core
 Sole Authority Issuance Boundary
 © 2026 Wyl Mathes · WorthWyl Media

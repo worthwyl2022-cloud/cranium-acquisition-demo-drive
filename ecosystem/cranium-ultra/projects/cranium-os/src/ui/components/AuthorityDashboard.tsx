@@ -27,10 +27,10 @@ export default function AuthorityDashboard() {
           Constitutional Root
         </div>
         <p className="text-zinc-200 text-lg leading-relaxed font-medium">
-          Authority is not claimed. It is granted—only through Cranium Core.
+          Authority is not claimed. It is granted—only through Convertible Cranium Core.
         </p>
         <p className="text-zinc-500 text-sm mt-2">
-          Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
+          Convertible Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
         </p>
       </div>
 

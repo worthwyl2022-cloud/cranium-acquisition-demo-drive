@@ -1,9 +1,9 @@
 /**
- * Cranium Core — Authority Domain Types
+ * Convertible Cranium Core — Authority Domain Types
  *
  * Governing Statement:
- * Authority is not claimed. It is granted—only through Cranium Core.
- * Cranium Core is the sole authority issuance boundary:
+ * Authority is not claimed. It is granted—only through Convertible Cranium Core.
+ * Convertible Cranium Core is the sole authority issuance boundary:
  * all authority must be validated, scoped, versioned, and receipted
  * before it becomes effective.
  */

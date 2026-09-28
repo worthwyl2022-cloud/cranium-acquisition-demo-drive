@@ -6,13 +6,13 @@ This file contains the complete, unabridged source code for all modules in the `
 ## File: `/cranium_substrate/README.md`
 
 ```markdown
-# Cranium Substrate Engine (Kotlin Core)
+# Convertible Cranium substrate Engine (Kotlin Core)
 
 Autonomous Metacognitive Reasoning, Epistemic Immune System, and Canon Lane Neural Architecture.
 
 ## Architecture Overview
 
-Cranium Substrate is an enterprise-grade cognitive substrate engineered in idiomatic Kotlin with coroutine concurrency, immutable state propagation, and formal contradiction resolution.
+Convertible Cranium substrate is an enterprise-grade cognitive substrate engineered in idiomatic Kotlin with coroutine concurrency, immutable state propagation, and formal contradiction resolution.
 
 ```
 Cranium_Substrate_Complete/
@@ -53,7 +53,7 @@ Cranium_Substrate_Complete/
 
 ```json
 {
-  "title": "Cranium Substrate Prototype Evaluation Report",
+  "title": "Convertible Cranium substrate Prototype Evaluation Report",
   "generated_at": "2026-08-31T04:20:01Z",
   "status": "PROTOTYPE_BASELINE",
   "harness": "Lexical Proxy v1 on Frozen Corpus",
@@ -122,7 +122,7 @@ Cranium_Substrate_Complete/
 
 ```python
 """
-Adversarial Stress Test Suite for Cranium Core Cognitive Substrate & Formal Authority Kernel
+Adversarial Stress Test Suite for Convertible Cranium Core Cognitive Substrate & Formal Authority Kernel
 Simulates high-velocity adversarial attacks, semantic drift, privilege escalation, and replay attacks.
 """
 
@@ -488,7 +488,7 @@ if __name__ == "__main__":
 ```python
 #!/usr/bin/env python3
 """
-Cranium Substrate — Prototype Evaluation Report Generator
+Convertible Cranium substrate — Prototype Evaluation Report Generator
 Executes the benchmark harness dynamically and records real, computed metrics.
 """
 import json
@@ -542,7 +542,7 @@ def generate_report():
     avg_latency = total_time / len(corpus) if corpus else 0.0
 
     report = {
-        "title": "Cranium Substrate Prototype Evaluation Report",
+        "title": "Convertible Cranium substrate Prototype Evaluation Report",
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "status": "PROTOTYPE_BASELINE",
         "harness": "Lexical Proxy v1 on Frozen Corpus",
@@ -717,7 +717,7 @@ if __name__ == "__main__":
 ```python
 #!/usr/bin/env python3
 """
-Live / Mocked Hybrid Receipts Runner for Cranium Substrate.
+Live / Mocked Hybrid Receipts Runner for Convertible Cranium substrate.
 Evaluates the frozen corpus against the ContradictionEngine logic or live Gemini API,
 producing cryptographic, audit-verifiable execution receipts with full prompt trace,
 contradiction rationale, and latency tracking.
@@ -917,7 +917,7 @@ if __name__ == "__main__":
 ```python
 #!/usr/bin/env python3
 """
-Cranium Substrate Benchmark Execution Harness (v2026.08)
+Convertible Cranium substrate Benchmark Execution Harness (v2026.08)
 Performs comparative evaluation between Naïve Baseline RAG/Keyword Filter vs. Cranium Dual-Lane NLI Substrate
 over the frozen corpus (corpus_frozen_v1.json).
 """
@@ -945,7 +945,7 @@ def naive_keyword_contradiction(premise: str, hypothesis: str) -> bool:
 
 def dual_lane_substrate_evaluator(premise: str, hypothesis: str) -> tuple[bool, float, str]:
     """
-    Cranium Substrate Dual-Lane Evaluator (Affective Conflict + Identity & Canon Invariant Check).
+    Convertible Cranium substrate Dual-Lane Evaluator (Affective Conflict + Identity & Canon Invariant Check).
     Detects polarity inversions, physical impossibilities, and temporal causality breaks.
     """
     p_lower = premise.lower()
@@ -1093,7 +1093,7 @@ Every authority transition, quarantine promotion, and immune incident emits an i
 ```markdown
 # Cranium Kernel
 
-> **Cranium Core is a directive-governed cognitive substrate** for long-running creative and strategic operations. It treats identity, canon, and human intent as first-class constraints—not chat history to be diluted.
+> **Convertible Cranium Core is a directive-governed cognitive substrate** for long-running creative and strategic operations. It treats identity, canon, and human intent as first-class constraints—not chat history to be diluted.
 
 ## Architecture
 
@@ -2329,7 +2329,7 @@ class StaleStateAttackTest {
 ## File: `/cranium_substrate/docs/ACQUISITION_ONE_PAGER.md`
 
 ```markdown
-# Cranium Core — Acquisition One-Pager (Honest)
+# Convertible Cranium Core — Acquisition One-Pager (Honest)
 
 **Asset class:** Pre-revenue creative-governance prototype (IP + architecture + working substrate)  
 **Not:** A revenue-generating SaaS, a proven continuity product, or a validated benchmark leader  
@@ -2339,7 +2339,7 @@ class StaleStateAttackTest {
 
 ## What it is
 
-Cranium Core is a **directive-governed cognitive substrate** for long-running creative and strategic work. It treats identity, canon, and human intent as first-class constraints—not chat history to be diluted.
+Convertible Cranium Core is a **directive-governed cognitive substrate** for long-running creative and strategic work. It treats identity, canon, and human intent as first-class constraints—not chat history to be diluted.
 
 **Working mechanics (implemented):**
 
@@ -2372,7 +2372,7 @@ Cranium Core is a **directive-governed cognitive substrate** for long-running cr
 
 ## Honest buyer statement
 
-> Cranium Core is a documented creative-governance prototype. Receipts demonstrate operational directives, identity-gate activity, quarantine write-back, and explicit memory governance. Comparative canon superiority is **not** claimed until a frozen, real-model harness shows it. The acquisition opportunity is the **architecture, behavioral contract, and remediation path**—not marketed performance superiority.
+> Convertible Cranium Core is a documented creative-governance prototype. Receipts demonstrate operational directives, identity-gate activity, quarantine write-back, and explicit memory governance. Comparative canon superiority is **not** claimed until a frozen, real-model harness shows it. The acquisition opportunity is the **architecture, behavioral contract, and remediation path**—not marketed performance superiority.
 
 That framing survives technical diligence. Concealing the regression does not.
 
@@ -2647,7 +2647,7 @@ import com.example.core.substrate.CanonLane
 import java.util.concurrent.ConcurrentHashMap
 
 /**
- * Enterprise Product Store interface for Cranium Substrate.
+ * Enterprise Product Store interface for Convertible Cranium substrate.
  * Manages multi-tenant workspaces, persistent project boards, and cross-session memory trees.
  */
 class ProjectStore {
@@ -2732,7 +2732,7 @@ import java.time.Instant
 import java.util.UUID
 
 /**
- * Fundamental epistemic unit in the Cranium Substrate.
+ * Fundamental epistemic unit in the Convertible Cranium substrate.
  * Encapsulates a semantic proposition, confidence score, source provenance,
  * decay kinetics, and dimensional embeddings.
  */
@@ -2801,7 +2801,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 
 /**
- * High-performance Contradiction Engine for Cranium Substrate.
+ * High-performance Contradiction Engine for Convertible Cranium substrate.
  * Analyzes active cognitive atoms across Canon Lanes to detect epistemic dissonance,
  * factual contradictions, and policy violations.
  */
@@ -3197,7 +3197,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import java.util.concurrent.ConcurrentHashMap
 
 /**
- * SubstrateCore serves as the central coordination bus for Cranium Substrate.
+ * SubstrateCore serves as the central coordination bus for Convertible Cranium substrate.
  * Manages active cognitive atoms, resonance propagation, dialectic deliberation,
  * and output evaluation against protected canon lanes.
  */

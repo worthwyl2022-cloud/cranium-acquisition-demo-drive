@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Cranium Substrate — Prototype Evaluation Report Generator
+Convertible Cranium substrate — Prototype Evaluation Report Generator
 Executes the benchmark harness dynamically and records real, computed metrics.
 """
 import json
@@ -54,7 +54,7 @@ def generate_report():
     avg_latency = total_time / len(corpus) if corpus else 0.0
 
     report = {
-        "title": "Cranium Substrate Prototype Evaluation Report",
+        "title": "Convertible Cranium substrate Prototype Evaluation Report",
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "status": "PROTOTYPE_BASELINE",
         "harness": "Lexical Proxy v1 on Frozen Corpus",

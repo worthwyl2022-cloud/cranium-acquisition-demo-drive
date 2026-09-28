@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Kernel State Reducer
+ * Convertible Cranium Core — Kernel State Reducer
  *
  * Applies a transition immutably.
  * Denied transitions never mutate authority.

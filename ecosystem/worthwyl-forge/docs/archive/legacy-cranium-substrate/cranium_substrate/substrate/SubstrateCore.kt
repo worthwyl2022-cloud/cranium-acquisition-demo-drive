@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import java.util.concurrent.ConcurrentHashMap
 
 /**
- * SubstrateCore serves as the central coordination bus for Cranium Substrate.
+ * SubstrateCore serves as the central coordination bus for Convertible Cranium substrate.
  * Manages active cognitive atoms, resonance propagation, dialectic deliberation,
  * and output evaluation against protected canon lanes.
  */

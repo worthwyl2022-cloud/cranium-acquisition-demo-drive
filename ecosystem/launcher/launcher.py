@@ -11,9 +11,9 @@ PORT = int(os.environ.get("CRANIUM_PORT", "8765"))
 MANIFEST = ROOT / "CAPABILITY_MANIFEST.json"
 
 PRODUCTS = [
-    ("Cranium AI", "Intelligence interface and collaborative guide", "cranium-ai"),
-    ("Cranium Core", "Governance, authority, policy, provenance, and recovery", "cranium-kernel"),
-    ("Cranium Synapse", "Providers, connectors, tools, and extensions", "cranium-synapse"),
+    ("Convertible Cranium AI", "Intelligence interface and collaborative guide", "cranium-ai"),
+    ("Convertible Cranium Core", "Governance, authority, policy, provenance, and recovery", "cranium-kernel"),
+    ("Convertible Cranium Synapse", "Providers, connectors, tools, and extensions", "cranium-synapse"),
     ("Cranium Ultra", "Integrated Core–Synapse governed runtime", "cranium-ultra"),
     ("Miracle Memory", "Consent-based continuity and persistent context", "miracle-memory"),
     ("Cognitive Tracker", "Evaluation, uncertainty, progress, and improvement", "cognitive-tracker"),

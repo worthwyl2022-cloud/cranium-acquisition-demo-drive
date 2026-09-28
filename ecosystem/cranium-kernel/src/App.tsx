@@ -68,7 +68,7 @@ export const App: React.FC = () => {
       </main>
 
       <footer className="border-t border-slate-900 bg-slate-950/80 py-4 px-6 text-center text-xs font-mono text-slate-500">
-        Cranium Substrate v1-Kernel &bull; Authority Boundary Contract &bull; Immutable Canonical SHA-256
+        Convertible Cranium substrate v1-Kernel &bull; Authority Boundary Contract &bull; Immutable Canonical SHA-256
       </footer>
     </div>
   );

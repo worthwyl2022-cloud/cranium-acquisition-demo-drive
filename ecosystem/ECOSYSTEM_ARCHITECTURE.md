@@ -5,7 +5,7 @@
 ```text
 Bootloader / Linux live environment
         ↓
-Cranium AI Welcome Center
+Convertible Cranium AI Welcome Center
         ↓
 Product launcher and local service supervisor
         ↓
@@ -22,7 +22,7 @@ Each product directory contains its own source payload, documentation, and launc
 
 ## Combined behavior
 
-The ecosystem mode uses explicit contracts for identity, capability, permission, action request, approval, provenance, memory, event, and audit records. Cranium AI guides the user. Ultra governs integrated execution. Miracle Memory supplies approved context. Cognitive Tracker evaluates outcomes. Forge provides the workspace.
+The ecosystem mode uses explicit contracts for identity, capability, permission, action request, approval, provenance, memory, event, and audit records. Convertible Cranium AI guides the user. Ultra governs integrated execution. Miracle Memory supplies approved context. Cognitive Tracker evaluates outcomes. Forge provides the workspace.
 
 ## Operating modes
 

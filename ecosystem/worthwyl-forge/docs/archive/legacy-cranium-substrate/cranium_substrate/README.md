@@ -1,10 +1,10 @@
-# Cranium Substrate Engine (Kotlin Core)
+# Convertible Cranium substrate Engine (Kotlin Core)
 
 Autonomous Metacognitive Reasoning, Epistemic Immune System, and Canon Lane Neural Architecture.
 
 ## Architecture Overview
 
-Cranium Substrate is an enterprise-grade cognitive substrate engineered in idiomatic Kotlin with coroutine concurrency, immutable state propagation, and formal contradiction resolution.
+Convertible Cranium substrate is an enterprise-grade cognitive substrate engineered in idiomatic Kotlin with coroutine concurrency, immutable state propagation, and formal contradiction resolution.
 
 ```
 Cranium_Substrate_Complete/

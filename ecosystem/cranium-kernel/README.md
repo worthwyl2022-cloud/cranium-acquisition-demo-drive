@@ -1,4 +1,4 @@
-# Convertible Cranium Substrate — v1 Kernel
+# Convertible Cranium substrate — v1 Kernel
 
 > **Cognition may come from anywhere. Authority comes only through Convertible Cranium.**
 

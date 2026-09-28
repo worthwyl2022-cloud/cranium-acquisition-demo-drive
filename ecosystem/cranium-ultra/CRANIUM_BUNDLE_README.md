@@ -1,6 +1,6 @@
 # Cranium Ultra
 
-This repository contains the complete source bundle supplied for the Cranium OS and Cranium Core projects, organized as two runnable projects under `projects/`.
+This repository contains the complete source bundle supplied for the Cranium OS and Convertible Cranium Core projects, organized as two runnable projects under `projects/`.
 
 ## Included projects
 
@@ -9,7 +9,7 @@ This repository contains the complete source bundle supplied for the Cranium OS 
 
 ## Governing boundary
 
-> Authority is not claimed. It is granted—only through Cranium Core.
+> Authority is not claimed. It is granted—only through Convertible Cranium Core.
 
 Cranium OS is an operator surface. It must not independently grant or mutate authority. Privileged transitions are represented as `AuthorityTransitionRequest` values and must be evaluated by the Core authority boundary.
 

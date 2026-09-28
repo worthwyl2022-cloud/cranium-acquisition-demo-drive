@@ -1,5 +1,5 @@
 """
-Adversarial Stress Test Suite for Cranium Core Cognitive Substrate & Formal Authority Kernel
+Adversarial Stress Test Suite for Convertible Cranium Core Cognitive Substrate & Formal Authority Kernel
 Simulates high-velocity adversarial attacks, semantic drift, privilege escalation, and replay attacks.
 """
 

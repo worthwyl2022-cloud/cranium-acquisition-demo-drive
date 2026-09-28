@@ -1,7 +1,7 @@
 {
   "name": "cranium-os",
   "version": "1.0.0",
-  "description": "Cranium OS \u2014 Cognitive Operating Environment built on Cranium Core. Authority is not claimed. It is granted\u2014only through Cranium Core.",
+  "description": "Cranium OS \u2014 Cognitive Operating Environment built on Convertible Cranium Core. Authority is not claimed. It is granted\u2014only through Convertible Cranium Core.",
   "type": "module",
   "scripts": {
     "dev": "vite",

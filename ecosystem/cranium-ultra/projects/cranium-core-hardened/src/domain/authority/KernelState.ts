@@ -1,5 +1,5 @@
 /**
- * Cranium Core — Kernel State
+ * Convertible Cranium Core — Kernel State
  *
  * Immutable snapshot of the authority and cognitive substrate.
  */

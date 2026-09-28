@@ -52,7 +52,7 @@ const context = {
 };
 
 const admission = adapter.admit(request, state, context, envelope);
-assert.equal(admission.accepted, true, 'valid Synapse evidence should reach Cranium Core');
+assert.equal(admission.accepted, true, 'valid Synapse evidence should reach Convertible Cranium Core');
 assert.ok(admission.governance, 'accepted admission must contain canonical governance evaluation');
 assert.equal(admission.governance.evaluation.transition.requestHash.hexDigest, CanonicalEncoder.hashRequest(request).hexDigest);
 
@@ -99,7 +99,7 @@ const blocked = adapter.admit(
 assert.equal(blocked.accepted, false, 'Synapse fail-safe block must prevent protected admission');
 assert.match(blocked.reason, /SYNAPSE_FAIL_SAFE_BLOCK/);
 
-console.log('Cranium Synapse integration check passed: admission, hash binding, mismatch rejection, and fail-safe block.');
+console.log('Convertible Cranium Synapse integration check passed: admission, hash binding, mismatch rejection, and fail-safe block.');
 
 
 // ═══════════════════════════════════════════════════════════════════
@@ -196,7 +196,7 @@ assert.equal(replayReceipt.decisionReason, 'DUPLICATE_ACTION_REPLAY');
 assert.equal(replayReceipt.previousReceiptHash, receipt.receiptHash, 'receipts must form a hash chain');
 console.log('  ✅ Replay denied, receipt chain intact');
 
-console.log('Cranium Synapse/Core transaction check passed: signed authorization, replay denial, receipt chaining.');
+console.log('Convertible Cranium Synapse/Core transaction check passed: signed authorization, replay denial, receipt chaining.');
 
 
 // ═══════════════════════════════════════════════════════════════════

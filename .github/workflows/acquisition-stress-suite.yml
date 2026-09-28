@@ -1,0 +1,46 @@
+name: Acquisition Stress Suite
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  acquisition-stress-suite:
+    name: Acquisition Stress Suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ecosystem/cranium-kernel
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.18.0'
+          cache: npm
+          cache-dependency-path: ecosystem/cranium-kernel/package-lock.json
+
+      - name: Install kernel dependencies
+        run: npm ci
+
+      - name: Run 14-case acquisition suite
+        run: npm run verify:acquisition-stress
+
+      - name: Upload suite evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: acquisition-stress-suite-evidence
+          path: |
+            ecosystem/cranium-kernel/artifacts/acquisition-stress-suite-report.json
+            ecosystem/cranium-kernel/artifacts/acquisition-stress-suite-report.md
+          if-no-files-found: error

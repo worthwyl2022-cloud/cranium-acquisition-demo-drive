@@ -22,7 +22,8 @@
     "evidence:manifest": "node scripts/evidence-manifest.mjs",
     "verify": "npm run lint && npm run build && npm run verify:memory && npm run verify:synapse && npm run atomic:recovery-check && npm run verify:durable && npm run verify:lifecycle && npm run verify:conformance && npm run verify:constitution && npm run verify:constitution-runtime && npm run verify:coma",
     "verify:cognitive-subconscious": "node ./node_modules/tsx/dist/cli.mjs scripts/cognitive-subconscious-check.ts",
-    "verify:proofing": "node ./node_modules/tsx/dist/cli.mjs scripts/proofing-check.ts"
+    "verify:proofing": "node ./node_modules/tsx/dist/cli.mjs scripts/proofing-check.ts",
+    "verify:acquisition-stress": "node ./node_modules/tsx/dist/cli.mjs scripts/acquisition-stress-suite.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

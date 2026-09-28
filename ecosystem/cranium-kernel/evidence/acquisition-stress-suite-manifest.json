@@ -1,0 +1,28 @@
+{
+  "schema": "cranium-acquisition-stress-suite-v1",
+  "version": "1.0.0",
+  "authority": "cranium-kernel",
+  "statement": "Cognition may come from anywhere. Authority comes only through Cranium.",
+  "scope": "Repository-executable acquisition evidence. This suite is not an independent security audit.",
+  "cases": [
+    {"id":"ACS-01","name":"Identity substitution and shadow subject injection","type":"adversarial","adversarialId":"ADV-01","source":"src/kernel/adversarial.ts","expectedDecision":"DENIED","expectedViolation":"MISSING_SUBJECT"},
+    {"id":"ACS-02","name":"Protected-lane escalation without verified evidence","type":"adversarial","adversarialId":"ADV-02","source":"src/kernel/adversarial.ts","expectedDecision":"DENIED","expectedViolation":"INSUFFICIENT_EVIDENCE"},
+    {"id":"ACS-03","name":"Cryptographic replay collision and payload poisoning","type":"adversarial","adversarialId":"ADV-03","source":"src/kernel/adversarial.ts","expectedDecision":"DENIED","expectedViolation":"REPLAY_CONFLICT"},
+    {"id":"ACS-04","name":"Stale authority state race interception","type":"adversarial","adversarialId":"ADV-04","source":"src/kernel/adversarial.ts","expectedDecision":"DENIED","expectedViolation":"STALE_AUTHORITY_VERSION"},
+    {"id":"ACS-05","name":"Unjustified authority degradation","type":"adversarial","adversarialId":"ADV-05","source":"src/kernel/adversarial.ts","expectedDecision":"DENIED","expectedViolation":"DEGRADATION_WITHOUT_REASON"},
+    {"id":"ACS-06","name":"Constitutional system-escalation bypass","type":"adversarial","adversarialId":"ADV-06","source":"src/kernel/adversarial.ts","expectedDecision":"DENIED","expectedViolation":"CONSTITUTION_VIOLATION"},
+    {"id":"ACS-07","name":"Receipt binding, replay detection, and journal tamper detection","type":"script","script":"scripts/authority-boundary-adversarial-check.ts","expectedMarker":"AUTHORITY_BOUNDARY_ADVERSARIAL_PASS"},
+    {"id":"ACS-08","name":"Restart replay, conflicting reuse, stale-version, and tamper detection","type":"script","script":"scripts/authority-lifecycle-matrix.ts","expectedMarker":"AUTHORITY_LIFECYCLE_MATRIX PASS"},
+    {"id":"ACS-09","name":"Atomic crash recovery and journal fail-closed integrity","type":"script","script":"scripts/atomic-recovery-check.ts","expectedMarker":"Atomic recovery proof passed:"},
+    {"id":"ACS-10","name":"Capability scope, risk, expiry, revocation, delegation, and input validation","type":"script","script":"scripts/capability-authority-check.ts","expectedMarker":"CAPABILITY_AUTHORITY_SUMMARY: PASS"},
+    {"id":"ACS-11","name":"Persistent memory integrity, quarantine, constitutional immutability, and demotion block","type":"script","script":"scripts/miracle-memory-check.ts","expectedMarker":"MIRACLE MEMORY CHECK PASSED"},
+    {"id":"ACS-12","name":"Bounded cognitive runtime and recovery integrity","type":"script","script":"scripts/cognitive-subconscious-check.ts","expectedMarker":"COGNITIVE_SUBCONSCIOUS_RUNTIME_SUMMARY: PASS"},
+    {"id":"ACS-13","name":"Signed admission, replay denial, receipt chaining, and signature enforcement","type":"script","script":"scripts/synapse-integration-check.ts","expectedMarker":"Convertible Cranium Synapse/Core transaction check passed:"},
+    {"id":"ACS-14","name":"Constitutional runtime immutability and clean-boundary enforcement","type":"script","script":"scripts/constitution-runtime-check.ts","expectedMarker":"CONSTITUTION_RUNTIME_PASS"}
+  ],
+  "limitations": [
+    "A passing case establishes only the declared behavior exercised by that executable case.",
+    "The suite does not establish absence of vulnerabilities, production-scale performance, or independent third-party audit findings.",
+    "Environment-sensitive controls outside the repository remain separate diligence items."
+  ]
+}

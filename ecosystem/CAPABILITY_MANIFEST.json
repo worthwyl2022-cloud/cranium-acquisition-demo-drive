@@ -44,5 +44,12 @@
       "available": false,
       "reason": "The offline acquisition demo does not start the full Cranium server or external connector runtime"
     }
+  },
+  "products": {
+    "commander": {
+      "present": true,
+      "role": "unified operational control surface",
+      "authority": "delegates canonical authority to cranium-kernel"
+    }
   }
 }

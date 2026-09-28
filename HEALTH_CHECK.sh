@@ -11,6 +11,7 @@ done
 
 [[ -d "$ROOT/demo" ]] && pass "demo/" || fail "demo directory missing"
 [[ -d "$ROOT/ecosystem" ]] && pass "ecosystem/" || fail "ecosystem directory missing"
+[[ -d "$ROOT/ecosystem/commander" ]] && pass "ecosystem/commander" || fail "Commander payload missing"
 
 if [[ -f "$ROOT/BUILD_ACQUISITION_ISO.sh" ]]; then
   pass "BUILD_ACQUISITION_ISO.sh present"

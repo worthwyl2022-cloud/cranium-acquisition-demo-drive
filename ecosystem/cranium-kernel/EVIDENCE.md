@@ -13,6 +13,15 @@ npx tsx scripts/miracle-memory-check.ts
 
 `npm run lint` is `tsc --noEmit`. It is a typecheck, not a linter suite.
 
+## Acquisition Stress Suite
+
+```bash
+npm ci
+npm run verify:acquisition-stress
+```
+
+The suite contains exactly 14 repository-executable cases and writes JSON/Markdown evidence reports. CI executes the same command on pull requests and pushes to main. A pass is evidence of the declared behaviors only; it is not an independent security audit.
+
 ## Kotlin / Gradle
 
 ```bash
@@ -36,7 +45,6 @@ TypeScript checks run in `.github/workflows/ci-typescript.yml`.
 - Production key custody, rotation, revocation, or HSM
 - Durable replay index across process death (replay guard is in-memory)
 - Equivalence proof between TypeScript and Kotlin trees
-- That `src/data/auditReport50k.ts` is a live CI artifact (it is precompiled)
 - Initial-state provenance does not claim a model signature unless an actual
   signature value is present; no placeholder signature is treated as evidence.
 

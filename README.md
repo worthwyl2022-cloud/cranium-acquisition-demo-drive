@@ -1,10 +1,19 @@
 # Convertible Cranium Acquisition Demo Drive
 
-The **Convertible Cranium Acquisition Demo Drive** is a Linux-first, offline, buyer-facing demonstration of the WorthWyl / Convertible Cranium ecosystem. It boots into an interactive Convertible Cranium AI presentation rather than an ordinary file browser.
+**Status: Buyer-facing offline demonstration & diligence surface — Non-canonical**
+
+The sole canonical authority source is [`cranium-kernel`](https://github.com/worthwyl2022-cloud/cranium-kernel).
+
+The **Convertible Cranium Acquisition Demo Drive** is a Linux-first, offline, buyer-facing demonstration of the WorthWyl / Convertible Cranium multi-plane cognitive governance substrate. It boots into an interactive Convertible Cranium AI presentation rather than an ordinary file browser.
+
+## Core invariant
+
+> Cognition may come from anywhere.  
+> Authority comes only through Convertible Cranium.
 
 ## What a buyer sees on boot
 
-The drive opens a visual executive overview with a guided tour, ecosystem architecture map, standalone product cards, governance and trust controls, and a safe deployment rehearsal. The interface is read-only by default. It does not contain credentials and does not perform external actions.
+The drive opens a visual executive overview with a guided tour, ecosystem architecture map, standalone product cards, governance and trust controls, COMA containment, and a safe deployment rehearsal. The interface is read-only by default. It does not contain credentials and does not perform external actions.
 
 ## Ecosystem included
 
@@ -23,14 +32,18 @@ The demo is fully static and works offline.
 
 ## Build the bootable ISO
 
-Building the ISO requires a Linux host with `live-build`, `xorriso`, `debootstrap`, `squashfs-tools`, and the GRUB live-image packages. Run:
+Requires a Linux host with `live-build`, `xorriso`, `debootstrap`, `squashfs-tools`, and GRUB live-image packages:
 
 ```bash
 sudo ./BUILD_ACQUISITION_ISO.sh
 ```
 
-The output is written to `dist/cranium-acquisition-demo.iso`. The build script installs the demo, ecosystem payload, and an autostart entry that opens the local Convertible Cranium acquisition experience after the graphical desktop starts.
+Output: `dist/cranium-acquisition-demo.iso`
 
 ## Security and scope
 
 This is a demonstration and diligence surface, not a production autonomous agent. It intentionally separates explanation from authority. Passcodes, encryption, Android Factory Reset Protection, Apple Activation Lock, MDM controls, and equivalent security boundaries are not bypassed. Any real deployment requires a separate approved implementation plan, credentials supplied at deployment time, and human review.
+
+## Ownership
+
+© 2026 Wyl Mathes · WorthWyl Media. All rights reserved.

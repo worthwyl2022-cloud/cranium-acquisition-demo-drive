@@ -19,7 +19,7 @@
     },
     {
       "path": "docs/RELEASE_MATRIX.md",
-      "sha256": "9b7fdef4281855259398f51cd6fad9719f512895e791a2a0f138bc934d75a185"
+      "sha256": "0fbbbd72dfc7f38c1b6a431f282687e85819159c388caea4357eb3e4e047f8d0"
     },
     {
       "path": "src/kernel/constitution.ts",
@@ -44,6 +44,18 @@
     {
       "path": "scripts/conformance-vectors.ts",
       "sha256": "61a3a14bea2e55be62bd450faab38318ac2ccb05b9101feefb176970f7e51961"
+    },
+    {
+      "path": "docs/ACQUISITION_STRESS_SUITE.md",
+      "sha256": "dce5f70a4e1d4d4123809a918523001887c2ec2cdeb1dddeb9d0007d8b49c2a9"
+    },
+    {
+      "path": "evidence/acquisition-stress-suite-manifest.json",
+      "sha256": "8ec47f0d6ce1958b04244cde4f82a57e46ce817d1be1af206f91e6421312e246"
+    },
+    {
+      "path": "scripts/acquisition-stress-suite.ts",
+      "sha256": "7eb6907f8964027b15b643fff59410da0cdfd91725f7ea32b07979af0b115f90"
     }
   ],
   "limitations": [

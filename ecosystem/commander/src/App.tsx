@@ -1,9 +1,5 @@
-import { useState, useMemo } from 'react';
-import { 
-  Play, Brain, BookOpen, Cpu, FileText, Sparkles, 
-  ShieldCheck, RefreshCw, Zap, Compass, Download, 
-  ExternalLink, Server
-} from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Activity, Fingerprint, Grid2X2, Layers3, Menu, ShieldCheck, WalletCards, X } from 'lucide-react';
 import { CognitiveAtom, Directive, Metrics } from './types/creativeOs';
 import { ResonanceField } from './worthwyl/core/field';
 import AcquisitionVideoDemo from './worthwyl/demo/AcquisitionVideoDemo';
@@ -12,254 +8,168 @@ import CreatorStudioView from './worthwyl/studio/CreatorStudioView';
 import ResonanceFieldView from './worthwyl/physics/ResonanceFieldView';
 import DiligenceDataRoom from './worthwyl/diligence/DiligenceDataRoom';
 import GlobalAiBar from './worthwyl/common/GlobalAiBar';
+import CommanderOverview from './components/CommanderOverview';
 
-export type ActiveView = 'demo' | 'metacognition' | 'studio' | 'physics' | 'diligence';
+export type ActiveView = 'overview' | 'demo' | 'metacognition' | 'studio' | 'physics' | 'diligence' | 'identity' | 'payments';
+
+const navItems = [
+  { id: 'overview' as const, label: 'Overview', icon: Activity },
+  { id: 'diligence' as const, label: 'Substrate', icon: Layers3 },
+  { id: 'metacognition' as const, label: 'Governance', icon: ShieldCheck },
+  { id: 'identity' as const, label: 'Identity', icon: Fingerprint },
+  { id: 'payments' as const, label: 'Payments', icon: WalletCards },
+  { id: 'studio' as const, label: 'Apps', icon: Grid2X2 },
+];
 
 export default function App() {
   const [activeView, setActiveView] = useState<ActiveView>(() => {
-    const requestedView = window.location.hash.replace('#', '') as ActiveView;
-    return ['demo', 'metacognition', 'studio', 'physics', 'diligence'].includes(requestedView)
-      ? requestedView
-      : 'demo';
+    const requested = window.location.hash.replace('#', '') as ActiveView;
+    return ['overview', 'demo', 'metacognition', 'studio', 'physics', 'diligence'].includes(requested)
+      ? requested
+      : 'overview';
   });
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [commanderOpen, setCommanderOpen] = useState(false);
 
   const navigateToView = (view: ActiveView) => {
     setActiveView(view);
-    window.history.replaceState(null, '', `#${view}`);
+    window.history.replaceState(null, '', view === 'overview' ? window.location.pathname : `#${view}`);
+    setMobileNavOpen(false);
   };
 
-  // Shared Resonance Field Substrate
   const field = useMemo(() => {
     const rf = new ResonanceField();
-    // Seed core thematic & narrative atoms
-    rf.inject({
-      id: 'atom-canon-1',
-      charge: 0.5,
-      mass: 8.5,
-      velocity: 0.35,
-      kind: 'theme',
-      tags: ['sovereignty', 'human_intentionality'],
-      label: 'Foundational Sovereign Intent'
-    });
-    rf.inject({
-      id: 'atom-canon-2',
-      charge: -0.3,
-      mass: 7.0,
-      velocity: 0.5,
-      kind: 'episodic',
-      tags: ['isolation', 'discovery'],
-      label: 'Deep Relay Silence'
-    });
-    rf.inject({
-      id: 'atom-canon-3',
-      charge: 0.65,
-      mass: 6.5,
-      velocity: 0.6,
-      kind: 'episodic',
-      tags: ['discovery', 'resonance'],
-      label: 'Harmonic Awakening'
-    });
+    rf.inject({ id: 'atom-canon-1', charge: 0.5, mass: 8.5, velocity: 0.35, kind: 'theme', tags: ['sovereignty', 'human_intentionality'], label: 'Foundational Sovereign Intent' });
+    rf.inject({ id: 'atom-canon-2', charge: -0.3, mass: 7.0, velocity: 0.5, kind: 'episodic', tags: ['isolation', 'discovery'], label: 'Deep Relay Silence' });
+    rf.inject({ id: 'atom-canon-3', charge: 0.65, mass: 6.5, velocity: 0.6, kind: 'episodic', tags: ['discovery', 'resonance'], label: 'Harmonic Awakening' });
     return rf;
   }, []);
 
   const [metrics, setMetrics] = useState<Metrics>(() => field.metrics());
-  const [activeDirective, setActiveDirective] = useState<Directive>(Directive.ADVANCE);
+  const [activeDirective] = useState<Directive>(Directive.ADVANCE);
 
   const handleAtomInjected = (atom: CognitiveAtom) => {
     field.inject(atom);
-    const updated = field.metrics();
-    setMetrics(updated);
+    setMetrics(field.metrics());
   };
 
   const handleAtomRemoved = (id: string) => {
     field.remove(id);
-    const updated = field.metrics();
-    setMetrics(updated);
+    setMetrics(field.metrics());
   };
 
   const handleResetField = () => {
     field.clear();
-    field.inject({
-      id: 'atom-init',
-      charge: 0.4,
-      mass: 6.0,
-      velocity: 0.4,
-      kind: 'theme',
-      tags: ['creation', 'grounding'],
-      label: 'Grounding Canon Axiom'
-    });
+    field.inject({ id: 'atom-init', charge: 0.4, mass: 6.0, velocity: 0.4, kind: 'theme', tags: ['creation', 'grounding'], label: 'Grounding Canon Axiom' });
     setMetrics(field.metrics());
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col font-sans selection:bg-amber-500 selection:text-neutral-950">
-      {/* Operating System Top Bar */}
-      <header className="bg-neutral-900/95 backdrop-blur border-b border-neutral-800 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
-          {/* Brand & Substrate Pulse */}
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-bold text-sm text-amber-400">
-              W
-            </div>
+    <div className="min-h-screen bg-[#040811] text-slate-100 font-sans selection:bg-cyan-300 selection:text-slate-950">
+      <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-[#050a12]/95 backdrop-blur-xl">
+        <div className="mx-auto flex min-h-[72px] max-w-[1500px] items-center gap-4 px-4 md:px-6">
+          <button onClick={() => setMobileNavOpen(!mobileNavOpen)} className="md:hidden rounded-xl border border-slate-700 p-2 text-slate-300" aria-label="Toggle navigation">
+            {mobileNavOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+          <button onClick={() => navigateToView('overview')} className="flex items-center gap-3 shrink-0 text-left">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/30 bg-cyan-400/10 text-sm font-black text-cyan-300 shadow-[0_0_30px_rgba(34,211,238,.1)]">C</div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-extrabold tracking-tight text-white">
-                  CONVERTIBLE CRANIUM COMMANDER OS
-                </span>
-                <span className="px-1.5 py-0.2 rounded text-[10px] font-mono uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold">
-                  KERNEL AUTHORITY BOUNDARY
-                </span>
-              </div>
-              <div className="flex items-center gap-2 text-[10px] font-mono text-neutral-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>KERNEL-CANONICAL // SESSION PROTECTION ARMED</span>
-              </div>
+              <div className="text-sm font-bold tracking-tight text-white">CRANIUM COMMAND</div>
+              <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500">Command OS</div>
             </div>
+          </button>
+          <div className="hidden lg:flex items-center gap-2 ml-auto mr-2 rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Kernel authority boundary active
           </div>
-
-          {/* Core System Navigation */}
-          <nav className="flex items-center gap-1 bg-neutral-950 p-1 rounded-xl border border-neutral-800">
-            <button
-              onClick={() => navigateToView('demo')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-                activeView === 'demo'
-                  ? 'bg-amber-500 text-neutral-950 font-bold shadow-md shadow-amber-500/10'
-                  : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
-              }`}
-            >
-              <Play className="w-3.5 h-3.5" />
-              <span>Acquisition Demo</span>
-            </button>
-
-            <button
-              onClick={() => navigateToView('metacognition')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-                activeView === 'metacognition'
-                  ? 'bg-amber-500 text-neutral-950 font-bold shadow-md shadow-amber-500/10'
-                  : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
-              }`}
-            >
-              <Brain className="w-3.5 h-3.5" />
-              <span>Metacognitive Tracker</span>
-            </button>
-
-            <button
-              onClick={() => navigateToView('studio')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-                activeView === 'studio'
-                  ? 'bg-amber-500 text-neutral-950 font-bold shadow-md shadow-amber-500/10'
-                  : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
-              }`}
-            >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Creator Studio</span>
-            </button>
-
-            <button
-              onClick={() => navigateToView('physics')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-                activeView === 'physics'
-                  ? 'bg-amber-500 text-neutral-950 font-bold shadow-md shadow-amber-500/10'
-                  : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
-              }`}
-            >
-              <Cpu className="w-3.5 h-3.5" />
-              <span>Resonance Lab</span>
-            </button>
-
-            <button
-              onClick={() => navigateToView('diligence')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-                activeView === 'diligence'
-                  ? 'bg-amber-500 text-neutral-950 font-bold shadow-md shadow-amber-500/10'
-                  : 'text-neutral-400 hover:text-white hover:bg-neutral-900'
-              }`}
-            >
-              <Server className="w-3.5 h-3.5" />
-              <span>Diligence Room</span>
-            </button>
-          </nav>
-
-          {/* Right Status Pill */}
-          <div className="hidden lg:flex items-center gap-3 text-xs font-mono">
-            <div className="px-2.5 py-1 rounded-lg bg-neutral-950 border border-neutral-800 flex items-center gap-2">
-              <span className="text-neutral-400">COH:</span>
-              <span className="text-emerald-400 font-bold">{(metrics.coherence * 100).toFixed(0)}%</span>
-              <span className="text-neutral-600">|</span>
-              <span className="text-neutral-400">TEN:</span>
-              <span className="text-amber-400 font-bold">{metrics.tension.toFixed(2)}</span>
-            </div>
-          </div>
+          <button onClick={() => setCommanderOpen(true)} className="ml-auto lg:ml-0 inline-flex items-center gap-2 rounded-xl border border-violet-400/30 bg-violet-500/10 px-3 py-2 text-xs font-bold text-violet-200 hover:bg-violet-500/20 transition">
+            <span className="h-2 w-2 rounded-full bg-violet-300 shadow-[0_0_10px_rgba(167,139,250,.8)]" /> Commander
+          </button>
         </div>
       </header>
 
-      {/* Main OS View Area */}
-      <main className="max-w-7xl mx-auto px-4 py-6 pb-32 flex-1 w-full space-y-6">
-        {activeView === 'demo' && (
-          <AcquisitionVideoDemo 
-            onNavigateToModule={(mod) => setActiveView(mod === 'tracker' ? 'metacognition' : mod as ActiveView)} 
-          />
-        )}
+      <div className="mx-auto flex max-w-[1500px]">
+        <aside className={`fixed inset-y-[72px] left-0 z-40 w-60 border-r border-slate-800/80 bg-[#050a12] p-4 md:sticky md:top-[72px] md:h-[calc(100vh-72px)] md:translate-x-0 ${mobileNavOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'} transition-transform`}>
+          <nav className="space-y-1">
+            {navItems.map(({ id, label, icon: Icon }) => (
+              <button key={id} onClick={() => navigateToView(id)} className={`w-full flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition ${activeView === id ? 'bg-cyan-400/10 text-cyan-200 border border-cyan-300/15' : 'text-slate-400 hover:bg-slate-900 hover:text-white'}`}>
+                <Icon className="h-4 w-4" />
+                {label}
+              </button>
+            ))}
+          </nav>
 
-        {activeView === 'metacognition' && (
-          <MetacognitiveView onExportSummary={() => navigateToView('diligence')} />
-        )}
-
-        {activeView === 'studio' && (
-          <CreatorStudioView
-            field={field}
-            metrics={metrics}
-            onAtomInjected={handleAtomInjected}
-            onNavigateToDemo={() => navigateToView('demo')}
-          />
-        )}
-
-        {activeView === 'physics' && (
-          <ResonanceFieldView
-            field={field}
-            metrics={metrics}
-            onAtomInjected={handleAtomInjected}
-            onAtomRemoved={handleAtomRemoved}
-            onResetField={handleResetField}
-          />
-        )}
-
-        {activeView === 'diligence' && (
-          <DiligenceDataRoom />
-        )}
-      </main>
-
-      {/* OS Status Footer */}
-      <footer className="bg-neutral-900 border-t border-neutral-800 text-xs text-neutral-400 py-3.5 px-4 mb-20 md:mb-16">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span className="font-semibold text-neutral-200">Convertible Cranium Governance Surface</span>
-            <span>&bull; Kernel Authority &bull; Synapse Evidence &bull; Miracle Memory &bull; Session Protection</span>
+          <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+            <div className="text-[10px] uppercase tracking-[0.18em] font-bold text-slate-500">System layers</div>
+            <div className="mt-3 space-y-2 text-xs text-slate-400">
+              <StatusRow label="Kernel" value="Canonical" />
+              <StatusRow label="Synapse" value="Evidence" />
+              <StatusRow label="Miracle Memory" value="Continuity" />
+              <StatusRow label="COMA" value="Containment" />
+              <StatusRow label="Circuit Breaker" value="Armed" />
+            </div>
           </div>
+        </aside>
 
-          <div className="flex items-center gap-4 text-neutral-400">
-            <button
-              onClick={() => navigateToView('diligence')}
-              className="hover:text-amber-400 transition underline font-mono text-[11px]"
-            >
-              Export Complete Package (.md)
-            </button>
-            <span className="text-neutral-500 font-mono text-[11px]">
-              AUTHORITY IS KERNEL-CANONICAL &bull; 2026
-            </span>
+        <main className="min-w-0 flex-1 px-4 py-6 md:px-7 md:py-8 pb-36">
+          {activeView === 'overview' && (
+            <CommanderOverview
+              onNavigate={navigateToView}
+              coherence={metrics.coherence}
+              tension={metrics.tension}
+              onOpenCommander={() => setCommanderOpen(true)}
+            />
+          )}
+          {activeView === 'demo' && <AcquisitionVideoDemo onNavigateToModule={(mod) => navigateToView(mod === 'tracker' ? 'metacognition' : mod as ActiveView)} />}
+          {activeView === 'metacognition' && <MetacognitiveView onExportSummary={() => navigateToView('diligence')} />}
+          {activeView === 'studio' && <CreatorStudioView field={field} metrics={metrics} onAtomInjected={handleAtomInjected} onNavigateToDemo={() => navigateToView('demo')} />}
+          {activeView === 'physics' && <ResonanceFieldView field={field} metrics={metrics} onAtomInjected={handleAtomInjected} onAtomRemoved={handleAtomRemoved} onResetField={handleResetField} />}
+          {activeView === 'diligence' && <DiligenceDataRoom />}
+          {(activeView === 'identity' || activeView === 'payments') && (
+            <PlaceholderPanel title={activeView === 'identity' ? 'Identity' : 'Payments'} />
+          )}
+        </main>
+      </div>
+      <footer className="fixed bottom-0 inset-x-0 z-30 border-t border-slate-800/80 bg-[#050a12]/95 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-[1500px] flex-wrap items-center justify-between gap-3 px-4 md:px-6 py-3 text-[10px] text-slate-500">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span className="font-semibold text-slate-300">Convertible Cranium</span>
+            <span>Kernel authority</span><span>•</span><span>Synapse evidence</span><span>•</span><span>Miracle Memory</span><span>•</span><span>COMA containment</span>
           </div>
+          <span className="font-mono uppercase tracking-[0.12em]">Authority comes only through Cranium</span>
         </div>
       </footer>
 
-      {/* Universal Floating AI Interaction Bar */}
       <GlobalAiBar
         activeView={activeView}
-        onNavigate={(v) => setActiveView(v)}
+        onNavigate={navigateToView}
         metrics={metrics}
         onAtomInjected={handleAtomInjected}
         onTriggerWriteEpisode={() => navigateToView('studio')}
+        forceOpen={commanderOpen}
+        onOpenChange={setCommanderOpen}
       />
     </div>
+  );
+}
+
+function StatusRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-center justify-between gap-3">
+      <span>{label}</span>
+      <span className="text-slate-300">{value}</span>
+    </div>
+  );
+}
+
+function PlaceholderPanel({ title }: { title: string }) {
+  return (
+    <section className="rounded-[28px] border border-slate-800/80 bg-[#080f1b] p-8">
+      <div className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Layer surface</div>
+      <h1 className="mt-2 text-3xl font-semibold text-white">{title}</h1>
+      <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-400">
+        This surface is intentionally bounded while the canonical Kernel integration is completed. Commander does not invent authority or local receipts.
+      </p>
+    </section>
   );
 }

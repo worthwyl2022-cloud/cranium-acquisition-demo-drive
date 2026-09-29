@@ -16,6 +16,8 @@ interface Props {
   metrics: Metrics;
   onAtomInjected?: (atom: CognitiveAtom) => void;
   onTriggerWriteEpisode?: () => void;
+  forceOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
 interface Message {
@@ -35,21 +37,33 @@ export default function GlobalAiBar({
   onNavigate,
   metrics,
   onAtomInjected,
-  onTriggerWriteEpisode
+  onTriggerWriteEpisode,
+  forceOpen,
+  onOpenChange
 }: Props) {
   const [input, setInput] = useState('');
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(Boolean(forceOpen));
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [ttsEnabled, setTtsEnabled] = useState(false);
+  const voiceRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (typeof forceOpen === 'boolean') setIsOpen(forceOpen);
+  }, [forceOpen]);
+
+  const setOpen = (open: boolean) => {
+    setIsOpen(open);
+    onOpenChange?.(open);
+  };
 
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 'welcome-1',
       role: 'assistant',
-      text: "Hey! I'm your Convertible Cranium AI co-pilot. You can talk to me with the mic or type anything below. Ask me to write the next episode, explain canon, or direct the scene.",
+      text: "Hi, I’m Wyl. I’m the human-facing guide inside Cranium AI. I can explain the foundation, walk you through the system, or help you take the next step. Cranium remains the authority boundary.",
       timestamp: 'Just now'
     }
   ]);
@@ -156,7 +170,7 @@ export default function GlobalAiBar({
     }
 
     setInput('');
-    setIsOpen(true);
+    setOpen(true);
 
     const userMessage: Message = {
       id: `user-${Date.now()}`,
@@ -279,9 +293,9 @@ export default function GlobalAiBar({
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-extrabold tracking-tight text-white">CRANIUM CORE AI</span>
+                    <span className="text-xs font-extrabold tracking-tight text-white">CRANIUM AI</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[10px] font-mono text-neutral-400">ONLINE // GEMINI 2.5</span>
+                    <span className="text-[10px] font-mono text-slate-500">WYL MATHES // GUIDE</span>
                   </div>
                 </div>
               </div>
@@ -307,7 +321,7 @@ export default function GlobalAiBar({
 
                 {/* Close/Minimize */}
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setOpen(false)}
                   className="p-1.5 text-neutral-400 hover:text-white rounded-lg hover:bg-neutral-800 transition"
                 >
                   <ChevronDown className="w-4 h-4" />
@@ -323,7 +337,7 @@ export default function GlobalAiBar({
                   className={`flex flex-col ${m.role === 'user' ? 'items-end' : 'items-start'}`}
                 >
                   <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-500 mb-1">
-                    <span>{m.role === 'user' ? 'YOU' : 'CRANIUM CORE'}</span>
+                    <span>{m.role === 'user' ? 'YOU' : 'WYL // CRANIUM AI'}</span>
                     <span>&bull;</span>
                     <span>{m.timestamp}</span>
                   </div>
@@ -359,7 +373,7 @@ export default function GlobalAiBar({
               {isLoading && (
                 <div className="flex items-center gap-2 text-neutral-400 text-xs font-mono p-2">
                   <RefreshCw className="w-3.5 h-3.5 animate-spin text-amber-400" />
-                  <span>Convertible Cranium Core is synthesizing response...</span>
+                  <span>Cranium AI is working within the current authority boundary...</span>
                 </div>
               )}
 
@@ -383,20 +397,29 @@ export default function GlobalAiBar({
         )}
 
         {/* Floating Capsule Bar (Always Visible at Bottom) */}
-        <div className="bg-neutral-900/95 backdrop-blur-xl border border-neutral-700/80 p-2 md:p-2.5 rounded-2xl shadow-2xl ring-1 ring-white/10 flex items-center gap-2">
+        <div className="bg-[#07101c]/95 backdrop-blur-xl border border-slate-700/80 p-2 md:p-2.5 rounded-2xl shadow-2xl ring-1 ring-cyan-300/5 flex items-center gap-2">
           {/* AI Status / Expand Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-neutral-950 border border-neutral-800 hover:border-amber-500/50 text-neutral-300 hover:text-white transition text-xs font-semibold shrink-0"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#050a12] border border-slate-800 hover:border-violet-400/50 text-slate-300 hover:text-white transition text-xs font-semibold shrink-0"
             title={isOpen ? "Minimize AI Drawer" : "Expand Conversation"}
           >
             <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-            <span className="hidden sm:inline font-mono">CRANIUM AI</span>
+            <span className="hidden sm:inline font-mono">COMMANDER</span>
             {isOpen ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronUp className="w-3.5 h-3.5" />}
           </button>
 
           {/* Text Input */}
           <div className="flex-1 relative flex items-center">
+            <audio ref={voiceRef} src="/assets/commander/wyl-voice.m4a" preload="metadata" />
+            <button
+              onClick={() => voiceRef.current?.play()}
+              className="hidden md:flex items-center gap-1.5 rounded-xl border border-violet-400/20 bg-violet-500/10 px-2.5 py-2 text-[10px] font-bold text-violet-200 hover:bg-violet-500/20 transition shrink-0"
+              title="Play Wyl's recorded voice sample"
+            >
+              <Volume2 className="h-3.5 w-3.5" /> WYL VOICE
+            </button>
+
             <input
               type="text"
               value={input}
@@ -407,7 +430,7 @@ export default function GlobalAiBar({
                   handleSendMessage();
                 }
               }}
-              placeholder={isListening ? "Listening to your voice... speak now" : "Talk or type to Convertible Cranium Core (e.g. 'Write next scene', 'What is canon?')..."}
+              placeholder={isListening ? "Listening... speak to Wyl" : "Ask Wyl / Cranium AI anything about your foundation..."}
               className={`w-full bg-neutral-950 border ${
                 isListening ? 'border-red-500/80 ring-2 ring-red-500/20' : 'border-neutral-800 focus:border-amber-500'
               } text-white placeholder:text-neutral-500 text-xs md:text-sm px-3.5 py-2.5 rounded-xl focus:outline-none transition pr-8`}
@@ -429,8 +452,8 @@ export default function GlobalAiBar({
             title={isListening ? "Stop listening" : "Talk to Convertible Cranium Core"}
             className={`p-2.5 rounded-xl transition flex items-center justify-center shrink-0 ${
               isListening
-                ? 'bg-red-600 text-white animate-pulse shadow-lg shadow-red-600/30'
-                : 'bg-neutral-950 border border-neutral-800 hover:border-amber-500/60 text-neutral-300 hover:text-amber-400'
+                ? 'bg-red-500/90 text-white animate-pulse shadow-lg shadow-red-500/20'
+                : 'bg-[#050a12] border border-slate-800 hover:border-cyan-300/50 text-slate-300 hover:text-cyan-200'
             }`}
           >
             {isListening ? (

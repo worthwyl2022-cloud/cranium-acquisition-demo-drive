@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/cranium-operator-os/',
+    base: process.env.VITE_BASE || '/cranium-operator-os/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

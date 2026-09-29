@@ -14,6 +14,26 @@ permissions:
   actions: read
 
 jobs:
+  privacy-boundary:
+    name: Private voice asset boundary
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Reject private voice assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          forbidden=$(git ls-files | grep -E '^ecosystem/commander/assets/commander/.*\.(m4a|mp3|wav|flac|aac|ogg)$' || true)
+          if [[ -n "$forbidden" ]]; then
+            echo "Private voice/reference audio must not be tracked:" >&2
+            echo "$forbidden" >&2
+            exit 1
+          fi
+          if git grep -nE '/assets/commander/[^ ]+\.(m4a|mp3|wav|flac|aac|ogg)' -- ':!VOICE_REFERENCE_POLICY.md'; then
+            echo "Runtime source references a private voice asset." >&2
+            exit 1
+          fi
+
   codeql:
     name: CodeQL analysis
     runs-on: ubuntu-latest
@@ -23,10 +43,10 @@ jobs:
         language: [javascript-typescript]
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - uses: github/codeql-action/init@1190a975f95ce23525efb6a3fc21ea29567c1b52 # v3
+      - uses: github/codeql-action/init@88585263c0627ee42c0e1c5143a112c8d6f4aa18 # v4.38.2
         with:
           languages: ${{ matrix.language }}
-      - uses: github/codeql-action/analyze@1190a975f95ce23525efb6a3fc21ea29567c1b52 # v3
+      - uses: github/codeql-action/analyze@88585263c0627ee42c0e1c5143a112c8d6f4aa18 # v4.38.2
         with:
           category: /language:${{ matrix.language }}
 
@@ -105,6 +125,6 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4
+      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
         with:
           fail-on-severity: high

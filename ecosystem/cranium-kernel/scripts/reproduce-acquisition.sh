@@ -16,10 +16,14 @@ printf 'Timestamp: '; date -u +%Y-%m-%dT%H:%M:%SZ
 
 npm ci --ignore-scripts
 npm run verify
-npx tsx scripts/synapse-contract-smoke.ts
-npx tsx scripts/synapse-integration-check.ts
-npx tsx scripts/atomic-recovery-check.ts
-npx tsx scripts/run_50000_stress.ts
+if [[ -f "${CRANIUM_SYNAPSE_DIR:-$ROOT/../cranium-synapse}/src/contract.ts" ]]; then
+  node node_modules/tsx/dist/cli.mjs scripts/synapse-contract-smoke.ts
+else
+  printf 'SKIP\tSynapse contract smoke test requires sibling cranium-synapse source; set CRANIUM_SYNAPSE_DIR to run it.\n'
+fi
+node node_modules/tsx/dist/cli.mjs scripts/synapse-integration-check.ts
+node node_modules/tsx/dist/cli.mjs scripts/atomic-recovery-check.ts
+node node_modules/tsx/dist/cli.mjs scripts/run_50000_stress.ts
 
 node --input-type=module <<'NODE'
 import fs from 'node:fs';

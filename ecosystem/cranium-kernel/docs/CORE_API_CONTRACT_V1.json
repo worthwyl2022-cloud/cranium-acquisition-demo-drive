@@ -1,5 +1,5 @@
 {
-  "contract": "cranium-kernel-api",
+  "contract": "cranium-core-api",
   "version": "1.0.0",
   "repository": "worthwyl2022-cloud/cranium-kernel",
   "entrypoint": "src/index.ts",

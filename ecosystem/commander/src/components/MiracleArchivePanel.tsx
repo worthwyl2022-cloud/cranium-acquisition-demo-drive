@@ -86,7 +86,7 @@ export default function MiracleArchivePanel({ currentMetrics }: Props) {
             </h2>
           </div>
           <p className="text-xs text-neutral-500 mt-0.5">
-            The world's first creative subsystem built to outlive its creator with AES-256 time-capsules & heirloom policies
+            Miracle Memory continuity and archive concepts with documented provenance boundaries
           </p>
         </div>
 

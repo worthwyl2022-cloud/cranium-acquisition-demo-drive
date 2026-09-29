@@ -6,3 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+assets/commander/*.m4a
+assets/commander/*.mp3
+assets/commander/*.wav
+assets/commander/*.flac
+assets/commander/*.aac
+assets/commander/*.ogg

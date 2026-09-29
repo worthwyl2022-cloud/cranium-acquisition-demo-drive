@@ -52,9 +52,51 @@ jobs:
           chmod +x ./gradlew
           ./gradlew --no-daemon :app:assembleDebug
 
-      - name: Upload APK
+      - name: Validate APK structure, manifest, signature, and alignment
+        working-directory: ecosystem/commander/android
+        run: |
+          set -euo pipefail
+          APK=app/build/outputs/apk/debug/app-debug.apk
+          test -s "$APK"
+          unzip -t "$APK" >/dev/null
+          "$ANDROID_HOME/build-tools/36.0.0/aapt2" dump badging "$APK" | tee /tmp/commander-badging.txt
+          grep -Fq "package: name='com.worthwyl.cranium.commander'" /tmp/commander-badging.txt
+          grep -Fq "sdkVersion:'24'" /tmp/commander-badging.txt
+          grep -Fq "targetSdkVersion:'36'" /tmp/commander-badging.txt
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose "$APK"
+          "$ANDROID_HOME/build-tools/36.0.0/zipalign" -c -P 16 -v 4 "$APK"
+          sha256sum "$APK" | tee app-debug.apk.sha256
+
+      - name: Upload APK and checksum
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: cranium-command-android-preview
-          path: ecosystem/commander/android/app/build/outputs/apk/debug/app-debug.apk
+          path: |
+            ecosystem/commander/android/app/build/outputs/apk/debug/app-debug.apk
+            ecosystem/commander/android/app/build/outputs/apk/debug/app-debug.apk.sha256
           if-no-files-found: error
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Android 16 emulator smoke test
+        uses: ReactiveCircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d # v2.38.0
+        with:
+          api-level: 36
+          target: google_apis
+          arch: x86_64
+          profile: pixel_7
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: |
+            set -euo pipefail
+            APK="$GITHUB_WORKSPACE/ecosystem/commander/android/app/build/outputs/apk/debug/app-debug.apk"
+            adb install -r "$APK"
+            adb shell am start -n com.worthwyl.cranium.commander/.MainActivity
+            sleep 8
+            adb shell dumpsys package com.worthwyl.cranium.commander | grep -F "com.worthwyl.cranium.commander"
+            adb logcat -d -t 400 | grep -E "CraniumCommand|AndroidRuntime|chromium|crash|FATAL EXCEPTION" || true
+            adb shell pm path com.worthwyl.cranium.commander

@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.webkit.ConsoleMessage;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
@@ -36,7 +40,23 @@ public final class MainActivity extends Activity {
             settings.setSafeBrowsingEnabled(true);
         }
 
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onConsoleMessage(ConsoleMessage message) {
+                Log.d("CraniumCommand", message.messageLevel() + ": " + message.message()
+                        + " @" + message.sourceId() + ":" + message.lineNumber());
+                return true;
+            }
+        });
+
         webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                Log.e("CraniumCommand", "Web resource error: " + error.getDescription()
+                        + " url=" + request.getUrl());
+                super.onReceivedError(view, request, error);
+            }
+
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 return assetLoader.shouldInterceptRequest(request.getUrl());

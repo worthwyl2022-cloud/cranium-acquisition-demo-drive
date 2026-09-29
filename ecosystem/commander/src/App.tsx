@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Activity, Fingerprint, Grid2X2, Layers3, Menu, ShieldCheck, WalletCards, X } from 'lucide-react';
+import { Activity, Fingerprint, GitBranch, Grid2X2, Layers3, Menu, ShieldCheck, WalletCards, X } from 'lucide-react';
 import { CognitiveAtom, Directive, Metrics } from './types/creativeOs';
 import { ResonanceField } from './worthwyl/core/field';
 import AcquisitionVideoDemo from './worthwyl/demo/AcquisitionVideoDemo';
@@ -9,8 +9,9 @@ import ResonanceFieldView from './worthwyl/physics/ResonanceFieldView';
 import DiligenceDataRoom from './worthwyl/diligence/DiligenceDataRoom';
 import GlobalAiBar from './worthwyl/common/GlobalAiBar';
 import CommanderOverview from './components/CommanderOverview';
+import EcosystemMap from './components/EcosystemMap';
 
-export type ActiveView = 'overview' | 'demo' | 'metacognition' | 'studio' | 'physics' | 'diligence' | 'identity' | 'payments';
+export type ActiveView = 'overview' | 'demo' | 'metacognition' | 'studio' | 'physics' | 'diligence' | 'identity' | 'payments' | 'ecosystem';
 
 const navItems = [
   { id: 'overview' as const, label: 'Overview', icon: Activity },
@@ -19,12 +20,13 @@ const navItems = [
   { id: 'identity' as const, label: 'Identity', icon: Fingerprint },
   { id: 'payments' as const, label: 'Payments', icon: WalletCards },
   { id: 'studio' as const, label: 'Apps', icon: Grid2X2 },
+  { id: 'ecosystem' as const, label: 'Ecosystem', icon: GitBranch },
 ];
 
 export default function App() {
   const [activeView, setActiveView] = useState<ActiveView>(() => {
     const requested = window.location.hash.replace('#', '') as ActiveView;
-    return ['overview', 'demo', 'metacognition', 'studio', 'physics', 'diligence'].includes(requested)
+    return ['overview', 'demo', 'metacognition', 'studio', 'physics', 'diligence', 'identity', 'payments', 'ecosystem'].includes(requested)
       ? requested
       : 'overview';
   });
@@ -124,6 +126,7 @@ export default function App() {
           {activeView === 'studio' && <CreatorStudioView field={field} metrics={metrics} onAtomInjected={handleAtomInjected} onNavigateToDemo={() => navigateToView('demo')} />}
           {activeView === 'physics' && <ResonanceFieldView field={field} metrics={metrics} onAtomInjected={handleAtomInjected} onAtomRemoved={handleAtomRemoved} onResetField={handleResetField} />}
           {activeView === 'diligence' && <DiligenceDataRoom />}
+          {activeView === 'ecosystem' && <EcosystemMap onNavigate={navigateToView} />}
           {(activeView === 'identity' || activeView === 'payments') && (
             <PlaceholderPanel title={activeView === 'identity' ? 'Identity' : 'Payments'} />
           )}

@@ -8,6 +8,7 @@ import CreatorStudioView from './worthwyl/studio/CreatorStudioView';
 import ResonanceFieldView from './worthwyl/physics/ResonanceFieldView';
 import DiligenceDataRoom from './worthwyl/diligence/DiligenceDataRoom';
 import GlobalAiBar from './worthwyl/common/GlobalAiBar';
+import WylWelcomeVideo from './components/WylWelcomeVideo';
 import CommanderOverview from './components/CommanderOverview';
 import EcosystemMap from './components/EcosystemMap';
 
@@ -172,6 +173,7 @@ function IdentityPanel() {
         <h1 className="mt-2 text-3xl font-semibold text-white">Wyl Mathes</h1>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400">Verified human creator and the human-facing presence of Cranium AI. This surface describes identity and provenance. It does not grant authority.</p>
       </div>
+      <WylWelcomeVideo />
       <div className="grid gap-4 md:grid-cols-2">
         <InfoCard title="Human identity" items={['Wyl Mathes', 'Creator & Guide', 'Visual identity: verified photograph, slightly altered', 'Voice reference: private development sample; raw recording is not distributed']} />
         <InfoCard title="Authority boundary" items={['Cranium AI: intelligence & orchestration', 'Synapse: evidence & assessment', 'Cranium Kernel: canonical authority', 'Commander: supporting operational surface']} />

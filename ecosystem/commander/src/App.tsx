@@ -173,7 +173,7 @@ function IdentityPanel() {
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400">Verified human creator and the human-facing presence of Cranium AI. This surface describes identity and provenance. It does not grant authority.</p>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
-        <InfoCard title="Human identity" items={['Wyl Mathes', 'Creator & Guide', 'Visual identity: verified photograph, slightly altered', 'Voice: supplied Wyl recording']} />
+        <InfoCard title="Human identity" items={['Wyl Mathes', 'Creator & Guide', 'Visual identity: verified photograph, slightly altered', 'Voice reference: private development sample; raw recording is not distributed']} />
         <InfoCard title="Authority boundary" items={['Cranium AI: intelligence & orchestration', 'Synapse: evidence & assessment', 'Cranium Kernel: canonical authority', 'Commander: supporting operational surface']} />
       </div>
       <div className="rounded-[24px] border border-violet-400/20 bg-violet-500/[0.06] p-5 text-sm leading-6 text-slate-300">Identity establishes who is represented. Canonical authorization remains a Kernel responsibility and must be backed by a verifiable canonical path and receipt.</div>

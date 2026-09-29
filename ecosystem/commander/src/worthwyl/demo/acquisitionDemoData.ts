@@ -22,13 +22,13 @@ export const DEMO_CHAPTERS: DemoChapter[] = [
     narratorVoiceText: "Welcome to Cranium Command. Convertible Cranium separates intelligence from authority: models and cognitive layers may propose, evidence may inform, but canonical authority remains with Cranium Kernel. The Commander surface makes that architecture understandable without pretending the interface itself is the authority.",
     captions: [
       "Current generative tools suffer from canon amnesia and narrative drift.",
-      "Convertible Cranium Core establishes an immutable behavioral contract between author and machine.",
+      "Cranium Kernel defines the canonical authority boundary between human intent, cognition, evidence, and governed execution.",
       "Intent, canon, and emotional logic are enforced as first-class physical constraints."
     ],
     keyHighlights: [
       { metric: "Bounded", label: "Constraint Enforcement", description: "Identity and canon cannot be overridden by conversational drift." },
       { metric: "0.90", label: "Coherence Floor", description: "Calibrated threshold enforcing strict multi-episode integrity." },
-      { metric: "5+", label: "Governed Layers", description: "Convertible Cranium Core, Media Engine, Studio, and Miracle Archive." }
+      { metric: "5", label: "Operating Layers", description: "Commander presents substrate, governance, identity, payments, and application surfaces." }
     ],
     visualMode: "summary"
   },
@@ -37,7 +37,7 @@ export const DEMO_CHAPTERS: DemoChapter[] = [
     act: "Act II",
     title: "Resonance Field Physics & Automated Directives",
     durationSec: 22,
-    narratorVoiceText: "Observe the Resonance Field in action. Narrative events are not stored as plain text strings—they are modeled as Cognitive Atoms, with emotional charge, mass, and velocity. The engine computes real-time tension, coherence, and theme drift. When tension drops below threshold, Convertible Cranium Core issues an automated ESCALATE directive. When coherence fractures, it issues STABILIZE.",
+    narratorVoiceText: "Observe the Resonance Field in action. Narrative events are not stored as plain text strings—they are modeled as Cognitive Atoms, with emotional charge, mass, and velocity. The engine computes real-time tension, coherence, and theme drift. When a configured threshold is crossed, the local demo can present a corresponding directive for inspection; canonical authority remains outside the visual surface.",
     captions: [
       "Cognitive Atoms model narrative energy: charge (-1.0 to 1.0), mass, and velocity.",
       "The physics engine evaluates collisions between opposite emotional polarities.",
@@ -77,10 +77,10 @@ export const DEMO_CHAPTERS: DemoChapter[] = [
     captions: [
       "60-second structured capture: situation, trigger, thought, assumption, and outcome.",
       "Audits self-shrinking, overexplaining, and emotional retreat in high-stakes creative moments.",
-      "Weekly review engine surfaces recurring blind spots and prescribes testable experiments."
+      "Review tooling surfaces recurring patterns for human interpretation and follow-up."
     ],
     keyHighlights: [
-      { metric: "38%", label: "Shrinking Detection", description: "Identifies behavioral regressions during high-status stakeholder meetings." },
+      { metric: "Tracked", label: "Pattern Capture", description: "Records structured metacognitive observations for later review." },
       { metric: "60-Second", label: "Zero-Friction Logging", description: "Instant capture card engineered for busy founders and artists." },
       { metric: "Testable Micro-Action", label: "Behavioral Growth", description: "Transforms messy creative doubts into clear, disciplined conviction." }
     ],
@@ -91,15 +91,15 @@ export const DEMO_CHAPTERS: DemoChapter[] = [
     act: "Act V",
     title: "Enterprise Architecture & Acquisition Diligence",
     durationSec: 20,
-    narratorVoiceText: "WorthWyl Creative OS is engineered as an enterprise-grade microservice constellation. Designed for Azure Kubernetes Service, it integrates Istio service mesh, Redis caching, and AES-256 encrypted Miracle Archive storage. With zero debt and verifiable behavioral contracts, it represents an acquisition-ready strategic bridge for Microsoft Copilot and Azure AI.",
+    narratorVoiceText: "This chapter presents the acquisition and architecture boundary. Historical deployment material may be included as evidence, but it is not represented here as a live Azure, Microsoft, or production service integration.",
     captions: [
       "Historical application topology and deployment material are presented as evidence, while current canonical authority remains in Cranium Kernel.",
-      "Encrypted Miracle Archive preserving generational creative assets with AES-256.",
+      "Memory and archive concepts are presented as architecture and evidence, not as live storage telemetry.",
       "Acquisition diligence is organized around verifiable evidence, provenance, ownership, and integration boundaries."
     ],
     keyHighlights: [
-      { metric: "AKS Ready", label: "Enterprise Topology", description: "Isolated namespaces for Core, Media, Studio, and Legacy." },
-      { metric: "AES-256", label: "Miracle Archive", description: "Generational encrypted storage with immutable provenance." },
+      { metric: "Evidence", label: "Deployment Boundary", description: "Separates documented or historical deployment material from verified live runtime state." },
+      { metric: "Scoped", label: "Memory Boundary", description: "Miracle Memory continuity is represented without fabricating live storage or encryption telemetry." },
       { metric: "Architecture", label: "Governance Boundary", description: "Describes the separation between intelligence, evidence, authority, and governed execution." }
     ],
     visualMode: "architecture"

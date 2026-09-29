@@ -48,7 +48,6 @@ export default function GlobalAiBar({
   const [speechSupported, setSpeechSupported] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [ttsEnabled, setTtsEnabled] = useState(false);
-  const voiceRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (typeof forceOpen === 'boolean') setIsOpen(forceOpen);
@@ -217,7 +216,7 @@ export default function GlobalAiBar({
         const assistantMessage: Message = {
           id: `ai-${Date.now()}`,
           role: 'assistant',
-          text: data.reply || "Understood! Convertible Cranium Core is synchronized.",
+          text: data.reply || "Understood! Cranium governance substrate is synchronized.",
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           action: data.action
         };
@@ -238,7 +237,7 @@ export default function GlobalAiBar({
         role: 'assistant',
         text: circuitOpen
           ? 'Session protection is active after repeated async failures. New actions are temporarily blocked while the circuit cools down.'
-          : `Got it! Convertible Cranium Core is holding coherence steady at ${(metrics.coherence * 100).toFixed(0)}%. What narrative beat or system component would you like to explore next?`,
+          : `Got it! Cranium is holding the current coherence signal at ${(metrics.coherence * 100).toFixed(0)}%. What narrative beat or system component would you like to explore next?`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages(prev => [...prev, fallbackMessage]);
@@ -275,7 +274,7 @@ export default function GlobalAiBar({
     { label: "⚡ Write next episode", query: "Write the next episode of the serial right now under current canon." },
     { label: "🛡️ Audit canon continuity", query: "Audit our current novel's canon continuity and character arcs." },
     { label: "🔬 Show resonance field", query: "Take me to the resonance lab to inspect field tension and cognitive atoms." },
-    { label: "🎬 Acquisition demo", query: "Show me the acquisition demo comparing Convertible Cranium Core to Naive RAG." }
+    { label: "🎬 Acquisition demo", query: "Show me the acquisition demo and its evidence boundaries." }
   ];
 
   return (
@@ -411,14 +410,12 @@ export default function GlobalAiBar({
 
           {/* Text Input */}
           <div className="flex-1 relative flex items-center">
-            <audio ref={voiceRef} src="/assets/commander/wyl-voice.m4a" preload="metadata" />
-            <button
-              onClick={() => voiceRef.current?.play()}
-              className="hidden md:flex items-center gap-1.5 rounded-xl border border-violet-400/20 bg-violet-500/10 px-2.5 py-2 text-[10px] font-bold text-violet-200 hover:bg-violet-500/20 transition shrink-0"
-              title="Play Wyl's recorded voice sample"
+            <span
+              className="hidden md:inline-flex items-center rounded-xl border border-violet-400/20 bg-violet-500/10 px-2.5 py-2 text-[10px] font-bold text-violet-200 shrink-0"
+              title="Raw Wyl voice recording is intentionally kept outside the repository"
             >
-              <Volume2 className="h-3.5 w-3.5" /> WYL VOICE
-            </button>
+              VOICE REFERENCE • PRIVATE
+            </span>
 
             <input
               type="text"
@@ -449,7 +446,7 @@ export default function GlobalAiBar({
           {/* Voice Input Microphone Button */}
           <button
             onClick={toggleListening}
-            title={isListening ? "Stop listening" : "Talk to Convertible Cranium Core"}
+            title={isListening ? "Stop listening" : "Talk to Cranium AI"}
             className={`p-2.5 rounded-xl transition flex items-center justify-center shrink-0 ${
               isListening
                 ? 'bg-red-500/90 text-white animate-pulse shadow-lg shadow-red-500/20'

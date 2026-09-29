@@ -245,7 +245,7 @@ export default function ThoughtJournal({ onEntryLogged }: ThoughtJournalProps) {
 
   // Export Markdown
   const handleExportMarkdown = () => {
-    let md = `# WorthWyl Creative OS — Metacognitive Thought Journal\n\n`;
+    let md = `# Cranium Command — Metacognitive Thought Journal\n\n`;
     md += `*Exported on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}*\n\n`;
     md += `Total Entries: ${entries.length}\n\n---\n\n`;
 

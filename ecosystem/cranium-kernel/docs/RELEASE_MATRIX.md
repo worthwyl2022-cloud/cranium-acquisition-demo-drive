@@ -16,7 +16,7 @@ The Kernel remains the sole authority issuer. Client applications and adapters m
 |---|---|---|---|---|
 | TypeScript Kernel/runtime | `cranium-kernel` | `npm ci`, typecheck, Vite build, durable/recovery checks, Synapse checks, canonical vectors | `.github/workflows/ci-typescript.yml` | **Build- and conformance-verified** |
 | Kernel Android app | `cranium-kernel` | Android SDK, unit tests, debug APK | `.github/workflows/android-ci.yml` | **Build-verified in Android CI; not locally verifiable without SDK** |
-| Convertible Cranium Core Android app | `Cranium-Core-` | Android SDK, unit tests, debug APK | `.github/workflows/android-ci.yml` | **Build-verified in Android CI; not locally verifiable without SDK** |
+| Cranium Core Android app | `Cranium-Core-` | Android SDK, unit tests, debug APK | `.github/workflows/android-ci.yml` | **Build-verified in Android CI; not locally verifiable without SDK** |
 | Hardened Core web | `cranium-hardened-core` | Typecheck, Vite build, production dependency audit | `.github/workflows/ci.yml` | **Build-verified** |
 | Diligence Workbench web | `cranium-diligence-workbench` | Typecheck, Vite build | `.github/workflows/ci.yml` | **Build-verified** |
 | Operator OS web/server | `cranium-operator-os` | Typecheck, Vite build, Node bundle | `.github/workflows/ci.yml` | **Build-verified** |

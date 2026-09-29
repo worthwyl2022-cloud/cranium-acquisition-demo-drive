@@ -15,9 +15,6 @@ const tracked = [
   'scripts/authority-boundary-adversarial-check.ts',
   'scripts/constitution-runtime-check.ts',
   'scripts/conformance-vectors.ts',
-  'docs/ACQUISITION_STRESS_SUITE.md',
-  'evidence/acquisition-stress-suite-manifest.json',
-  'scripts/acquisition-stress-suite.ts',
 ];
 const hashFile = (relative) => createHash('sha256').update(readFileSync(path.join(root, relative))).digest('hex');
 const files = tracked.filter((relative) => existsSync(path.join(root, relative))).map((relative) => ({ path: relative, sha256: hashFile(relative) }));

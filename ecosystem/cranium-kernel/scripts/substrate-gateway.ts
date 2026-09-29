@@ -11,7 +11,7 @@ import { createSynapseAttestation } from '../src/governance/SynapseRuntimeAdapte
 import { AuthorityClass, type AuthorityTransitionRequest } from '../src/kernel/types';
 
 const port = Number(process.env.SUBSTRATE_GATEWAY_PORT ?? 4100);
-const dbPath = process.env.CRANIUM_CORE_DB ?? join(mkdtempSync(join(tmpdir(), 'cranium-kernel-')), 'authority.sqlite');
+const dbPath = process.env.CRANIUM_CORE_DB ?? join(mkdtempSync(join(tmpdir(), 'cranium-core-')), 'authority.sqlite');
 const store = new SQLiteAuthorityStore(dbPath, createInitialKernelState());
 const proxy = new KernelAuthorityProxy(store);
 const hash = (value: string) => createHash('sha256').update(value).digest('hex');
@@ -66,8 +66,8 @@ const server = createServer(async (req, res) => {
       idempotencyKey: correlationId,
       subjectId: 'atom-hypo-004',
       requestedAuthority: { authorityClass: AuthorityClass.WORKING, weight: 0.45 },
-      evidence: [{ id: assessmentId, uri: `synapse://${assessmentId}`, sha256Digest: hash(content), verified: true, description: 'Convertible Cranium Synapse response evidence' }],
-      justification: 'Convertible Cranium AI response passed through Synapse evidence and Core authority evaluation.',
+      evidence: [{ id: assessmentId, uri: `synapse://${assessmentId}`, sha256Digest: hash(content), verified: true, description: 'Cranium Synapse response evidence' }],
+      justification: 'Cranium AI response passed through Synapse evidence and Core authority evaluation.',
       requesterId: 'cranium-ai',
       timestamp: Date.now(),
       targetAuthorityVersion: store.load().state.authorityVersion,

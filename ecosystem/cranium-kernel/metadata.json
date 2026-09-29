@@ -1,5 +1,5 @@
 {
-  "name": "Convertible Cranium Core Substrate",
+  "name": "Cranium Core Substrate",
   "description": "Directive-governed cognitive substrate with formal authority boundaries, canonical SHA-256 hashing, replay inspection, and constitutional verification playground.",
   "requestFramePermissions": [],
   "majorCapabilities": [

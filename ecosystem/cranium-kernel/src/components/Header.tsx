@@ -17,6 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const tabs = [
     { id: 'pipeline', label: 'Authority Pipeline' },
+    { id: 'stress50k', label: '50,000 Stress Audit' },
     { id: 'adversarial', label: 'Adversarial Suite' },
     { id: 'canon', label: 'Canon Lane & NLI' },
     { id: 'ledger', label: 'Cryptographic Ledger' },

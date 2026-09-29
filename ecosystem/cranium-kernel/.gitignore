@@ -8,5 +8,6 @@ coverage/
 .idea/
 .vscode/
 
-artifacts/acquisition-stress-suite-report.json
-artifacts/acquisition-stress-suite-report.md
+.termux-backup/
+
+tmp/

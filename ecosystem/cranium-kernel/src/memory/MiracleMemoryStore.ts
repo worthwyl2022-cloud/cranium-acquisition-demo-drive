@@ -161,7 +161,7 @@ export class MiracleMemoryStore {
    *
    * Requires:
    * - The atom exists and is currently PROVISIONAL.
-   * - A valid receipt hash (from a Convertible Cranium Core transition receipt).
+   * - A valid receipt hash (from a Cranium Core transition receipt).
    * - A weight in the CANON range (0.90–0.99).
    *
    * CONSTITUTIONAL promotion is not supported through this method.

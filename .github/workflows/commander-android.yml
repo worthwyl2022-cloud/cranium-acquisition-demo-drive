@@ -61,7 +61,7 @@ jobs:
           unzip -t "$APK" >/dev/null
           "$ANDROID_HOME/build-tools/36.0.0/aapt2" dump badging "$APK" | tee /tmp/commander-badging.txt
           grep -Fq "package: name='com.worthwyl.cranium.commander'" /tmp/commander-badging.txt
-          grep -Fq "sdkVersion:'24'" /tmp/commander-badging.txt
+          grep -Fq "minSdkVersion:'24'" /tmp/commander-badging.txt
           grep -Fq "targetSdkVersion:'36'" /tmp/commander-badging.txt
           "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose "$APK"
           "$ANDROID_HOME/build-tools/36.0.0/zipalign" -c -P 16 -v 4 "$APK"

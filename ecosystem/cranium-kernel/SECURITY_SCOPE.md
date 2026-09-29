@@ -1,7 +1,7 @@
-# Security Scope — Convertible Cranium Core/Synapse Receipt Boundary
+# Security Scope — Cranium Core/Synapse Receipt Boundary
 
-**System under review:** Cranium Kernel, Convertible Cranium Core authority boundary, and Convertible Cranium Synapse attestation contract
-**Scope commit:** See the Git commit SHA printed by `scripts/reproduce-acquisition.sh`
+**System under review:** Cranium Kernel, Cranium Core authority boundary, and Cranium Synapse attestation contract  
+**Scope commit:** See the Git commit SHA printed by `scripts/reproduce-acquisition.sh`  
 **Review status:** Internal reproduction package; independent review remains outstanding.
 
 ## Security objectives
@@ -13,7 +13,7 @@ The system under review is intended to preserve the integrity of authority decis
 - Cranium Kernel authority and transaction boundary code.
 - Receipt creation, canonical request binding, and receipt-chain handling.
 - Ed25519 signature verification and signer-role checks exercised by the integration suite.
-- Convertible Cranium Synapse attestation shape and risk-score contract validation.
+- Cranium Synapse attestation shape and risk-score contract validation.
 - Atomic journal persistence and recovery checks.
 - The 50,000-operation adversarial campaign and its machine-readable receipt.
 - Cranium Ultra hardened Core and OS verification surfaces where invoked by the portfolio report.

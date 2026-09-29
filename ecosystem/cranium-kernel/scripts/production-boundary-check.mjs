@@ -4,7 +4,20 @@ import path from 'node:path';
 
 const root = path.resolve(process.env.ECOSYSTEM_ROOT ?? process.cwd());
 const excluded = new Set(['.git', 'node_modules', 'dist', 'build', 'coverage', 'docs', 'tests', 'test', 'fixtures', 'examples', 'demo', 'demos', '__tests__']);
-const excludedRoots = new Set(['cranium-substrate-simulator', 'worthwyl-forge', 'cranium-cognitive-core', 'cranium-archive', 'cognitive-substrate-governance-ecosystem', 'scripts', 'tools']);
+const excludedRoots = new Set([
+  // Non-production evidence/prototype surfaces are audited by their own gates.
+  // Bootable appliances intentionally bundle historical/demo source and must not
+  // be treated as canonical production implementation by this runtime gate.
+  'cranium-substrate-simulator',
+  'worthwyl-forge',
+  'cranium-cognitive-core',
+  'cranium-archive',
+  'cognitive-substrate-governance-ecosystem',
+  'cranium-boot-drive',
+  'cranium-acquisition-demo-drive',
+  'scripts',
+  'tools'
+]);
 const extensions = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.py', '.kt', '.java', '.go', '.rs', '.json', '.yaml', '.yml']);
 const patterns = [
   /\bMock[A-Z_\w]*/,

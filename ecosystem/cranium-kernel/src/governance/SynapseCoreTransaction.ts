@@ -1,5 +1,10 @@
 import { sha256 } from '../kernel/sha256';
 import type { TrustedKeyRegistry, SignedPayload } from './Signatures';
+import {
+  type SubjectSigner,
+  sealCoreReceipt,
+  verifyCoreReceiptSignature,
+} from './ArtifactLifecycle';
 
 export type TransactionJson = null | boolean | number | string | TransactionJson[] | { [key: string]: TransactionJson };
 export type TransactionRiskTier = 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL';
@@ -65,7 +70,7 @@ export interface SynapseTransactionAttestation {
   generatedAt: string;
   expiresAt: string;
   attestationHash: string;
-  signature: SignedPayload;  // Ed25519 over recomputeAttestationHash(), signed by SYNAPSE_RUNTIME
+  signature: SignedPayload; // Ed25519 over attestationHash, SYNAPSE_RUNTIME
 }
 
 export interface GovernanceReceipt {
@@ -80,12 +85,21 @@ export interface GovernanceReceipt {
   decisionReason: string;
   committedAt: string;
   receiptHash: string;
+  /** Phase 2: CORE signature over receiptHash. Required when coreSigner is injected. */
+  coreSignature?: SignedPayload;
 }
 
 export interface ActionExecutionResult {
   executed: boolean;
   reason: string;
   receipt: GovernanceReceipt;
+}
+
+export interface TransactionGateOptions {
+  /** When set, authorize() seals receipts with CORE and execute() verifies them. */
+  coreSigner?: SubjectSigner;
+  /** When true (default if coreSigner set), execute requires valid coreSignature. */
+  requireCoreSignatureOnExecute?: boolean;
 }
 
 function canonicalize(value: TransactionJson): string {
@@ -98,11 +112,6 @@ function hash(value: TransactionJson | string | object): string {
   return sha256(typeof value === 'string' ? value : canonicalize(value as TransactionJson));
 }
 
-/**
- * Recompute the attestation hash from its contents, excluding the hash
- * and signature fields themselves. If the recomputed hash doesn't match
- * attestationHash, the attestation has been tampered with.
- */
 function recomputeAttestationHash(a: SynapseTransactionAttestation): string {
   const { attestationHash, signature, ...rest } = a;
   return hash(rest as unknown as TransactionJson);
@@ -112,8 +121,17 @@ export class CraniumCoreTransactionGate {
   private readonly committedActionHashes = new Set<string>();
   private readonly receiptChain: GovernanceReceipt[] = [];
   private readonly consumedReceiptIds = new Set<string>();
+  private readonly coreSigner?: SubjectSigner;
+  private readonly requireCoreSignatureOnExecute: boolean;
 
-  constructor(private readonly keys: TrustedKeyRegistry) {}  // inject registry
+  constructor(
+    private readonly keys: TrustedKeyRegistry,
+    options: TransactionGateOptions = {}
+  ) {
+    this.coreSigner = options.coreSigner;
+    this.requireCoreSignatureOnExecute =
+      options.requireCoreSignatureOnExecute ?? Boolean(options.coreSigner);
+  }
 
   issueSynapseEnvelope(
     request: TransactionJson,
@@ -141,7 +159,7 @@ export class CraniumCoreTransactionGate {
     return { ...unsigned, coreEnvelopeHash: hash(unsigned) };
   }
 
-  async authorize(                                            // now async
+  async authorize(
     request: TransactionJson,
     action: ProposedAction,
     authority: CoreAuthorityEnvelope,
@@ -152,7 +170,15 @@ export class CraniumCoreTransactionGate {
   ): Promise<GovernanceReceipt> {
     const requestHash = hash(request);
     const actionHash = hash(action);
-    const decision = await this.evaluate(requestHash, action, actionHash, authority, envelope, attestation, committedAt);
+    const decision = await this.evaluate(
+      requestHash,
+      action,
+      actionHash,
+      authority,
+      envelope,
+      attestation,
+      committedAt
+    );
     const unsigned = {
       receiptId,
       previousReceiptHash: this.receiptChain.at(-1)?.receiptHash ?? null,
@@ -165,24 +191,49 @@ export class CraniumCoreTransactionGate {
       decisionReason: decision.reason,
       committedAt,
     };
-    const receipt = { ...unsigned, receiptHash: hash(unsigned) };
+    let receipt: GovernanceReceipt = { ...unsigned, receiptHash: hash(unsigned) };
+
+    // Phase 2: seal with CORE when signer is present
+    if (this.coreSigner) {
+      receipt = await sealCoreReceipt(receipt, this.coreSigner);
+    }
+
     this.receiptChain.push(receipt);
     if (decision.decision === 'GRANTED') this.committedActionHashes.add(actionHash);
     return receipt;
   }
 
-  receipts(): readonly GovernanceReceipt[] { return this.receiptChain; }
+  receipts(): readonly GovernanceReceipt[] {
+    return this.receiptChain;
+  }
 
-  execute(
+  async execute(
     receipt: GovernanceReceipt,
     action: ProposedAction,
     authority: CoreAuthorityEnvelope,
     now: string,
     handler: (action: ProposedAction) => void
-  ): ActionExecutionResult {
-    if (!this.receiptChain.some((entry) => entry.receiptId === receipt.receiptId && entry.receiptHash === receipt.receiptHash)) {
+  ): Promise<ActionExecutionResult> {
+    if (
+      !this.receiptChain.some(
+        (entry) => entry.receiptId === receipt.receiptId && entry.receiptHash === receipt.receiptHash
+      )
+    ) {
       return { executed: false, reason: 'RECEIPT_NOT_IN_CHAIN', receipt };
     }
+
+    // Phase 2: CORE signature required and valid when configured
+    if (this.requireCoreSignatureOnExecute) {
+      const coreSig = await verifyCoreReceiptSignature(receipt, this.keys, now);
+      if (!coreSig.valid) {
+        return {
+          executed: false,
+          reason: coreSig.reason || 'CORE_SIGNATURE_INVALID',
+          receipt,
+        };
+      }
+    }
+
     if (receipt.decision !== 'GRANTED') {
       return { executed: false, reason: 'RECEIPT_NOT_GRANTED', receipt };
     }
@@ -203,7 +254,7 @@ export class CraniumCoreTransactionGate {
     return { executed: true, reason: 'ACTION_EXECUTED_ONCE', receipt };
   }
 
-  private async evaluate(                                     // now async
+  private async evaluate(
     requestHash: string,
     action: ProposedAction,
     actionHash: string,
@@ -212,32 +263,43 @@ export class CraniumCoreTransactionGate {
     attestation: SynapseTransactionAttestation,
     now: string
   ): Promise<{ decision: CoreDecision; reason: string }> {
-    // --- integrity: contents must match their own hash ---
     if (attestation.attestationHash !== recomputeAttestationHash(attestation)) {
       return { decision: 'ISOLATED', reason: 'ATTESTATION_HASH_MISMATCH' };
     }
 
-    // --- authenticity: signature must verify, be from Synapse, and cover THIS hash ---
     const sig = await this.keys.verify(attestation.signature, now);
-    if (!sig.valid)                              return { decision: 'ISOLATED', reason: 'ATTESTATION_SIGNATURE_INVALID' };
-    if (sig.subject !== 'SYNAPSE_RUNTIME')       return { decision: 'ISOLATED', reason: 'ATTESTATION_WRONG_SIGNER' };
-    if (sig.payload !== attestation.attestationHash) return { decision: 'ISOLATED', reason: 'ATTESTATION_SIGNATURE_PAYLOAD_MISMATCH' };
+    if (!sig.valid) return { decision: 'ISOLATED', reason: 'ATTESTATION_SIGNATURE_INVALID' };
+    if (sig.subject !== 'SYNAPSE_RUNTIME') return { decision: 'ISOLATED', reason: 'ATTESTATION_WRONG_SIGNER' };
+    if (sig.payload !== attestation.attestationHash) {
+      return { decision: 'ISOLATED', reason: 'ATTESTATION_SIGNATURE_PAYLOAD_MISMATCH' };
+    }
 
-    // --- existing checks (unchanged) ---
     if (envelope.expiresAt <= now) return { decision: 'DENIED', reason: 'CORE_ENVELOPE_EXPIRED' };
     if (attestation.expiresAt <= now) return { decision: 'ISOLATED', reason: 'SYNAPSE_ATTESTATION_EXPIRED' };
     if (envelope.requestHash !== requestHash) return { decision: 'ISOLATED', reason: 'REQUEST_HASH_MISMATCH' };
     if (attestation.requestHash !== requestHash) return { decision: 'ISOLATED', reason: 'ATTESTATION_REQUEST_MISMATCH' };
-    if (attestation.coreEnvelopeHash !== envelope.coreEnvelopeHash) return { decision: 'ISOLATED', reason: 'ATTESTATION_ENVELOPE_MISMATCH' };
-    if (attestation.authorityVersion !== authority.authorityVersion) return { decision: 'DENIED', reason: 'STALE_AUTHORITY_VERSION' };
+    if (attestation.coreEnvelopeHash !== envelope.coreEnvelopeHash) {
+      return { decision: 'ISOLATED', reason: 'ATTESTATION_ENVELOPE_MISMATCH' };
+    }
+    if (attestation.authorityVersion !== authority.authorityVersion) {
+      return { decision: 'DENIED', reason: 'STALE_AUTHORITY_VERSION' };
+    }
     if (this.committedActionHashes.has(actionHash)) return { decision: 'DENIED', reason: 'DUPLICATE_ACTION_REPLAY' };
     if (!authority.allowedTools.includes(action.tool)) return { decision: 'DENIED', reason: 'TOOL_OUTSIDE_AUTHORITY_SCOPE' };
-    if (attestation.disposition === 'INTEGRITY_FAILURE') return { decision: 'ISOLATED', reason: 'SYNAPSE_INTEGRITY_FAILURE' };
+    if (attestation.disposition === 'INTEGRITY_FAILURE') {
+      return { decision: 'ISOLATED', reason: 'SYNAPSE_INTEGRITY_FAILURE' };
+    }
     if (attestation.disposition === 'ABSTAIN') return { decision: 'DENIED', reason: 'SYNAPSE_ABSTENTION' };
-    if (attestation.disposition === 'ESCALATE' || authority.requiresHumanApproval.includes(action.tool)) return { decision: 'ESCALATED', reason: 'HUMAN_APPROVAL_REQUIRED' };
-    if (attestation.disposition === 'RESTRICT_TOOLS') return { decision: 'DENIED', reason: 'SYNAPSE_RESTRICTED_ACTION_ENVELOPE' };
+    if (attestation.disposition === 'ESCALATE' || authority.requiresHumanApproval.includes(action.tool)) {
+      return { decision: 'ESCALATED', reason: 'HUMAN_APPROVAL_REQUIRED' };
+    }
+    if (attestation.disposition === 'RESTRICT_TOOLS') {
+      return { decision: 'DENIED', reason: 'SYNAPSE_RESTRICTED_ACTION_ENVELOPE' };
+    }
     return { decision: 'GRANTED', reason: 'AUTHORIZED_WITHIN_SCOPE' };
   }
 }
 
-export function hashTransactionValue(value: TransactionJson | string | object): string { return hash(value); }
+export function hashTransactionValue(value: TransactionJson | string | object): string {
+  return hash(value);
+}

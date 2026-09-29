@@ -81,7 +81,7 @@ export default function CommanderOverview({ onNavigate, coherence, tension, onOp
             </div>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden bg-[#070d18]">
-            <img src="/assets/commander/commander-persona.png" alt="Commander human host concept" className="h-full w-full object-cover" />
+            <img src="/assets/commander/commander-persona.png" alt="Wyl Mathes, Creator & Guide" className="h-full w-full object-cover" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#070d18] via-[#070d18]/80 to-transparent p-5 pt-16">
               <div className="text-sm font-medium text-white">Cranium AI</div>
               <div className="mt-1 text-xs leading-5 text-slate-300">Intelligence and orchestration with Wyl as the human-facing presence.</div>

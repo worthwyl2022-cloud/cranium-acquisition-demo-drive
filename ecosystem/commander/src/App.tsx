@@ -127,9 +127,8 @@ export default function App() {
           {activeView === 'physics' && <ResonanceFieldView field={field} metrics={metrics} onAtomInjected={handleAtomInjected} onAtomRemoved={handleAtomRemoved} onResetField={handleResetField} />}
           {activeView === 'diligence' && <DiligenceDataRoom />}
           {activeView === 'ecosystem' && <EcosystemMap onNavigate={navigateToView} />}
-          {(activeView === 'identity' || activeView === 'payments') && (
-            <PlaceholderPanel title={activeView === 'identity' ? 'Identity' : 'Payments'} />
-          )}
+          {activeView === 'identity' && <IdentityPanel />}
+          {activeView === 'payments' && <PaymentsPanel />}
         </main>
       </div>
       <footer className="fixed bottom-0 inset-x-0 z-30 border-t border-slate-800/80 bg-[#050a12]/95 backdrop-blur-xl">
@@ -165,14 +164,47 @@ function StatusRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-function PlaceholderPanel({ title }: { title: string }) {
+function IdentityPanel() {
   return (
-    <section className="rounded-[28px] border border-slate-800/80 bg-[#080f1b] p-8">
-      <div className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Layer surface</div>
-      <h1 className="mt-2 text-3xl font-semibold text-white">{title}</h1>
-      <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-400">
-        This surface is intentionally bounded while the canonical Kernel integration is completed. Commander does not invent authority or local receipts.
-      </p>
+    <section className="space-y-5">
+      <div className="rounded-[28px] border border-slate-800/80 bg-[#080f1b] p-6 md:p-8">
+        <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-cyan-300">Identity & provenance</div>
+        <h1 className="mt-2 text-3xl font-semibold text-white">Wyl Mathes</h1>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400">Verified human creator and the human-facing presence of Cranium AI. This surface describes identity and provenance. It does not grant authority.</p>
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        <InfoCard title="Human identity" items={['Wyl Mathes', 'Creator & Guide', 'Visual identity: verified photograph, slightly altered', 'Voice: supplied Wyl recording']} />
+        <InfoCard title="Authority boundary" items={['Cranium AI: intelligence & orchestration', 'Synapse: evidence & assessment', 'Cranium Kernel: canonical authority', 'Commander: supporting operational surface']} />
+      </div>
+      <div className="rounded-[24px] border border-violet-400/20 bg-violet-500/[0.06] p-5 text-sm leading-6 text-slate-300">Identity establishes who is represented. Canonical authorization remains a Kernel responsibility and must be backed by a verifiable canonical path and receipt.</div>
     </section>
+  );
+}
+
+function PaymentsPanel() {
+  return (
+    <section className="space-y-5">
+      <div className="rounded-[28px] border border-slate-800/80 bg-[#080f1b] p-6 md:p-8">
+        <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-amber-300">Payments & commercial state</div>
+        <h1 className="mt-2 text-3xl font-semibold text-white">Commercial boundary</h1>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400">Commander exposes the commercial boundary without fabricating balances, transactions, plans, or payment authority that are not connected to a verified backend.</p>
+      </div>
+      <div className="grid gap-4 md:grid-cols-3">
+        <InfoCard title="Current state" items={['No live payment state exposed by this surface', 'No balances fabricated', 'No transaction receipts fabricated']} />
+        <InfoCard title="Integration boundary" items={['Payments belong behind a verified service boundary', 'Commercial events require authoritative receipts', 'UI state is informational until connected']} />
+        <InfoCard title="Acquisition view" items={['Commercial infrastructure can be reviewed separately', 'Repository ownership remains distinct from payment state', 'No external action is triggered here']} />
+      </div>
+    </section>
+  );
+}
+
+function InfoCard({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="rounded-[24px] border border-slate-800/80 bg-[#080f1b] p-5">
+      <h2 className="text-sm font-bold text-white">{title}</h2>
+      <ul className="mt-3 space-y-2 text-xs leading-5 text-slate-400">
+        {items.map((item) => <li key={item} className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />{item}</li>)}
+      </ul>
+    </div>
   );
 }

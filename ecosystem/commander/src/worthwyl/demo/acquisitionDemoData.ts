@@ -19,16 +19,16 @@ export const DEMO_CHAPTERS: DemoChapter[] = [
     act: "Act I",
     title: "The Creative Bottleneck & The Behavioral Contract",
     durationSec: 18,
-    narratorVoiceText: "Welcome to WorthWyl Creative OS. Today's creative tools treat artificial intelligence as a disposable chat generator. In long-running projects, models drift, character arcs collapse, and creative intent is diluted. WorthWyl introduces Convertible Cranium Core, the world's first directive-governed cognitive substrate that treats canon, identity, and intent as first-class constraints.",
+    narratorVoiceText: "Welcome to Cranium Command. Convertible Cranium separates intelligence from authority: models and cognitive layers may propose, evidence may inform, but canonical authority remains with Cranium Kernel. The Commander surface makes that architecture understandable without pretending the interface itself is the authority.",
     captions: [
       "Current generative tools suffer from canon amnesia and narrative drift.",
       "Convertible Cranium Core establishes an immutable behavioral contract between author and machine.",
       "Intent, canon, and emotional logic are enforced as first-class physical constraints."
     ],
     keyHighlights: [
-      { metric: "100%", label: "Constraint Guarantee", description: "Identity and canon cannot be overridden by conversational drift." },
+      { metric: "Bounded", label: "Constraint Enforcement", description: "Identity and canon cannot be overridden by conversational drift." },
       { metric: "0.90", label: "Coherence Floor", description: "Calibrated threshold enforcing strict multi-episode integrity." },
-      { metric: "4 Core", label: "Subsystem Pillars", description: "Convertible Cranium Core, Media Engine, Studio, and Miracle Archive." }
+      { metric: "5+", label: "Governed Layers", description: "Convertible Cranium Core, Media Engine, Studio, and Miracle Archive." }
     ],
     visualMode: "summary"
   },
@@ -62,7 +62,7 @@ export const DEMO_CHAPTERS: DemoChapter[] = [
       "Multi-thread tracker guarantees no plot threads are dropped or arbitrarily forgotten."
     ],
     keyHighlights: [
-      { metric: "100% Retained", label: "Character Lineage", description: "Tracks firstSeen, lastSeen, and conflict progression." },
+      { metric: "Tracked", label: "Character Lineage", description: "Tracks firstSeen, lastSeen, and conflict progression." },
       { metric: "Dual Cortex", label: "Visual + Text Hybrid", description: "Detects pacing drift through both linguistic and layout density." },
       { metric: "3-5 Epoch", label: "Episodic Spine", description: "ContextBuilder synthesizes recent canon with active persona philosophy." }
     ],
@@ -93,14 +93,14 @@ export const DEMO_CHAPTERS: DemoChapter[] = [
     durationSec: 20,
     narratorVoiceText: "WorthWyl Creative OS is engineered as an enterprise-grade microservice constellation. Designed for Azure Kubernetes Service, it integrates Istio service mesh, Redis caching, and AES-256 encrypted Miracle Archive storage. With zero debt and verifiable behavioral contracts, it represents an acquisition-ready strategic bridge for Microsoft Copilot and Azure AI.",
     captions: [
-      "Microservice topology built for Azure Kubernetes Service with Istio service mesh.",
+      "Historical application topology and deployment material are presented as evidence, while current canonical authority remains in Cranium Kernel.",
       "Encrypted Miracle Archive preserving generational creative assets with AES-256.",
-      "Clean IP, honest diligence validation, and turnkey integration into Microsoft's ecosystem."
+      "Acquisition diligence is organized around verifiable evidence, provenance, ownership, and integration boundaries."
     ],
     keyHighlights: [
       { metric: "AKS Ready", label: "Enterprise Topology", description: "Isolated namespaces for Core, Media, Studio, and Legacy." },
       { metric: "AES-256", label: "Miracle Archive", description: "Generational encrypted storage with immutable provenance." },
-      { metric: "Category 1st", label: "Creative OS Moat", description: "Positions acquirer to lead creative cognition rather than commodity chatbots." }
+      { metric: "Architecture", label: "Governance Boundary", description: "Describes the separation between intelligence, evidence, authority, and governed execution." }
     ],
     visualMode: "architecture"
   }

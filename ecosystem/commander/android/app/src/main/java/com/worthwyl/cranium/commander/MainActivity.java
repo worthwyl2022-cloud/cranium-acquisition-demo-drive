@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.webkit.SafeBrowsingResponse;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
@@ -57,11 +56,6 @@ public final class MainActivity extends Activity {
                 return true;
             }
 
-            @Override
-            public void onSafeBrowsingHit(WebView view, WebResourceRequest request,
-                    SafeBrowsingResponse response, int threatType) {
-                response.backToSafety(true);
-            }
         });
 
         setContentView(webView);

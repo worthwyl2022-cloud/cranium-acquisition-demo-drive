@@ -31,7 +31,7 @@ Cranium’s architecture combines two cooperating engines:
 | **Cognition / Synapse layer** | Carries model output, semantic assessment, bounded intervention, evidence, uncertainty, and escalation signals | Propose, assess, restrict, quarantine, or escalate | Grant authority or independently create an authorized side effect |
 | **Authority / Core layer** | Evaluates proposals against policy and durable state, applies replay and boundary checks, commits transitions, and emits receipts | Authorize or deny a governed transition and record the result | Treat model output, client intent, or an unsigned local record as permission |
 
-This dual-engine design is the central strategic asset. It allows a buyer to use models from its own stack, third-party providers, or future model families without making the authority boundary dependent on one model vendor.
+This legacy dual-engine design is the central strategic asset. It allows a buyer to use models from its own stack, third-party providers, or future model families without making the authority boundary dependent on one model vendor.
 
 ## The missing layer in the AI stack
 
@@ -116,7 +116,7 @@ The word **novel** may be used as a product-development or design description, b
 
 ## Thirty-second verbal pitch
 
-> **Cranium is the authority layer for AI systems. Models can come from anywhere, but model output is not permission. Cranium receives a proposed action, validates its evidence and policy context, checks identity, namespace, freshness, replay, and durable state, then either commits an explicit transition with a verifiable receipt or fails closed. Its dual-engine design keeps cognition portable while making authority governed and auditable. Miracle Memory provides the durable authority history needed for recovery and independent verification.**
+> **Cranium is the authority layer for AI systems. Models can come from anywhere, but model output is not permission. Cranium receives a proposed action, validates its evidence and policy context, checks identity, namespace, freshness, replay, and durable state, then either commits an explicit transition with a verifiable receipt or fails closed. Its legacy dual-engine design keeps cognition portable while making authority governed and auditable. Miracle Memory provides the durable authority history needed for recovery and independent verification.**
 
 ## One-page buyer message
 
@@ -142,7 +142,7 @@ The initial technical package includes a versioned authority protocol, a referen
 
 ## Bottom line
 
-Cranium should be presented as a **governed authority substrate for AI**, not as another model, agent framework, or memory database. Its strongest acquisition narrative is the separation of portable cognition from controlled authority, implemented through a dual-engine architecture and backed by durable state, explicit transitions, replay resistance, and verifiable receipts.
+Cranium should be presented as a **governed authority substrate for AI**, not as another model, agent framework, or memory database. Its strongest acquisition narrative is the separation of portable cognition from controlled authority, implemented through a legacy dual-engine architecture and backed by durable state, explicit transitions, replay resistance, and verifiable receipts.
 
 The opportunity may be significant because the control boundary becomes more important as AI systems gain more ability to act. The acquisition case becomes credible when the architecture is paired with independent security evidence, interoperable implementations, real workload performance, clear intellectual-property ownership, and buyer-specific deployment proof.
 
@@ -152,3 +152,9 @@ The opportunity may be significant because the control boundary becomes more imp
 [2]: https://github.com/worthwyl2022-cloud/cranium-kernel/blob/main/docs/CRANIUM_AUTHORITY_PROTOCOL_V1.md "Cranium Authority Protocol v1"
 [3]: https://github.com/worthwyl2022-cloud/cranium-kernel/blob/main/docs/CRANIUM_CONFORMANCE_V1.json "Cranium Conformance v1 vectors"
 [4]: https://github.com/worthwyl2022-cloud/cranium-kernel/blob/main/docs/RELEASE_MATRIX.md "Cranium Release Readiness Matrix"
+
+## Current architecture baseline — 2026-10-02
+
+The current canonical architecture is Dual-Substrate / Quad-Engine: Cranium AI, Synapse, Governance Review Juror One, and Governance Review Juror Two. The jurors deliberately use different review mandates and processes and neither issues authority. The Convertible Cranium Kernel remains the sole canonical authority source. Commander OS is the operational control surface; Cranium Listener is untrusted ingress; Miracle Memory provides governed continuity; Circuit Breaker / COMA provides cross-cutting runtime safety and recovery.
+
+The former Dual-Engine and Eight-Plane descriptions are historical framing only and must not be treated as the current governance model.

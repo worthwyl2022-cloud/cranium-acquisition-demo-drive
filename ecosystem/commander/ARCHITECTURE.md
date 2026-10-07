@@ -1,68 +1,28 @@
-# Commander OS Architecture
+# Convertible Cranium Commander
 
-## Repository role
+## Canonical status
 
-**Supporting operational control surface.**
+This directory is the **current canonical Commander operating surface** for the new Convertible Cranium architecture.
 
-Commander is a user-facing application layer over the Convertible Cranium ecosystem.
-It is not an authority implementation.
+The prior Commander implementation is preserved unchanged as `ecosystem/commander-legacy/`. It is historical/reference material and is not the canonical runtime path.
 
-## Canonicality
+## Authority path
 
-- Canonical authority: `cranium-kernel`
-- Canonical attestation contract: `cranium-synapse`
-- Continuity/memory surface: `miracle-memory`
-- Operational surface: `commander`
-- Creative application: `worthwyl-forge`
-- Historical/supporting metacognitive material: `cranium-metacognitive-mapper`
+`Listener → Synapse → Dual Independent Substrate Authority → Convertible Cranium Kernel → Governed Execution → Receipt / Lineage`
 
-Commander must never create a competing authority store or canonical receipt format.
+Commander is an operating surface. It is not a source of canonical authority.
 
-## Runtime flow
+## Boundary rules
 
-1. User input enters through Commander UI or voice input.
-2. Commander builds bounded application context.
-3. Convertible Cranium AI may propose navigation, generation, or other actions.
-4. Session protection controls repeated asynchronous execution.
-5. Proposed authority-changing work must cross the Kernel boundary.
-6. Kernel evaluates the request against canonical state, evidence, replay rules,
-   constitutional constraints, and transition semantics.
-7. Only Kernel persistence establishes canonical state and receipt status.
+- Listener ingress is untrusted and receives `NONE` authority.
+- Synapse proposes cognition; it does not grant authority.
+- Substrate A independently evaluates constitutional permissibility.
+- Substrate B independently evaluates evidence grounding.
+- The two assessments are sealed before convergence.
+- Convertible Cranium Kernel is the sole canonical authority boundary.
+- Commander cannot mint, elevate, or forge authority.
+- Legacy Commander code is excluded from the current architecture path.
 
-## Session Circuit Breaker
+## Product boundary
 
-The session circuit has three states:
-
-- `CLOSED`: normal operation.
-- `OPEN`: repeated async failures have triggered a temporary execution block.
-- `HALF_OPEN`: cooldown elapsed; one operation may probe recovery.
-
-The circuit is a runtime guard, not a governance authority.
-
-On operation failure, the configured rollback callback executes before the failure is
-recorded. Once the threshold is reached, subsequent operations fail closed until the
-cooldown expires.
-
-## Non-canonical state
-
-The following are explicitly non-canonical:
-
-- React component state
-- browser history/hash navigation
-- local UI metrics
-- model output
-- demo fixtures
-- client-side memory
-- session circuit state
-
-These can inform or drive a request, but none can independently grant authority.
-
-## Lineage migration
-
-The Commander source was migrated from the archived `cranium-operator-os` Git
-repository. The migration preserves its functional application surfaces while
-updating identity and architecture language to the current Convertible Cranium
-model.
-
-The historical repository remains evidence of provenance; it is not silently
-rewritten into a claim that it was originally the current Commander architecture.
+This implementation is the foundation for the bootable **Convertible Cranium Chromium Edition**. Bootable packaging must consume this current architecture, not the legacy Commander tree.

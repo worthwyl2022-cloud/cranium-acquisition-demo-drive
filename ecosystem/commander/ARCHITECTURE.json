@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "status": "CURRENT_CANONICAL",
+  "legacyPath": "../commander-legacy",
+  "authority": "ecosystem/cranium-kernel",
+  "path": ["listener-ingress-boundary", "engine-1-synapse", "dual-independent-substrate-authority", "engine-3-kernel", "governed-execution", "receipt-lineage"],
+  "rule": "Commander is an operating surface and cannot mint canonical authority."
+}

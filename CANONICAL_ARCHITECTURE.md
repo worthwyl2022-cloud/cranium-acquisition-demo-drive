@@ -16,7 +16,7 @@ This document defines the architecture that drives the Chromium Edition boot bin
 
 ## 3. Authority model
 
-Cognition may come from anywhere. Authority comes only through Cranium.
+Cognition may come from anywhere. Authority comes only through Convertible Cranium.
 
 The canonical path is:
 
@@ -41,7 +41,7 @@ Authority              Grounding
       |                    |
       +---------+----------+
                 v
-ENGINE 3: CRANIUM KERNEL
+ENGINE 3: CONVERTIBLE CRANIUM KERNEL
 canonical convergence + authorization + transition + durable commit
                 |
                 v
@@ -73,13 +73,19 @@ Question: **Is it so?**
 Authority: NONE. It is a grounding decision input, not canonical authority.
 Status: IMPLEMENTED AND VERIFIED. B1/B2 are independently executable within Substrate B, with independent version bindings and evidence-grounding logic.
 
-### Engine 3: Cranium Kernel
+### Engine 3: Convertible Cranium Kernel
 Input: proposal, A/B findings, authorization context, evidence lineage, version bindings.
 Output: canonical transition or explicit rejection/quarantine.
 Authority: SOLE CANONICAL AUTHORITY.
 Required checks include identity/capability, proposal integrity, evidence binding, version binding, replay protection, current state, convergence, transition construction, durable commit, receipt.
 
-## 5. Dual-substrate boundary
+## 5. Authority convergence contract
+
+The canonical Quad Engine convergence semantics are defined in `ecosystem/cranium-kernel/docs/AUTHORITY_CONVERGENCE_CONTRACT_V1.md`. Substrates A and B derive independently and converge only through the Kernel. The contract defines the semantic truth table, precedence, binding/fail-closed rules, replay/idempotency boundary, independence mechanism, and named verification requirements.
+
+**Evidence rule:** Rows without a named test are gaps, not claims.
+
+## 6. Dual-substrate boundary
 
 Substrate A and Substrate B must not be clones that deterministically reproduce the same judgment.
 
@@ -89,7 +95,7 @@ B owns evidence acquisition/normalization, provenance, integrity, contradiction 
 
 They share the high-level principle **Truth above all** while retaining independently versioned constitutions/policies/formulas.
 
-## 6. Memory architecture
+## 7. Memory architecture
 
 Miracle Memory is governed continuity. It stores identity, continuity, canonical/provisional material, provenance, quarantine state, snapshots, recovery state, and retrieval/update history.
 
@@ -115,13 +121,13 @@ field step
 
 Locked/identity atoms are protected from flux eviction. Subsidy sources must be locked/identity atoms. Subsidy targets must be non-protected atoms. Transfer requires the applicable approval/ratification gate.
 
-## 7. Cross-cutting safety
+## 8. Cross-cutting safety
 
 Circuit Breaker / COMA provides containment, freeze, quarantine, evidence preservation, recovery, and controlled resume. It is not a competing authority engine.
 
 Replay protection, evidence integrity, authorization, durable journaling, receipts, and recovery are cross-cutting controls.
 
-## 8. Trust zones
+## 9. Trust zones
 
 1. Untrusted ingress.
 2. Cognition/proposal zone.
@@ -134,7 +140,7 @@ Replay protection, evidence integrity, authorization, durable journaling, receip
 
 No lower-trust zone may mint authority for a higher-trust zone.
 
-## 9. Canonical implementation status
+## 10. Canonical implementation status
 
 VERIFIED/EXECUTABLE today: Synapse source and contract; independent Substrate A with Jury A1/A2; independent Substrate B with Jury B1/B2; Kernel convergence gate; Quad Engine authority path; Kernel authority/replay/COMA/memory controls; WorthWyl Forge substrate and Metabolic Memory v2; executable architecture gate.
 

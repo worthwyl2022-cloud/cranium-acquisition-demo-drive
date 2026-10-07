@@ -44,3 +44,8 @@ Canonical state is represented by the Kernel authority store. Browser state, dem
 ## Explicit limitation
 
 This repository now includes a durable SQLite-backed reference store and boundary contract. A production deployment still requires operational review of database permissions, backups, key custody, migration discipline, and multi-node topology.
+## Authority Convergence Contract
+
+The canonical convergence semantics for the Quad Engine are defined in `docs/AUTHORITY_CONVERGENCE_CONTRACT_V1.md`. That contract defines the A ∥ B independence boundary, semantic truth table, precedence, fail-closed behavior, replay/idempotency boundary, named verification map, and explicitly declared extensions that are not claims.
+
+**Evidence rule:** Rows without a named test are gaps, not claims.

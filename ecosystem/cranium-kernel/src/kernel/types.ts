@@ -154,7 +154,23 @@ export type TransitionDecision =
   | { type: 'Granted'; grantedAuthority: AuthorityLevel; rationale: string }
   | { type: 'Denied'; reason: string; violationCode?: BoundaryViolation };
 
+export interface AuthorityReceipt {
+  receiptVersion: '1.0';
+  issuer: 'CRANIUM_KERNEL';
+  transitionId: string;
+  subjectAtomId: string;
+  authority: AuthorityLevel;
+  authorityVersion: number;
+  constitutionalVersion: string;
+  requestHash: RequestHash;
+  evidenceRefs: string[];
+  decision: 'Granted' | 'Denied';
+  issuedAt: number;
+  receiptDigest: string;
+}
+
 export interface AuthorityTransition {
+  authorityReceipt?: AuthorityReceipt;
   id: string;
   subjectAtomId: string;
   sourceAuthority: AuthorityLevel;

@@ -8,7 +8,7 @@ Human/external intent → Listener → Synapse → independent Constitutional Au
 
 The Chromium Edition is a distribution and evidence surface, not a second authority system.
 
-Every implemented box is required to be executable and verifiable. The current machine-checkable registry is `EXECUTABLE_ARCHITECTURE.json`.
+Every registered box is required to be executable, contract-bound, test-bound, integration-bound, and authority-classified. The current machine-checkable registry is `EXECUTABLE_ARCHITECTURE.json`, enforced by `scripts/verify-architecture-contracts.mjs`.
 
 The Quad Engine/Dual Substrate architecture is canonical and the independent A/B substrate boundary is now implemented and verified. See EXECUTABLE_ARCHITECTURE.json and EXECUTABLE_ARCHITECTURE_MAP.md for the evidence-backed inventory.
 

@@ -12,7 +12,7 @@ Miracle Memory, Metabolic Memory v2, Circuit Breaker/COMA, Commander, Cranium AI
 
 ## Executability rule
 
-Every implemented architectural box must have executable implementation, an explicit contract, and verification evidence. `EXECUTABLE_ARCHITECTURE.json` and `scripts/verify-executable-architecture.mjs` enforce the current registered set.
+Every implemented architectural box must have executable implementation, an explicit machine-readable contract, an executable test reference, integration evidence, and an explicit authority classification. `EXECUTABLE_ARCHITECTURE.json`, `ARCHITECTURAL_COMPONENT_CONTRACTS.json`, and `scripts/verify-architecture-contracts.mjs` enforce the current registered set.
 
 ## Quad Engine status
 

@@ -102,7 +102,7 @@ Every registered box has:
 - verification command;
 - declared status.
 
-The machine-readable source is EXECUTABLE_ARCHITECTURE.json.
+The machine-readable source is EXECUTABLE_ARCHITECTURE.json. Each registered box is additionally bound to ARCHITECTURAL_COMPONENT_CONTRACTS.json and an executable test/integration reference. The strict enforcement gate is scripts/verify-architecture-contracts.mjs.
 The contract index is ARCHITECTURAL_COMPONENT_CONTRACTS.md.
 The test matrix is ARCHITECTURAL_COMPONENT_TEST_MATRIX.md.
 

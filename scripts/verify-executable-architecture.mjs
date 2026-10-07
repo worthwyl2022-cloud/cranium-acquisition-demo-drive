@@ -3,6 +3,9 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 
 const root = process.cwd();
+
+// Structural executable gate is subordinate to the stricter code+contract+test+integration gate.
+execFileSync(process.execPath, [path.join(root, "scripts/verify-architecture-contracts.mjs")], { cwd: root, stdio: "inherit", timeout: 120000 });
 const manifest = JSON.parse(fs.readFileSync(path.join(root, "EXECUTABLE_ARCHITECTURE.json"), "utf8"));
 
 let failures = 0;

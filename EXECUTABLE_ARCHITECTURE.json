@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "rule": "No box without code. No code without a contract. No contract without a test. No authority claim without a demonstrated authority path.",
   "boxes": [
     {
@@ -8,8 +8,12 @@
       "entry": "ecosystem/cranium-synapse/src/index.ts",
       "verify": "test -f ecosystem/cranium-synapse/src/index.ts",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/synapse-integration-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:engine-1-synapse",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:synapse",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/synapse-integration-check.ts",
+      "authority": "NONE"
     },
     {
       "id": "engine-3-kernel",
@@ -17,8 +21,12 @@
       "entry": "ecosystem/cranium-kernel/src/kernel/engine.ts",
       "verify": "cd ecosystem/cranium-kernel && npm run lint",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/authority-lifecycle-matrix.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:engine-3-kernel",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:lifecycle",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/authority-lifecycle-matrix.ts",
+      "authority": "SOLE_CANONICAL_AUTHORITY"
     },
     {
       "id": "kernel-authority-proxy",
@@ -26,8 +34,12 @@
       "entry": "ecosystem/cranium-kernel/src/authority/authorityProxy.ts",
       "verify": "cd ecosystem/cranium-kernel && npm run lint",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/authority-boundary-adversarial-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:kernel-authority-proxy",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:conformance",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/authority-boundary-adversarial-check.ts",
+      "authority": "SOLE_CANONICAL_AUTHORITY"
     },
     {
       "id": "kernel-capability-authority",
@@ -35,8 +47,12 @@
       "entry": "ecosystem/cranium-kernel/src/authority/capabilityAuthority.ts",
       "verify": "cd ecosystem/cranium-kernel && npm run lint",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/capability-authority-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:kernel-capability-authority",
+      "testCommand": "cd ecosystem/cranium-kernel && node ./node_modules/tsx/dist/cli.mjs scripts/capability-authority-check.ts",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/capability-authority-check.ts",
+      "authority": "SOLE_CANONICAL_AUTHORITY"
     },
     {
       "id": "kernel-replay-guard",
@@ -44,8 +60,12 @@
       "entry": "ecosystem/cranium-kernel/src/kernel/replayGuard.ts",
       "verify": "cd ecosystem/cranium-kernel && npm run lint",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/conformance-vectors.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:kernel-replay-guard",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:conformance",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/conformance-vectors.ts",
+      "authority": "SOLE_CANONICAL_AUTHORITY"
     },
     {
       "id": "kernel-coma",
@@ -53,8 +73,12 @@
       "entry": "ecosystem/cranium-kernel/src/kernel/coma.ts",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:coma",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/coma-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:kernel-coma",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:coma",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/coma-check.ts",
+      "authority": "RUNTIME_SAFETY_ONLY"
     },
     {
       "id": "miracle-memory",
@@ -62,8 +86,12 @@
       "entry": "ecosystem/cranium-kernel/src/memory/MiracleMemoryStore.ts",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:memory",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/miracle-memory-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:miracle-memory",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:memory",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/miracle-memory-check.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "synapse-contract",
@@ -71,8 +99,12 @@
       "entry": "ecosystem/cranium-synapse/src/contract.ts",
       "verify": "test -f ecosystem/cranium-synapse/src/contract.ts",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/synapse-contract-smoke.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:synapse-contract",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:synapse-contract",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/synapse-contract-smoke.ts",
+      "authority": "NONE"
     },
     {
       "id": "forge-substrate",
@@ -80,8 +112,12 @@
       "entry": "ecosystem/worthwyl-forge/src/lib/craniumSubstrate.ts",
       "verify": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:forge-substrate",
+      "testCommand": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
+      "integrationRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "metabolic-governance",
@@ -90,8 +126,12 @@
       "symbol": "MetabolicGovernance",
       "verify": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:metabolic-governance",
+      "testCommand": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
+      "integrationRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "metabolic-ledger",
@@ -100,8 +140,12 @@
       "symbol": "MetabolicLedger",
       "verify": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:metabolic-ledger",
+      "testCommand": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
+      "integrationRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "metabolic-rate",
@@ -110,8 +154,12 @@
       "symbol": "metabolicRate",
       "verify": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:metabolic-rate",
+      "testCommand": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
+      "integrationRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "residency-priority",
@@ -120,8 +168,12 @@
       "symbol": "residencyPriority",
       "verify": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:residency-priority",
+      "testCommand": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
+      "integrationRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "metabolic-reconciliation",
@@ -130,8 +182,12 @@
       "symbol": "reconcile",
       "verify": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:metabolic-reconciliation",
+      "testCommand": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
+      "integrationRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "metabolic-subsidy",
@@ -140,8 +196,12 @@
       "symbol": "subsidize",
       "verify": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:metabolic-subsidy",
+      "testCommand": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
+      "integrationRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "metabolic-cycle-integration",
@@ -150,8 +210,12 @@
       "symbol": "step",
       "verify": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:metabolic-cycle-integration",
+      "testCommand": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
+      "integrationRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "metabolic-contract",
@@ -159,8 +223,12 @@
       "entry": "ecosystem/worthwyl-forge/SUBSTRATE_CONTRACT_v36.md",
       "verify": "grep -q 'I6b: Metabolic Memory v2' ecosystem/worthwyl-forge/SUBSTRATE_CONTRACT_v36.md",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:metabolic-contract",
+      "testCommand": "cd ecosystem/worthwyl-forge && npm run test:metabolic",
+      "integrationRef": "ecosystem/worthwyl-forge/src/lib/metabolic-memory-v2.test.ts",
+      "authority": "NO_CANONICAL_AUTHORITY"
     },
     {
       "id": "commander-surface",
@@ -168,8 +236,12 @@
       "entry": "ecosystem/commander/src",
       "verify": "test -d ecosystem/commander/src",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "scripts/surface-smoke-check.mjs",
+      "status": "VERIFIED",
+      "contractId": "contract:commander-surface",
+      "testCommand": "node scripts/surface-smoke-check.mjs commander && npm --prefix ecosystem/commander run lint && npm --prefix ecosystem/commander run build",
+      "integrationRef": "scripts/surface-smoke-check.mjs",
+      "authority": "OPERATIONAL_SURFACE"
     },
     {
       "id": "cranium-ai-surface",
@@ -177,8 +249,12 @@
       "entry": "ecosystem/cranium-ai/server",
       "verify": "test -d ecosystem/cranium-ai/server",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "scripts/surface-smoke-check.mjs",
+      "status": "VERIFIED",
+      "contractId": "contract:cranium-ai-surface",
+      "testCommand": "node scripts/surface-smoke-check.mjs cranium-ai && npm --prefix ecosystem/cranium-ai test",
+      "integrationRef": "scripts/surface-smoke-check.mjs",
+      "authority": "OPERATIONAL_SURFACE"
     },
     {
       "id": "ultra-surface",
@@ -186,8 +262,12 @@
       "entry": "ecosystem/cranium-ultra/projects",
       "verify": "test -d ecosystem/cranium-ultra/projects",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "scripts/ultra-surface-check.mjs",
+      "status": "VERIFIED",
+      "contractId": "contract:ultra-surface",
+      "testCommand": "node scripts/ultra-surface-check.mjs",
+      "integrationRef": "scripts/ultra-surface-check.mjs",
+      "authority": "OPERATIONAL_SURFACE"
     },
     {
       "id": "substrate-a-jury-a1",
@@ -196,8 +276,12 @@
       "symbol": "JuryA1",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:substrate-a-jury-a1",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "authority": "NONE"
     },
     {
       "id": "substrate-a-jury-a2",
@@ -206,8 +290,12 @@
       "symbol": "JuryA2",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:substrate-a-jury-a2",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "authority": "NONE"
     },
     {
       "id": "engine-2a-substrate-a",
@@ -216,8 +304,12 @@
       "symbol": "ConstitutionalSubstrateA",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:engine-2a-substrate-a",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "authority": "NONE"
     },
     {
       "id": "substrate-b-jury-b1",
@@ -226,8 +318,12 @@
       "symbol": "JuryB1",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:substrate-b-jury-b1",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "authority": "NONE"
     },
     {
       "id": "substrate-b-jury-b2",
@@ -236,8 +332,12 @@
       "symbol": "JuryB2",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:substrate-b-jury-b2",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "authority": "NONE"
     },
     {
       "id": "engine-2b-substrate-b",
@@ -246,8 +346,12 @@
       "symbol": "EvidenceGroundingSubstrateB",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:engine-2b-substrate-b",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "authority": "NONE"
     },
     {
       "id": "kernel-convergence-gate",
@@ -256,8 +360,12 @@
       "symbol": "KernelConvergenceGate",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:kernel-convergence-gate",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "authority": "SOLE_CANONICAL_AUTHORITY"
     },
     {
       "id": "quad-engine-authority-path",
@@ -266,8 +374,12 @@
       "symbol": "QuadEngineAuthorityPath",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
-      "testRef": "ARCHITECTURAL_COMPONENT_TEST_MATRIX.md",
-      "status": "VERIFIED"
+      "testRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:quad-engine-authority-path",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
+      "authority": "SOLE_CANONICAL_AUTHORITY"
     }
   ]
 }

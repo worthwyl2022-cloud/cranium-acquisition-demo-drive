@@ -140,6 +140,6 @@ VERIFIED/EXECUTABLE today: Synapse source and contract; independent Substrate A 
 
 The full Quad Engine / Dual Substrate boundary is now implemented and exercised through an executable Kernel authority-path integration check. Negative cases for prohibited governance and invalid evidence are also exercised.
 
-The machine-readable executable inventory is EXECUTABLE_ARCHITECTURE.json. Its current gate contains 28 verified boxes. ARCHITECTURAL_COMPONENT_CONTRACTS.md and ARCHITECTURAL_COMPONENT_TEST_MATRIX.md bind the inventory to contract and verification evidence.
+The machine-readable executable inventory is EXECUTABLE_ARCHITECTURE.json. Its current registered set contains 28 boxes. ARCHITECTURAL_COMPONENT_CONTRACTS.json provides machine-readable contracts; ARCHITECTURAL_COMPONENT_CONTRACTS.md and ARCHITECTURAL_COMPONENT_TEST_MATRIX.md provide the human-facing index. scripts/verify-architecture-contracts.mjs enforces code + contract + executable test + integration + authority binding.
 
 This does not automatically convert every conceptual subsystem named in historical or ecosystem documentation into an independently verified box. Unregistered concepts remain documentation-level descriptions until their code, contract, test, and verification evidence are registered.

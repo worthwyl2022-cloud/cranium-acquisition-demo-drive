@@ -1,0 +1,285 @@
+{
+  "version": 1,
+  "components": [
+    {
+      "id": "contract:engine-1-synapse",
+      "componentId": "engine-1-synapse",
+      "input": "Engine 1 / Synapse input must satisfy its typed/source boundary before invocation.",
+      "output": "Engine 1 / Synapse returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NONE",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:synapse"
+    },
+    {
+      "id": "contract:engine-3-kernel",
+      "componentId": "engine-3-kernel",
+      "input": "Engine 3 / Cranium Kernel input must satisfy its typed/source boundary before invocation.",
+      "output": "Engine 3 / Cranium Kernel returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "SOLE_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:lifecycle"
+    },
+    {
+      "id": "contract:kernel-authority-proxy",
+      "componentId": "kernel-authority-proxy",
+      "input": "Kernel Authority Proxy input must satisfy its typed/source boundary before invocation.",
+      "output": "Kernel Authority Proxy returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "SOLE_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:conformance"
+    },
+    {
+      "id": "contract:kernel-capability-authority",
+      "componentId": "kernel-capability-authority",
+      "input": "Kernel Capability Authority input must satisfy its typed/source boundary before invocation.",
+      "output": "Kernel Capability Authority returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "SOLE_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && node ./node_modules/tsx/dist/cli.mjs scripts/capability-authority-check.ts"
+    },
+    {
+      "id": "contract:kernel-replay-guard",
+      "componentId": "kernel-replay-guard",
+      "input": "Kernel Replay Guard input must satisfy its typed/source boundary before invocation.",
+      "output": "Kernel Replay Guard returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "SOLE_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:conformance"
+    },
+    {
+      "id": "contract:kernel-coma",
+      "componentId": "kernel-coma",
+      "input": "Kernel COMA input must satisfy its typed/source boundary before invocation.",
+      "output": "Kernel COMA returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "RUNTIME_SAFETY_ONLY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:coma"
+    },
+    {
+      "id": "contract:miracle-memory",
+      "componentId": "miracle-memory",
+      "input": "Miracle Memory input must satisfy its typed/source boundary before invocation.",
+      "output": "Miracle Memory returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:memory"
+    },
+    {
+      "id": "contract:synapse-contract",
+      "componentId": "synapse-contract",
+      "input": "Synapse Contract input must satisfy its typed/source boundary before invocation.",
+      "output": "Synapse Contract returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NONE",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && node ./node_modules/tsx/dist/cli.mjs scripts/synapse-contract-smoke.ts"
+    },
+    {
+      "id": "contract:forge-substrate",
+      "componentId": "forge-substrate",
+      "input": "WorthWyl Forge Substrate input must satisfy its typed/source boundary before invocation.",
+      "output": "WorthWyl Forge Substrate returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/worthwyl-forge && npm run test:metabolic"
+    },
+    {
+      "id": "contract:metabolic-governance",
+      "componentId": "metabolic-governance",
+      "input": "Metabolic Governance v2 input must satisfy its typed/source boundary before invocation.",
+      "output": "Metabolic Governance v2 returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/worthwyl-forge && npm run test:metabolic"
+    },
+    {
+      "id": "contract:metabolic-ledger",
+      "componentId": "metabolic-ledger",
+      "input": "Metabolic Ledger input must satisfy its typed/source boundary before invocation.",
+      "output": "Metabolic Ledger returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/worthwyl-forge && npm run test:metabolic"
+    },
+    {
+      "id": "contract:metabolic-rate",
+      "componentId": "metabolic-rate",
+      "input": "Metabolic Rate input must satisfy its typed/source boundary before invocation.",
+      "output": "Metabolic Rate returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/worthwyl-forge && npm run test:metabolic"
+    },
+    {
+      "id": "contract:residency-priority",
+      "componentId": "residency-priority",
+      "input": "Residency Priority input must satisfy its typed/source boundary before invocation.",
+      "output": "Residency Priority returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/worthwyl-forge && npm run test:metabolic"
+    },
+    {
+      "id": "contract:metabolic-reconciliation",
+      "componentId": "metabolic-reconciliation",
+      "input": "Metabolic Reconciliation input must satisfy its typed/source boundary before invocation.",
+      "output": "Metabolic Reconciliation returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/worthwyl-forge && npm run test:metabolic"
+    },
+    {
+      "id": "contract:metabolic-subsidy",
+      "componentId": "metabolic-subsidy",
+      "input": "Constitutional Subsidy Transfer input must satisfy its typed/source boundary before invocation.",
+      "output": "Constitutional Subsidy Transfer returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/worthwyl-forge && npm run test:metabolic"
+    },
+    {
+      "id": "contract:metabolic-cycle-integration",
+      "componentId": "metabolic-cycle-integration",
+      "input": "Metabolic Field-Step Integration input must satisfy its typed/source boundary before invocation.",
+      "output": "Metabolic Field-Step Integration returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/worthwyl-forge && npm run test:metabolic"
+    },
+    {
+      "id": "contract:metabolic-contract",
+      "componentId": "metabolic-contract",
+      "input": "Metabolic Contract I6b input must satisfy its typed/source boundary before invocation.",
+      "output": "Metabolic Contract I6b returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NO_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/worthwyl-forge && npm run test:metabolic"
+    },
+    {
+      "id": "contract:commander-surface",
+      "componentId": "commander-surface",
+      "input": "Commander Surface input must satisfy its typed/source boundary before invocation.",
+      "output": "Commander Surface returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "OPERATIONAL_SURFACE",
+      "mutation": "Operational/UI state only; no canonical authority.",
+      "verification": "node scripts/surface-smoke-check.mjs commander && npm --prefix ecosystem/commander run lint && npm --prefix ecosystem/commander run build"
+    },
+    {
+      "id": "contract:cranium-ai-surface",
+      "componentId": "cranium-ai-surface",
+      "input": "Cranium AI Surface input must satisfy its typed/source boundary before invocation.",
+      "output": "Cranium AI Surface returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "OPERATIONAL_SURFACE",
+      "mutation": "Operational/UI state only; no canonical authority.",
+      "verification": "node scripts/surface-smoke-check.mjs cranium-ai && npm --prefix ecosystem/cranium-ai test"
+    },
+    {
+      "id": "contract:ultra-surface",
+      "componentId": "ultra-surface",
+      "input": "Cranium Ultra Surface input must satisfy its typed/source boundary before invocation.",
+      "output": "Cranium Ultra Surface returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "OPERATIONAL_SURFACE",
+      "mutation": "Operational/UI state only; no canonical authority.",
+      "verification": "node scripts/surface-smoke-check.mjs ultra && npm --prefix ecosystem/cranium-ultra run verify"
+    },
+    {
+      "id": "contract:substrate-a-jury-a1",
+      "componentId": "substrate-a-jury-a1",
+      "input": "Substrate A / Jury A1 input must satisfy its typed/source boundary before invocation.",
+      "output": "Substrate A / Jury A1 returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NONE",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate"
+    },
+    {
+      "id": "contract:substrate-a-jury-a2",
+      "componentId": "substrate-a-jury-a2",
+      "input": "Substrate A / Jury A2 input must satisfy its typed/source boundary before invocation.",
+      "output": "Substrate A / Jury A2 returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NONE",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate"
+    },
+    {
+      "id": "contract:engine-2a-substrate-a",
+      "componentId": "engine-2a-substrate-a",
+      "input": "Engine 2A / Constitutional Substrate A input must satisfy its typed/source boundary before invocation.",
+      "output": "Engine 2A / Constitutional Substrate A returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NONE",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate"
+    },
+    {
+      "id": "contract:substrate-b-jury-b1",
+      "componentId": "substrate-b-jury-b1",
+      "input": "Substrate B / Jury B1 input must satisfy its typed/source boundary before invocation.",
+      "output": "Substrate B / Jury B1 returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NONE",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate"
+    },
+    {
+      "id": "contract:substrate-b-jury-b2",
+      "componentId": "substrate-b-jury-b2",
+      "input": "Substrate B / Jury B2 input must satisfy its typed/source boundary before invocation.",
+      "output": "Substrate B / Jury B2 returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NONE",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate"
+    },
+    {
+      "id": "contract:engine-2b-substrate-b",
+      "componentId": "engine-2b-substrate-b",
+      "input": "Engine 2B / Evidence Grounding Substrate B input must satisfy its typed/source boundary before invocation.",
+      "output": "Engine 2B / Evidence Grounding Substrate B returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "NONE",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate"
+    },
+    {
+      "id": "contract:kernel-convergence-gate",
+      "componentId": "kernel-convergence-gate",
+      "input": "Engine 3 / Kernel Convergence Gate input must satisfy its typed/source boundary before invocation.",
+      "output": "Engine 3 / Kernel Convergence Gate returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "SOLE_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate"
+    },
+    {
+      "id": "contract:quad-engine-authority-path",
+      "componentId": "quad-engine-authority-path",
+      "input": "Quad Engine Authority Path input must satisfy its typed/source boundary before invocation.",
+      "output": "Quad Engine Authority Path returns only the output defined by its implementation boundary and verification path.",
+      "failure": "Failure is explicit and must not silently create canonical authority or bypass the Kernel.",
+      "authority": "SOLE_CANONICAL_AUTHORITY",
+      "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate"
+    }
+  ]
+}

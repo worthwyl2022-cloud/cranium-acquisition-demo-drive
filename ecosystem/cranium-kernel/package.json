@@ -24,7 +24,8 @@
     "verify:cognitive-subconscious": "node ./node_modules/tsx/dist/cli.mjs scripts/cognitive-subconscious-check.ts",
     "verify:proofing": "node ./node_modules/tsx/dist/cli.mjs scripts/proofing-check.ts",
     "verify:acquisition-stress": "node ./node_modules/tsx/dist/cli.mjs scripts/acquisition-stress-suite.ts",
-    "verify:dual-substrate": "node ./node_modules/tsx/dist/cli.mjs scripts/dual-substrate-check.ts"
+    "verify:dual-substrate": "node ./node_modules/tsx/dist/cli.mjs scripts/dual-substrate-check.ts",
+    "verify:synapse-contract": "node ./node_modules/tsx/dist/cli.mjs scripts/synapse-contract-smoke.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

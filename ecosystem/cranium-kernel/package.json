@@ -30,7 +30,8 @@
     "verify:proof-layer": "node ./node_modules/tsx/dist/cli.mjs scripts/proof-layer-check.ts",
     "verify:listener-boundary": "node ./node_modules/tsx/dist/cli.mjs scripts/listener-boundary-check.ts",
     "verify:receipt-lineage": "node ./node_modules/tsx/dist/cli.mjs scripts/receipt-lineage-check.ts",
-    "verify:dual-independence-adversarial": "node ./node_modules/tsx/dist/cli.mjs scripts/dual-independence-adversarial-check.ts"
+    "verify:dual-independence-adversarial": "node ./node_modules/tsx/dist/cli.mjs scripts/dual-independence-adversarial-check.ts",
+  "verify:end-to-end": "node ./node_modules/tsx/dist/cli.mjs scripts/convertible-cranium-end-to-end-check.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

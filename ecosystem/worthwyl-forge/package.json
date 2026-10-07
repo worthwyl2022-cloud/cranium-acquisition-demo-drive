@@ -10,7 +10,8 @@
     "clean": "rm -rf dist",
     "lint": "node node_modules/typescript/bin/tsc --noEmit",
     "test": "npm run lint && npm run test:metabolic",
-    "test:metabolic": "node --import tsx --test src/lib/metabolic-memory-v2.test.ts"
+    "test:metabolic": "node --import tsx --test src/lib/metabolic-memory-v2.test.ts",
+    "verify:architecture": "node scripts/verify-forge-architecture.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.22.0",

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "product": "Next-generation Forge",
+  "classification": "CONVERTIBLE_CRANIUM_SOFTWARE",
+  "coreStackComponent": false,
+  "independentlyDeployable": true,
+  "independentlyLicensable": true,
+  "canonicalAuthority": false,
+  "architectureStatus": "LOCKED_BASELINE",
+  "authorityRule": "Product-local governance is not Convertible Cranium authority.",
+  "layers": [
+    {"id":"L0","name":"Source & Authority Registry","clock":"both"},
+    {"id":"L1","name":"Ingestion & Normalization","clock":"state"},
+    {"id":"L2","name":"Domain Ontology & World Model","clock":"state"},
+    {"id":"L2.5","name":"Decision Ledger","clock":"event"},
+    {"id":"L3","name":"Execution & Tooling Plane","clock":"event"},
+    {"id":"L4","name":"Rules & Policy Engine","clock":"state"},
+    {"id":"L5","name":"Capability Catalog & Agent Layer","clock":"state"},
+    {"id":"L6","name":"Verification & Review Ladder","clock":"event"},
+    {"id":"L7","name":"Outcome Observer & Learning Loop","clock":"both"}
+  ],
+  "principles": [
+    "Independent capability first; governed integration second.",
+    "Decisions are first-class objects.",
+    "State and event clocks are distinct.",
+    "Agents propose; declared capabilities determine permitted moves.",
+    "Verification precedes consequential execution.",
+    "Product-local governance cannot mint canonical Convertible Cranium authority.",
+    "Every consequential operation has actor and provenance context.",
+    "Historical decisions are not silently rewritten."
+  ],
+  "optionalIntegrations": [
+    "Convertible Cranium Kernel",
+    "Convertible Cranium Synapse",
+    "Convertible Cranium Metabolic Memory",
+    "Convertible Cranium Commander",
+    "Convertible Cranium Chromium Edition"
+  ],
+  "deploymentModels": ["local-workstation","on-prem-vm","customer-controlled-cloud"],
+  "changeControl": "FORGE_ARCHITECTURE_LOCK.md"
+}

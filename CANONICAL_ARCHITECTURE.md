@@ -2,13 +2,19 @@
 Version: 1.0.0
 Status: CANONICAL SOURCE OF TRUTH
 
-## 1. Rule
+## 1. Named ownership
+
+**William (Wyl) Mathes** is the designated personal IP owner and creator for the Convertible Cranium body of work represented by this acquisition record, subject to attorney verification of chain of title and any applicable prior assignments, third-party rights, licenses, employment/contractor obligations, or other legal encumbrances.
+
+See `IP_OWNERSHIP_AND_PROVENANCE.md` for the canonical ownership/provenance statement. Repository history is technical provenance, not by itself proof of legal title.
+
+## 2. Rule
 
 This document defines the architecture that drives the Chromium Edition boot binder, acquisition-grade architecture map, governance contract, integration test plan, runtime safety envelope, and Miracle/Metabolic Memory documentation.
 
 **Executable-box rule:** every architectural box must resolve to executable implementation, an explicit contract, and verification evidence. A conceptual component may be documented as a planned gap, but it may not be represented as implemented.
 
-## 2. Authority model
+## 3. Authority model
 
 Cognition may come from anywhere. Authority comes only through Cranium.
 
@@ -45,7 +51,7 @@ GOVERNED EXECUTION
 OBSERVATION / RECEIPT / LINEAGE
 ```
 
-## 3. Engine contracts
+## 4. Engine contracts
 
 ### Engine 1: Synapse
 Input: untrusted request/context/evidence.
@@ -73,7 +79,7 @@ Output: canonical transition or explicit rejection/quarantine.
 Authority: SOLE CANONICAL AUTHORITY.
 Required checks include identity/capability, proposal integrity, evidence binding, version binding, replay protection, current state, convergence, transition construction, durable commit, receipt.
 
-## 4. Dual-substrate boundary
+## 5. Dual-substrate boundary
 
 Substrate A and Substrate B must not be clones that deterministically reproduce the same judgment.
 
@@ -83,7 +89,7 @@ B owns evidence acquisition/normalization, provenance, integrity, contradiction 
 
 They share the high-level principle **Truth above all** while retaining independently versioned constitutions/policies/formulas.
 
-## 5. Memory architecture
+## 6. Memory architecture
 
 Miracle Memory is governed continuity. It stores identity, continuity, canonical/provisional material, provenance, quarantine state, snapshots, recovery state, and retrieval/update history.
 
@@ -109,13 +115,13 @@ field step
 
 Locked/identity atoms are protected from flux eviction. Subsidy sources must be locked/identity atoms. Subsidy targets must be non-protected atoms. Transfer requires the applicable approval/ratification gate.
 
-## 6. Cross-cutting safety
+## 7. Cross-cutting safety
 
 Circuit Breaker / COMA provides containment, freeze, quarantine, evidence preservation, recovery, and controlled resume. It is not a competing authority engine.
 
 Replay protection, evidence integrity, authorization, durable journaling, receipts, and recovery are cross-cutting controls.
 
-## 7. Trust zones
+## 8. Trust zones
 
 1. Untrusted ingress.
 2. Cognition/proposal zone.
@@ -128,7 +134,7 @@ Replay protection, evidence integrity, authorization, durable journaling, receip
 
 No lower-trust zone may mint authority for a higher-trust zone.
 
-## 8. Canonical implementation status
+## 9. Canonical implementation status
 
 VERIFIED/EXECUTABLE today: Synapse source, Kernel authority path, Kernel replay/COMA/memory controls, WorthWyl Forge substrate and Metabolic Memory v2, executable architecture gate.
 

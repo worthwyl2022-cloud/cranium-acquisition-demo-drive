@@ -1041,7 +1041,7 @@ export class CraniumSubstrateCore {
     return this.field.metabolism.summary();
   }
 
-  subsidize(atom_id: string, amount: number, human_approved = true, constitution_ratified = false): boolean {
+  subsidize(atom_id: string, amount: number, human_approved = false, constitution_ratified = false): boolean {
     const atoms = this.field.memory.allActive();
     const source = atoms.find(a => (a.locked || a.kind === "identity") && a.id === atom_id);
     if (!source) return false;

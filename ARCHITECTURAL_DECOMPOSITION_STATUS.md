@@ -20,7 +20,7 @@ A box is not considered verified because documentation names it. It must have:
 
 ## Current executable inventory
 
-The current machine-checked inventory contains 28 verified executable boxes.
+The current machine-checked inventory contains 29 verified executable boxes.
 
 ### Verified authority spine
 
@@ -61,6 +61,7 @@ The current machine-checked inventory contains 28 verified executable boxes.
 ### Verified contract boundary
 
 28. Synapse Contract
+29. Kernel Authority Proof Layer
 
 ## Explicitly not promoted to verified boxes
 

@@ -280,6 +280,16 @@
       "authority": "SOLE_CANONICAL_AUTHORITY",
       "mutation": "No authority mutation unless explicitly owned by the Cranium Kernel.",
       "verification": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate"
+    },
+    {
+      "id": "contract:kernel-proof-layer",
+      "componentId": "kernel-proof-layer",
+      "input": "Kernel Authority Proof Layer accepts only a Kernel transition and its canonical Authority Receipt with matching transition and request digests.",
+      "output": "Returns a deterministic proof binding transition ID, request digest, decision, boundary result, and receipt digest.",
+      "failure": "Rejects mismatched transitions, receipts, decisions, request digests, invalid receipts, or forged proof digests; it cannot mint canonical authority.",
+      "authority": "NO_INDEPENDENT_AUTHORITY",
+      "mutation": "No authority mutation; proof creation and verification are observational evidence only.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:proof-layer"
     }
   ]
 }

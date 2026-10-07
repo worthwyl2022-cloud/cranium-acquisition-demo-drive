@@ -380,6 +380,19 @@
       "testCommand": "cd ecosystem/cranium-kernel && npm run verify:dual-substrate",
       "integrationRef": "ecosystem/cranium-kernel/scripts/dual-substrate-check.ts",
       "authority": "SOLE_CANONICAL_AUTHORITY"
+    },
+    {
+      "id": "kernel-proof-layer",
+      "name": "Kernel Authority Proof Layer",
+      "entry": "ecosystem/cranium-kernel/src/kernel/proofLayer.ts",
+      "verify": "cd ecosystem/cranium-kernel && npm run verify:proof-layer",
+      "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
+      "testRef": "ecosystem/cranium-kernel/scripts/proof-layer-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:kernel-proof-layer",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:proof-layer",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/proof-layer-check.ts",
+      "authority": "NO_INDEPENDENT_AUTHORITY"
     }
   ]
 }

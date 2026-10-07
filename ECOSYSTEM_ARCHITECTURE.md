@@ -16,7 +16,7 @@ Every implemented architectural box must have executable implementation, an expl
 
 ## Quad Engine status
 
-The four-engine model is now canonical. Engine 1 and Engine 3 have executable implementation evidence. Independent Engine 2A and Engine 2B substrate implementations remain required gaps until their executable implementations, contracts, tests, adversarial tests, and Kernel convergence integration are demonstrated.
+The four-engine model is canonical and its Quad Engine boundary is now executable. Engine 2A and Engine 2B have independent A1/A2 and B1/B2 implementations, contracts, negative-path tests, and a Kernel authority-path convergence check. The executable inventory records the demonstrated boundary.
 
 ## Memory status
 

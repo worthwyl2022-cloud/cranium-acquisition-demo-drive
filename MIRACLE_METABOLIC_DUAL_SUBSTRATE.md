@@ -72,7 +72,7 @@ Only Engine 3 / Cranium Kernel creates canonical authority.
 
 ## Required dual-substrate implementation
 
-The documentation is canonical now, but the implementation claim remains gated. The independent A/B substrate code, tests, policies, formulas, and Kernel convergence integration must exist before the architecture map marks those boxes IMPLEMENTED.
+The documentation and implementation boundary are now aligned. Independent A/B substrate code, versioned policies/formulas, A1/A2 and B1/B2 tests, and Kernel convergence integration are implemented and verified. The broader ecosystem still uses the executable-box gate for any capability not yet registered.
 
 ## Current metabolic evidence
 

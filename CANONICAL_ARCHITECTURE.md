@@ -61,17 +61,17 @@ Failure: reject, quarantine, or return insufficient evidence.
 
 ### Engine 2A: Constitutional Authority
 Input: normalized proposal plus independently bound context.
-Output: constitutional finding.
+Output: constitutional finding from independent A1/A2 evaluators.
 Question: **May we?**
 Authority: NONE. It is a governance decision input, not canonical authority.
-Status: ARCHITECTURALLY CANONICAL; independent A substrate implementation remains REQUIRED before this box can be marked IMPLEMENTED.
+Status: IMPLEMENTED AND VERIFIED. A1/A2 are independently executable within Substrate A, with versioned Constitution A, Policy A, and Formula A.
 
 ### Engine 2B: Evidence Grounding
 Input: normalized proposal plus evidence set.
-Output: grounding finding.
+Output: grounding finding from independent B1/B2 evaluators.
 Question: **Is it so?**
 Authority: NONE. It is a grounding decision input, not canonical authority.
-Status: ARCHITECTURALLY CANONICAL; independent B substrate implementation remains REQUIRED before this box can be marked IMPLEMENTED.
+Status: IMPLEMENTED AND VERIFIED. B1/B2 are independently executable within Substrate B, with independent version bindings and evidence-grounding logic.
 
 ### Engine 3: Cranium Kernel
 Input: proposal, A/B findings, authorization context, evidence lineage, version bindings.
@@ -136,8 +136,10 @@ No lower-trust zone may mint authority for a higher-trust zone.
 
 ## 9. Canonical implementation status
 
-VERIFIED/EXECUTABLE today: Synapse source, Kernel authority path, Kernel replay/COMA/memory controls, WorthWyl Forge substrate and Metabolic Memory v2, executable architecture gate.
+VERIFIED/EXECUTABLE today: Synapse source and contract; independent Substrate A with Jury A1/A2; independent Substrate B with Jury B1/B2; Kernel convergence gate; Quad Engine authority path; Kernel authority/replay/COMA/memory controls; WorthWyl Forge substrate and Metabolic Memory v2; executable architecture gate.
 
-REQUIRED BEFORE FULL QUAD-ENGINE CLAIM: independent executable Substrate A, independent executable Substrate B, their contracts, independent policies/formulas, integration tests, adversarial tests, and Kernel convergence verification against both.
+The full Quad Engine / Dual Substrate boundary is now implemented and exercised through an executable Kernel authority-path integration check. Negative cases for prohibited governance and invalid evidence are also exercised.
 
-The canonical architecture therefore contains the Quad Engine/Dual Substrate model now, while truthfully marking the remaining implementation boundary.
+The machine-readable executable inventory is EXECUTABLE_ARCHITECTURE.json. Its current gate contains 28 verified boxes. ARCHITECTURAL_COMPONENT_CONTRACTS.md and ARCHITECTURAL_COMPONENT_TEST_MATRIX.md bind the inventory to contract and verification evidence.
+
+This does not automatically convert every conceptual subsystem named in historical or ecosystem documentation into an independently verified box. Unregistered concepts remain documentation-level descriptions until their code, contract, test, and verification evidence are registered.

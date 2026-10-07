@@ -43,13 +43,19 @@ for (const box of manifest.boxes) {
     }
   }
 
-  const ok = exists && symbolOk && verifyOk;
+  const contractOk = typeof box.contractRef === "string" && fs.existsSync(path.join(root, box.contractRef));
+  const testOk = typeof box.testRef === "string" && fs.existsSync(path.join(root, box.testRef));
+  const statusOk = box.status === "VERIFIED" || box.status === "IMPLEMENTED";
+  const ok = exists && symbolOk && contractOk && testOk && statusOk && verifyOk;
   console.log(`${ok ? "PASS" : "FAIL"} ${box.id} :: ${box.name}`);
 
   if (!ok) {
     failures++;
     if (!exists) console.log(`  missing entry: ${box.entry}`);
     if (!symbolOk) console.log(`  missing symbol: ${box.symbol}`);
+    if (!contractOk) console.log(`  missing contract: ${box.contractRef}`);
+    if (!testOk) console.log(`  missing test reference: ${box.testRef}`);
+    if (!statusOk) console.log(`  invalid status: ${box.status}`);
     if (!verifyOk) console.log(`  verification failed: ${box.verify}\n${verifyOutput.trim()}`);
   }
 }

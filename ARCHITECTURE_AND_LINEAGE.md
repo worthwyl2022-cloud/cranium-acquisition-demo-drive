@@ -10,7 +10,7 @@ The Chromium Edition is a distribution and evidence surface, not a second author
 
 Every implemented box is required to be executable and verifiable. The current machine-checkable registry is `EXECUTABLE_ARCHITECTURE.json`.
 
-The Quad Engine/Dual Substrate architecture is canonical. The independent executable A/B substrate implementations are still an explicit implementation gate and must not be represented as already verified.
+The Quad Engine/Dual Substrate architecture is canonical and the independent A/B substrate boundary is now implemented and verified. See EXECUTABLE_ARCHITECTURE.json and EXECUTABLE_ARCHITECTURE_MAP.md for the evidence-backed inventory.
 
 Miracle Memory provides governed continuity. Metabolic Memory v2 provides resource governance, including flux, residency, eviction, reservoir, subsidy, and metabolic ledger controls. Neither can create canonical authority.
 

@@ -6,8 +6,8 @@ Derived from: CANONICAL_ARCHITECTURE.md
 ```
 Listener [EXECUTABLE]
   -> Synapse [EXECUTABLE]
-  -> Substrate A [REQUIRED GAP: executable implementation]
-  -> Substrate B [REQUIRED GAP: executable implementation]
+  -> Substrate A [VERIFIED: executable A1/A2 implementation]
+  -> Substrate B [VERIFIED: executable B1/B2 implementation]
   -> Kernel convergence [EXECUTABLE]
   -> Governed execution [EXECUTABLE PATH]
   -> Receipt / lineage [EXECUTABLE CONTROLS]

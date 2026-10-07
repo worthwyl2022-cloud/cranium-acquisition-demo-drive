@@ -393,6 +393,20 @@
       "testCommand": "cd ecosystem/cranium-kernel && npm run verify:proof-layer",
       "integrationRef": "ecosystem/cranium-kernel/scripts/proof-layer-check.ts",
       "authority": "NO_INDEPENDENT_AUTHORITY"
+    },
+    {
+      "id": "listener-ingress-boundary",
+      "name": "Listener / Ingress Boundary",
+      "entry": "ecosystem/cranium-kernel/src/kernel/listener.ts",
+      "symbol": "normalizeListenerIngress",
+      "verify": "cd ecosystem/cranium-kernel && npm run verify:listener-boundary",
+      "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
+      "testRef": "ecosystem/cranium-kernel/scripts/listener-boundary-check.ts",
+      "status": "VERIFIED",
+      "contractId": "contract:listener-ingress-boundary",
+      "testCommand": "cd ecosystem/cranium-kernel && npm run verify:listener-boundary",
+      "integrationRef": "ecosystem/cranium-kernel/scripts/listener-boundary-check.ts",
+      "authority": "NONE"
     }
   ]
 }

@@ -20,7 +20,7 @@ A box is not considered verified because documentation names it. It must have:
 
 ## Current executable inventory
 
-The current machine-checked inventory contains 29 verified executable boxes.
+The current machine-checked inventory contains 30 verified executable boxes.
 
 ### Verified authority spine
 
@@ -62,6 +62,7 @@ The current machine-checked inventory contains 29 verified executable boxes.
 
 28. Synapse Contract
 29. Kernel Authority Proof Layer
+30. Listener / Ingress Boundary
 
 ## Explicitly not promoted to verified boxes
 
@@ -69,7 +70,6 @@ The broader conceptual decomposition contains additional nouns and processes tha
 
 These include:
 
-- Listener / ingress normalization as an independently verified boundary;
 - generic Cranium AI reasoning/proposal orchestration as an authority-bearing engine;
 - a standalone execution gate distinct from the existing Kernel/governance execution paths;
 - standalone receipt lifecycle and lineage services where the existing Kernel transaction/journal implementation is the actual implementation;

@@ -5,3 +5,11 @@
 - Test: `ecosystem/cranium-kernel/scripts/proof-layer-check.ts`
 - Verification: `cd ecosystem/cranium-kernel && npm run verify:proof-layer`
 - Authority: `NO_INDEPENDENT_AUTHORITY`
+
+### contract:listener-ingress-boundary
+
+- **Input:** Untrusted external material must arrive through the typed listener envelope with bounded source, safe timestamp, and serializable payload.
+- **Output:** Normalized payload JSON and SHA-256 payload digest, explicitly marked `authority: NONE`.
+- **Failure:** Invalid, oversized, or unserializable ingress is rejected.
+- **Authority:** NONE. Listener cannot mint canonical authority or mutate governed state.
+- **Verification:** `cd ecosystem/cranium-kernel && npm run verify:listener-boundary`

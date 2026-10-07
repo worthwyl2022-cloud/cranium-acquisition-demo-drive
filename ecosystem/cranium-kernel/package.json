@@ -27,7 +27,8 @@
     "verify:dual-substrate": "node ./node_modules/tsx/dist/cli.mjs scripts/dual-substrate-check.ts",
     "verify:synapse-contract": "node ./node_modules/tsx/dist/cli.mjs scripts/synapse-contract-smoke.ts",
     "verify:dual-independence": "node ./node_modules/tsx/dist/cli.mjs scripts/dual-independent-boundary-check.ts",
-    "verify:proof-layer": "node ./node_modules/tsx/dist/cli.mjs scripts/proof-layer-check.ts"
+    "verify:proof-layer": "node ./node_modules/tsx/dist/cli.mjs scripts/proof-layer-check.ts",
+    "verify:listener-boundary": "node ./node_modules/tsx/dist/cli.mjs scripts/listener-boundary-check.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

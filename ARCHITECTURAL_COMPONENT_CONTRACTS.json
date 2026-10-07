@@ -290,6 +290,16 @@
       "authority": "NO_INDEPENDENT_AUTHORITY",
       "mutation": "No authority mutation; proof creation and verification are observational evidence only.",
       "verification": "cd ecosystem/cranium-kernel && npm run verify:proof-layer"
+    },
+    {
+      "id": "contract:listener-ingress-boundary",
+      "componentId": "listener-ingress-boundary",
+      "input": "Untrusted external material is accepted only as a typed envelope with a bounded source, safe timestamp, and serializable payload.",
+      "output": "The boundary emits normalized payload JSON plus a SHA-256 payload digest and explicitly carries authority NONE.",
+      "failure": "Malformed, missing, oversized, unserializable, or invalidly timestamped ingress is rejected; the boundary cannot mint canonical authority.",
+      "authority": "NONE",
+      "mutation": "No authority mutation; ingress is observation/normalization only.",
+      "verification": "cd ecosystem/cranium-kernel && npm run verify:listener-boundary"
     }
   ]
 }

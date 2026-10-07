@@ -35,7 +35,7 @@ assert.equal(tx.boundary.passed,true);
 
 const deniedA=A.evaluate({...proposal,action:"delete repository"});
 const deniedGate=new KernelConvergenceGate().evaluate(deniedA,bf);
-assert.equal(deniedGate.status,"DENIED");
+assert.equal(deniedGate.status,"QUARANTINED");
 
 const forgedB=B.evaluate(proposal,[{...evidence[0],verified:false}]);
 assert.equal(forgedB.finding,"CONTRADICTED");

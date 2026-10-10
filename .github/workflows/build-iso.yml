@@ -51,8 +51,21 @@ jobs:
           printf "%s\n" "$CRANIUM_RELEASE_SIGNING_KEY" > "$key_file"
           chmod 600 "$key_file"
           sudo env CRANIUM_RELEASE_SIGNING_KEY="$key_file" bash BUILD_ACQUISITION_ISO.sh
-      - name: Verify ISO artifact
-        run: xorriso -indev dist/cranium-acquisition-demo.iso -toc >/dev/null
+      - name: Verify ISO artifact and boot catalog
+        shell: bash
+        run: |
+          set -euo pipefail
+          iso_path="dist/cranium-acquisition-demo.iso"
+          xorriso -indev "$iso_path" -toc >/dev/null
+          boot_report="$RUNNER_TEMP/acquisition-el-torito.txt"
+          xorriso -indev "$iso_path" -report_el_torito plain | tee "$boot_report"
+          grep -Eq 'UEFI|0xef' "$boot_report" || { echo "ISO is missing a UEFI El Torito boot entry" >&2; exit 1; }
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: cranium-acquisition-demo-${{ github.event_name }}-${{ github.run_number }}
+          path: dist/cranium-acquisition-demo.iso
+          if-no-files-found: error
       - name: Boot ISO under QEMU and verify Linux reaches systemd
         shell: bash
         run: |
@@ -72,7 +85,7 @@ jobs:
             -machine accel=tcg -m 4096 -smp 2 \
             -drive if=pflash,format=raw,readonly=on,file="$firmware_code" \
             -drive if=pflash,format=raw,file="$firmware_vars" \
-            -cdrom dist/cranium-acquisition-demo.iso -boot d -display none -serial "file:$serial_log" \
+            -cdrom dist/cranium-acquisition-demo.iso -boot order=d,menu=on -display none -serial "file:$serial_log" \
             -monitor none -no-reboot -no-shutdown
           qemu_status=$?
           set -e
@@ -92,9 +105,3 @@ jobs:
             exit 1
           }
           echo "QEMU boot smoke test passed; Linux kernel and systemd target observed."
-      - name: Upload ISO
-        uses: actions/upload-artifact@v4
-        with:
-          name: cranium-acquisition-demo-${{ github.event_name }}-${{ github.run_number }}
-          path: dist/cranium-acquisition-demo.iso
-          if-no-files-found: error

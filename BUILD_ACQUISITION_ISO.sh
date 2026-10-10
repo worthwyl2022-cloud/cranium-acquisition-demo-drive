@@ -11,6 +11,8 @@ command -v xorriso >/dev/null || { echo 'Missing xorriso.' >&2; exit 1; }
 
 rm -rf "$WORK"
 mkdir -p "$WORK/config/includes.chroot/opt/cranium-acquisition-demo"
+mkdir -p "$WORK/config/package-lists"
+printf 'syslinux-utils\n' > "$WORK/config/package-lists/syslinux-utils.list.chroot"
 
 # Record the exact source revision used for this appliance build.
 REVISION="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null || printf 'unversioned')"

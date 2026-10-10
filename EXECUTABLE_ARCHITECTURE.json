@@ -4,7 +4,7 @@
   "boxes": [
     {
       "id": "engine-1-synapse",
-      "name": "Engine 1 / Synapse",
+      "name": "Engine 1 / Convertible Cranium Synapse",
       "entry": "ecosystem/cranium-synapse/src/index.ts",
       "verify": "test -f ecosystem/cranium-synapse/src/index.ts",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
@@ -17,7 +17,7 @@
     },
     {
       "id": "engine-3-kernel",
-      "name": "Engine 3 / Cranium Kernel",
+      "name": "Engine 3 / Convertible Cranium Kernel",
       "entry": "ecosystem/cranium-kernel/src/kernel/engine.ts",
       "verify": "cd ecosystem/cranium-kernel && npm run lint",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
@@ -69,7 +69,7 @@
     },
     {
       "id": "kernel-coma",
-      "name": "Kernel COMA",
+      "name": "Convertible Cranium COMA",
       "entry": "ecosystem/cranium-kernel/src/kernel/coma.ts",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:coma",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
@@ -82,7 +82,7 @@
     },
     {
       "id": "miracle-memory",
-      "name": "Miracle Memory",
+      "name": "Miracle Meta Memory",
       "entry": "ecosystem/cranium-kernel/src/memory/MiracleMemoryStore.ts",
       "verify": "cd ecosystem/cranium-kernel && npm run verify:memory",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
@@ -232,7 +232,7 @@
     },
     {
       "id": "commander-surface",
-      "name": "Commander Surface",
+      "name": "Convertible Cranium Commander OS Surface",
       "entry": "ecosystem/commander/src",
       "verify": "test -d ecosystem/commander/src",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
@@ -245,7 +245,7 @@
     },
     {
       "id": "cranium-ai-surface",
-      "name": "Cranium AI Surface",
+      "name": "Convertible Cranium AI Surface",
       "entry": "ecosystem/cranium-ai/server",
       "verify": "test -d ecosystem/cranium-ai/server",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",
@@ -258,7 +258,7 @@
     },
     {
       "id": "ultra-surface",
-      "name": "Cranium Ultra Surface",
+      "name": "Convertible Cranium Ultra Surface",
       "entry": "ecosystem/cranium-ultra/projects",
       "verify": "test -d ecosystem/cranium-ultra/projects",
       "contractRef": "ARCHITECTURAL_COMPONENT_CONTRACTS.md",

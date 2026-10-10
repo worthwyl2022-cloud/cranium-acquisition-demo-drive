@@ -22,34 +22,45 @@ for (const box of manifest.boxes) {
     symbolOk = new RegExp("\\b" + escaped + "\\b").test(source);
   }
 
-  let verifyOk = false;
-  let verifyOutput = "";
-
-  if (exists && symbolOk) {
-    if (verificationCache.has(box.verify)) {
-      const cached = verificationCache.get(box.verify);
-      verifyOk = cached.ok;
-      verifyOutput = cached.output;
-    } else {
-      try {
-        verifyOutput = execFileSync("bash", ["-lc", box.verify], {
-          cwd: root,
-          encoding: "utf8",
-          stdio: ["ignore", "pipe", "pipe"],
-          timeout: 120000
-        });
-        verifyOk = true;
-      } catch (error) {
-        verifyOutput = String(error?.stdout ?? "") + String(error?.stderr ?? "");
-      }
-      verificationCache.set(box.verify, { ok: verifyOk, output: verifyOutput });
+  function runCached(command) {
+    if (verificationCache.has(command)) return verificationCache.get(command);
+    let output = "";
+    let ok = false;
+    try {
+      output = execFileSync("bash", ["-lc", command], {
+        cwd: root,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "pipe"],
+        timeout: 120000
+      });
+      ok = true;
+    } catch (error) {
+      output = String(error?.stdout ?? "") + String(error?.stderr ?? "");
     }
+    const result = { ok, output };
+    verificationCache.set(command, result);
+    return result;
   }
+
+  const verification = exists && symbolOk
+    ? runCached(box.verify)
+    : { ok: false, output: "" };
+  const verifyOk = verification.ok;
+  const verifyOutput = verification.output;
+
+  // The quick structural verification and the declared behavioral test are
+  // separate obligations. A file-presence check must never stand in for the
+  // component's actual testCommand.
+  const behavioral = exists && symbolOk && typeof box.testCommand === "string"
+    ? runCached(box.testCommand)
+    : { ok: false, output: "" };
+  const testCommandOk = behavioral.ok;
+  const testCommandOutput = behavioral.output;
 
   const contractOk = typeof box.contractRef === "string" && fs.existsSync(path.join(root, box.contractRef));
   const testOk = typeof box.testRef === "string" && fs.existsSync(path.join(root, box.testRef));
   const statusOk = box.status === "VERIFIED" || box.status === "IMPLEMENTED";
-  const ok = exists && symbolOk && contractOk && testOk && statusOk && verifyOk;
+  const ok = exists && symbolOk && contractOk && testOk && statusOk && verifyOk && testCommandOk;
   console.log(`${ok ? "PASS" : "FAIL"} ${box.id} :: ${box.name}`);
 
   if (!ok) {
@@ -60,6 +71,7 @@ for (const box of manifest.boxes) {
     if (!testOk) console.log(`  missing test reference: ${box.testRef}`);
     if (!statusOk) console.log(`  invalid status: ${box.status}`);
     if (!verifyOk) console.log(`  verification failed: ${box.verify}\n${verifyOutput.trim()}`);
+    if (!testCommandOk) console.log(`  behavioral test failed: ${box.testCommand}\n${testCommandOutput.trim()}`);
   }
 }
 

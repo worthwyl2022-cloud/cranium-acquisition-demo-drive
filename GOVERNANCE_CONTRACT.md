@@ -3,7 +3,7 @@ Derived from: CANONICAL_ARCHITECTURE.md
 
 ## Authority invariant
 
-Models, tools, memory, substrates, surfaces, and operators may propose or evaluate. Only the Cranium Kernel canonical authority path may create canonical authority.
+Models, tools, memory, substrates, surfaces, and operators may propose or evaluate. Only the Convertible Cranium Kernel canonical authority path may create canonical authority.
 
 ## Four-engine contract
 

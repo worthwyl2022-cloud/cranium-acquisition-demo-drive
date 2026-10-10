@@ -6,9 +6,9 @@ This file is a compatibility entry point. The canonical architecture is defined 
 
 ## Canonical path
 
-Listener → Engine 1 Synapse → Engine 2A Constitutional Authority + Engine 2B Evidence Grounding → Engine 3 Cranium Kernel → Governed Execution → Receipt / Lineage.
+Listener → Engine 1 Synapse → Engine 2A Constitutional Authority + Engine 2B Evidence Grounding → Engine 3 Convertible Cranium Kernel → Governed Execution → Receipt / Lineage.
 
-Miracle Memory, Metabolic Memory v2, Circuit Breaker/COMA, Commander, Cranium AI, Forge, Ultra, and the Chromium Edition are supporting governed surfaces. None may independently create canonical authority.
+Miracle Meta Memory, Metabolic Memory v2, Circuit Breaker/COMA, Convertible Cranium Commander OS, Convertible Cranium AI, Forge, Ultra, and Convertible Cranium Chromium Edition are supporting governed surfaces. None may independently create canonical authority.
 
 ## Executability rule
 
@@ -20,6 +20,6 @@ The four-engine model is canonical and its Quad Engine boundary is now executabl
 
 ## Memory status
 
-Miracle Memory is governed continuity. Metabolic Memory v2 is resource governance over memory state. Neither grants authority.
+Miracle Meta Memory is governed continuity. Metabolic Memory v2 is resource governance over memory state. Neither grants authority.
 
 For the complete architecture, boot binder, acquisition map, governance contract, integration plan, runtime safety envelope, and dual-substrate memory model, see the documents named in `CANONICAL_ARCHITECTURE.md`.

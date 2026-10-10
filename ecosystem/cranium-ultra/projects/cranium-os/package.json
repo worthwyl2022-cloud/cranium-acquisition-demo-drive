@@ -1,14 +1,14 @@
 {
-  "name": "cranium-os",
+  "name": "convertible-cranium-os",
   "version": "1.0.0",
-  "description": "Cranium OS \u2014 Cognitive Operating Environment built on Convertible Cranium Core. Authority is not claimed. It is granted\u2014only through Convertible Cranium Core.",
+  "description": "Convertible Cranium OS: Cognitive Operating Environment built on Convertible Cranium Kernel. Authority is not claimed. It is granted only through the Convertible Cranium Kernel.",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "node ./node_modules/typescript/lib/tsc.js && node ./node_modules/vite/bin/vite.js build",
     "preview": "vite preview",
-    "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "test": "node ./node_modules/vitest/dist/cli.js run",
+    "typecheck": "node ./node_modules/typescript/lib/tsc.js --noEmit"
   },
   "dependencies": {
     "framer-motion": "^11.3.0",
@@ -18,12 +18,13 @@
     "react-router-dom": "^7.18.3"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^6.1.1",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.0",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.5.0",
     "vite": "^8.2.2",
     "vitest": "^5.0.0"

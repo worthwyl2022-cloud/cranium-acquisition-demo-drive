@@ -10,7 +10,7 @@ See `IP_OWNERSHIP_AND_PROVENANCE.md` for the canonical ownership/provenance stat
 
 ## 2. Rule
 
-This document defines the architecture that drives the Chromium Edition boot binder, acquisition-grade architecture map, governance contract, integration test plan, runtime safety envelope, and Miracle/Metabolic Memory documentation.
+This document defines the architecture that drives Convertible Cranium Chromium Edition boot binder, acquisition-grade architecture map, governance contract, integration test plan, runtime safety envelope, and Miracle/Metabolic Memory documentation.
 
 **Executable-box rule:** every architectural box must resolve to executable implementation, an explicit contract, and verification evidence. A conceptual component may be documented as a planned gap, but it may not be represented as implemented.
 
@@ -97,7 +97,7 @@ They share the high-level principle **Truth above all** while retaining independ
 
 ## 7. Memory architecture
 
-Miracle Memory is governed continuity. It stores identity, continuity, canonical/provisional material, provenance, quarantine state, snapshots, recovery state, and retrieval/update history.
+Miracle Meta Memory is governed continuity. It stores identity, continuity, canonical/provisional material, provenance, quarantine state, snapshots, recovery state, and retrieval/update history.
 
 Metabolic Memory v2 is a resource-governance subsystem operating over memory atoms. It controls resource pressure, residency priority, eviction, and constitutionally permitted subsidy. It never grants authority.
 
@@ -146,6 +146,6 @@ VERIFIED/EXECUTABLE today: Synapse source and contract; independent Substrate A 
 
 The full Quad Engine / Dual Substrate boundary is now implemented and exercised through an executable Kernel authority-path integration check. Negative cases for prohibited governance and invalid evidence are also exercised.
 
-The machine-readable executable inventory is EXECUTABLE_ARCHITECTURE.json. Its current registered set contains 28 boxes. ARCHITECTURAL_COMPONENT_CONTRACTS.json provides machine-readable contracts; ARCHITECTURAL_COMPONENT_CONTRACTS.md and ARCHITECTURAL_COMPONENT_TEST_MATRIX.md provide the human-facing index. scripts/verify-architecture-contracts.mjs enforces code + contract + executable test + integration + authority binding.
+The machine-readable executable inventory is EXECUTABLE_ARCHITECTURE.json. Its current registered set contains 30 boxes. ARCHITECTURAL_COMPONENT_CONTRACTS.json provides machine-readable contracts; ARCHITECTURAL_COMPONENT_CONTRACTS.md and ARCHITECTURAL_COMPONENT_TEST_MATRIX.md provide the human-facing index. scripts/verify-architecture-contracts.mjs enforces code + contract + executable test + integration + authority binding.
 
 This does not automatically convert every conceptual subsystem named in historical or ecosystem documentation into an independently verified box. Unregistered concepts remain documentation-level descriptions until their code, contract, test, and verification evidence are registered.

@@ -1,9 +1,9 @@
-# Miracle Memory / Metabolic Memory / Dual-Substrate Architecture
+# Miracle Meta Memory / Metabolic Memory / Dual-Substrate Architecture
 Derived from: CANONICAL_ARCHITECTURE.md
 
 ## Three distinct governance layers
 
-### Miracle Memory
+### Miracle Meta Memory
 Governed continuity and durable memory lifecycle.
 
 ### Metabolic Memory v2
@@ -60,7 +60,7 @@ REQUEST
 
 ## Authority separation
 
-Miracle Memory cannot authorize.
+Miracle Meta Memory cannot authorize.
 
 Metabolic Memory cannot authorize.
 
@@ -68,7 +68,7 @@ Substrate A cannot authorize.
 
 Substrate B cannot authorize.
 
-Only Engine 3 / Cranium Kernel creates canonical authority.
+Only Engine 3 / Convertible Cranium Kernel creates canonical authority.
 
 ## Required dual-substrate implementation
 

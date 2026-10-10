@@ -1,5 +1,5 @@
 /**
- * Cranium OS authority adapter.
+ * Convertible Cranium OS authority adapter.
  *
  * The browser is not an authority boundary. It constructs requests and requires
  * an authenticated cranium-kernel endpoint for evaluation and commit. There is

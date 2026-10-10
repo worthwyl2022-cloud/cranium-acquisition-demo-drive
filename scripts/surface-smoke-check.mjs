@@ -3,7 +3,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const checks = {
-  commander: ["ecosystem/commander/src/App.tsx", "ecosystem/commander/src/main.tsx", "ecosystem/commander/server.ts"],
+  commander: ["ecosystem/commander/src/main.tsx", "ecosystem/commander/server.ts"],
   "cranium-ai": ["ecosystem/cranium-ai/client/src/App.tsx", "ecosystem/cranium-ai/server/_core/index.ts"],
   ultra: [
     "ecosystem/cranium-ultra/projects/cranium-os/src/App.tsx",

@@ -19,7 +19,7 @@ Listener [EXECUTABLE]
 - Kernel capability authority
 - Replay guard
 - COMA
-- Miracle Memory
+- Miracle Meta Memory
 - Synapse contract
 - WorthWyl Forge substrate
 - Metabolic Governance v2
@@ -30,8 +30,8 @@ Listener [EXECUTABLE]
 - Constitutional Subsidy Transfer
 - Metabolic Field-Step Integration
 - Commander surface
-- Cranium AI surface
-- Cranium Ultra surface
+- Convertible Cranium AI surface
+- Convertible Cranium Ultra surface
 
 These are registered in EXECUTABLE_ARCHITECTURE.json and checked by scripts/verify-executable-architecture.mjs.
 

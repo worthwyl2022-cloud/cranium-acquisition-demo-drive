@@ -72,7 +72,7 @@ lb config \
   --archive-areas 'main restricted universe multiverse' \
   --binary-images iso \
   --bootloader grub-efi \
-  --bootappend-live 'boot=live components username=live hostname=cranium-demo'
+  --bootappend-live 'boot=live components username=live hostname=cranium-demo console=ttyS0,115200n8'
 
 lb build
 

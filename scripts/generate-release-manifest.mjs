@@ -16,6 +16,7 @@ const evidenceFiles = {
     "ecosystem/commander/package.json",
     "ecosystem/commander/package-lock.json",
     "ecosystem/commander/server.ts",
+    "ecosystem/commander/scripts/build-server.mjs",
     "ecosystem/commander/src/App.tsx",
     "ecosystem/commander/src/worthwyl/common/GlobalAiBar.tsx",
     "ecosystem/commander/src/worthwyl/story/TaskOrchestrator.ts",
@@ -26,6 +27,14 @@ const evidenceFiles = {
   acquisitionDemoDrive: [
     "HEALTH_CHECK.sh",
     "README.md",
+    "ecosystem/commander/package.json",
+    "ecosystem/commander/package-lock.json",
+    "ecosystem/commander/server.ts",
+    "ecosystem/commander/scripts/build-server.mjs",
+    "ecosystem/commander-legacy/package.json",
+    "ecosystem/commander-legacy/package-lock.json",
+    "ecosystem/commander-legacy/server.ts",
+    "ecosystem/commander-legacy/scripts/build-server.mjs",
     "ECOSYSTEM_ARCHITECTURE.md",
     "REVIEWER_PATH.md",
     "CANONICAL_ARCHITECTURE.md",
@@ -40,6 +49,7 @@ const evidenceFiles = {
     "scripts/verify-executable-architecture.mjs",
     "scripts/ultra-surface-check.mjs",
     "EXECUTABLE_ARCHITECTURE.json",
+    "scripts/generate-release-manifest.mjs",
     "ecosystem/cranium-ultra/projects/cranium-os/README.md",
     "ecosystem/cranium-ultra/projects/cranium-os/index.html",
     "ecosystem/cranium-ultra/projects/cranium-os/package.json",
@@ -57,7 +67,11 @@ function sha256(path) {
   return createHash("sha256").update(readFileSync(path)).digest("hex");
 }
 function repoRecord(name, path) {
-  const status = git(path, ["status", "--porcelain"]).split("\n").filter(Boolean);
+  // Preserve Git's two status columns. git(...).trim() would strip the first
+  // leading status column and corrupt the first path in the list.
+  const status = execFileSync("git", ["status", "--porcelain=v1"], { cwd: path, encoding: "utf8" })
+    .split(/\r?\n/)
+    .filter(Boolean);
   const hashes = {};
   for (const rel of evidenceFiles[name]) {
     const absolute = resolve(path, rel);
@@ -77,11 +91,11 @@ function repoRecord(name, path) {
 const manifest = {
   schemaVersion: 1,
   generatedAt: new Date().toISOString(),
-  purpose: "Internal acquisition-readiness evidence snapshot; not a signed release attestation.",
+  purpose: "Internal acquisition-readiness evidence snapshot, not a signed release attestation. Repository head fields identify the source commits present when this snapshot was generated; the manifest's own commit is subsequent and is intentionally not self-referenced.",
   proposedOpeningAcquisitionPositionUSD: 20000000,
   valuationDisclaimer: "Opening negotiation position only; not an independently substantiated fair-market valuation.",
   releaseEligible: false,
-  releaseEligibilityReason: "Both repositories contain uncommitted work and required clean-host, live-provider, ISO boot, IP-title, and dependency-review gates remain open.",
+  releaseEligibilityReason: "Not release-eligible. The commercial working copy contains uncommitted OS/Tailwind changes; both ISO build jobs are skipped; and clean-host build, bootable-image boot test, live-provider verification, independent security review, and attorney-verified IP-title review remain open. The captured demo-branch CI passed CodeQL, dependency audit/review, Trivy, CycloneDX SBOM generation, acquisition stress, and Kernel authority-path proof, but those checks do not replace the open release gates.",
   repositories: {
     commercialBootDrive: repoRecord("commercialBootDrive", repos.commercialBootDrive),
     acquisitionDemoDrive: repoRecord("acquisitionDemoDrive", repos.acquisitionDemoDrive),

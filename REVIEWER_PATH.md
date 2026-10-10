@@ -14,7 +14,7 @@ python3 -m http.server 8765 --directory demo
 # open http://127.0.0.1:8765/
 ```
 
-Cranium AI acts as the host and guides the visitor.
+Convertible Cranium AI acts as the host and guides the visitor.
 
 ## 2. Walk the experience
 
@@ -44,4 +44,4 @@ qemu-system-x86_64 -m 4096 -enable-kvm -cdrom dist/cranium-acquisition-demo.iso
 
 ## Explicit non-claims
 
-This drive does not claim live model inference, provider connectivity, full production certification, or canonical authority. It is an evidence and diligence surface hosted by Cranium AI.
+This drive does not claim live model inference, provider connectivity, full production certification, or canonical authority. It is an evidence and diligence surface hosted by Convertible Cranium AI.

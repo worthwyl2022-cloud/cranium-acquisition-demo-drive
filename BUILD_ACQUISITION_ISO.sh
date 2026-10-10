@@ -11,6 +11,8 @@ command -v xorriso >/dev/null || { echo 'Missing xorriso.' >&2; exit 1; }
 
 rm -rf "$WORK"
 mkdir -p "$WORK/config/includes.chroot/opt/cranium-acquisition-demo"
+mkdir -p "$WORK/config/package-lists"
+printf 'syslinux-utils\n' > "$WORK/config/package-lists/syslinux-utils.list.chroot"
 
 # Record the exact source revision used for this appliance build.
 REVISION="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null || printf 'unversioned')"
@@ -68,11 +70,15 @@ EOF
 
 cd "$WORK"
 lb config \
-  --distribution noble \
-  --archive-areas 'main restricted universe multiverse' \
-  --binary-images iso \
-  --bootloader grub-efi \
-  --bootappend-live 'boot=live components username=live hostname=cranium-demo'
+  --mode debian \
+  --distribution bookworm \
+  --mirror-bootstrap https://deb.debian.org/debian/ \
+  --mirror-chroot https://deb.debian.org/debian/ \
+  --mirror-binary https://deb.debian.org/debian/ \
+  --archive-areas 'main contrib non-free non-free-firmware' \
+  --binary-images iso-hybrid \
+  --bootloader syslinux \
+  --bootappend-live 'boot=live components username=live hostname=cranium-demo console=ttyS0,115200n8'
 
 lb build
 

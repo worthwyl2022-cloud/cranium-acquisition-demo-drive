@@ -15,7 +15,8 @@ import {
 } from './types';
 import { sha256 } from './sha256';
 import { InMemoryReplayGuard } from './replayGuard';
-import { assertConstitutionalState, assertConstitutionalTransition } from './constitution';
+import { assertConstitutionalState, assertConstitutionalTransition, CONSTITUTION_VERSION } from './constitution';
+import { createAuthorityReceipt } from './authorityReceipt';
 
 export class CanonicalEncoder {
   static encode(req: AuthorityTransitionRequest): string {
@@ -319,6 +320,7 @@ export class DefaultAuthorityTransitionEngine {
       timestamp: request.timestamp,
       receiptSignature,
     };
+    transition.authorityReceipt = createAuthorityReceipt(transition, CONSTITUTION_VERSION);
 
     return { transition, replayStatus };
   }

@@ -1,0 +1,76 @@
+name: Convertible Cranium Reproducible Proof
+
+on:
+  push:
+    branches: [main, feat/metabolic-memory-v2]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kernel-proof:
+    name: Kernel authority-path proof
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: ecosystem/cranium-kernel/package-lock.json
+      - name: Install kernel dependencies
+        working-directory: ecosystem/cranium-kernel
+        run: npm ci --ignore-scripts
+      - name: TypeScript verification
+        working-directory: ecosystem/cranium-kernel
+        run: npm run lint
+      - name: Listener boundary
+        working-directory: ecosystem/cranium-kernel
+        run: npm run verify:listener-boundary
+      - name: Dual independent substrate boundary
+        working-directory: ecosystem/cranium-kernel
+        run: npm run verify:dual-independence
+      - name: Dual independence adversarial checks
+        working-directory: ecosystem/cranium-kernel
+        run: npm run verify:dual-independence-adversarial
+      - name: Receipt lineage
+        working-directory: ecosystem/cranium-kernel
+        run: npm run verify:receipt-lineage
+      - name: Authority proof layer
+        working-directory: ecosystem/cranium-kernel
+        run: npm run verify:proof-layer
+      - name: End-to-end authority path
+        working-directory: ecosystem/cranium-kernel
+        run: npm run verify:end-to-end
+      - name: Build kernel
+        working-directory: ecosystem/cranium-kernel
+        run: npm run build
+      - name: Publish reproducibility evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof-evidence
+          git rev-parse HEAD > proof-evidence/commit-sha.txt
+          node --version > proof-evidence/environment.txt
+          npm --version >> proof-evidence/environment.txt
+          sha256sum ecosystem/cranium-kernel/scripts/convertible-cranium-end-to-end-check.ts > proof-evidence/artifact-sha256.txt
+          printf '%s\n' \
+            'IMPLEMENTED: listener boundary' \
+            'IMPLEMENTED: Synapse proposal handoff in end-to-end harness' \
+            'IMPLEMENTED: independent Constitutional Substrate A' \
+            'IMPLEMENTED: independent Evidence Grounding Substrate B' \
+            'IMPLEMENTED: Kernel convergence and authority evaluation' \
+            'IMPLEMENTED: canonical receipt verification' \
+            'IMPLEMENTED: cryptographic proof verification' \
+            'IMPLEMENTED: proof-gated governed execution check' \
+            'IMPLEMENTED: prohibited-action negative path' \
+            'UNVERIFIED: bootable Convertible Cranium Chromium Edition' \
+            'UNVERIFIED: production remote Kernel service integration' \
+            > proof-evidence/status.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: convertible-cranium-proof-evidence
+          path: proof-evidence
+          if-no-files-found: error

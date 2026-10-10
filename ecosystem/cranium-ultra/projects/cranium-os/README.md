@@ -1,59 +1,36 @@
-# Cranium OS
+# Convertible Cranium OS
 
-**Cognitive Operating Environment built on Convertible Cranium Core**
+**Cognitive operating environment governed by Convertible Cranium Kernel.**
 
-> Authority is not claimed. It is granted—only through Convertible Cranium Core.
-> Convertible Cranium Core is the sole authority issuance boundary.
+> Authority is not claimed by the interface. It is granted only through Convertible Cranium Kernel.
 
-Cranium OS is the operating layer that sits above the hardened Convertible Cranium Core kernel.
-It provides the cognitive workspace, terminal, ledger, and operator surfaces through which humans and agents interact with the substrate — while all authority remains exclusively issuable by Convertible Cranium Core.
+Convertible Cranium OS provides the cognitive workspace and operator surfaces through which humans and agents prepare requests, inspect the local interface, and submit intentions. The browser is not an authority engine and cannot grant authority by itself.
 
----
+## Architecture boundary
 
-## Relationship to Convertible Cranium Core
+| Component | Responsibility |
+|---|---|
+| **Convertible Cranium OS** | Human/operator interface: Substrate Terminal, Canonical Ledger view, and Authority Dashboard |
+| **Convertible Cranium Kernel** | Canonical authority and convergence boundary. Any real grant must be validated, scoped, versioned, and receipted by the authenticated Kernel service. |
 
-| Layer | Responsibility |
-|-------|----------------|
-| **Convertible Cranium Core** | Sole authority issuance boundary. Validates, scopes, versions, and receipts every grant of authority. |
-| **Cranium OS** | Cognitive operating environment. Intention injection, deliberation visibility, canonical ledger, operator controls. |
+The interface must not represent simulated steps as real constitutional evaluation, evidence grounding, Kernel approval, or canonical receipt. If an authenticated Kernel endpoint is unavailable, a request remains **not evaluated** and no grant or receipt is claimed.
 
-No component inside Cranium OS can elevate authority on its own. Every privileged action is submitted as an `AuthorityTransitionRequest` to the Core.
+## Included surfaces
 
-## Features
+- **Substrate Terminal**: prepares an authority-transition request and submits it to the configured Kernel adapter.
+- **Canonical Ledger**: presents only data actually supplied by the configured source; browser-local state is not the canonical ledger.
+- **Authority Dashboard**: presents the local adapter's observable status, not a claim that a remote Kernel is live.
 
-- **Substrate Terminal** — Intention injection and real-time deliberation trace
-- **Canonical Ledger** — Immutable view of granted and denied transitions
-- **Authority Dashboard** — Live authority version, threat level, and constitutional status
-- **Operator Workspace** — Clean, dark, high-signal interface designed for serious evaluation
+## Development
 
-## Getting Started
+Run `npm ci`, `npm run typecheck`, `npm test`, and `npm run build` to validate the project. Use `npm run dev` for local development.
 
-npm install
-npm run dev
+The package scripts call the local TypeScript, Vitest, and Vite JavaScript entrypoints directly to avoid executable-shim issues in some Android/Termux shells.
 
-Governing Statement
-Authority is not claimed. It is granted—only through Convertible Cranium Core.Convertible Cranium Core is the sole authority issuance boundary: all authority must be validated, scoped, versioned, and receipted before it becomes effective.
+## Current verification boundary
 
-Ownership
-© 2026 Wyl Mathes · WorthWyl MediaAll rights reserved. No license is granted without explicit written permission.
+The local TypeScript check, production frontend build, and targeted authority-bridge tests have passed in the connected workspace. That does not establish a live authenticated Kernel connection, successful authority issuance, clean-host reproducibility, a bootable ISO, or independent production/security certification. Those remain separate validation gates.
 
+## Ownership and licensing
 
-### `cranium-os/docs/ARCHITECTURE.md`
-
-# Cranium OS — Architecture
-
-## Positioning
-
-Cranium OS is the cognitive operating environment that runs on top of Convertible Cranium Core.
-
-- **Convertible Cranium Core** owns the sole authority issuance boundary.
-- **Cranium OS** provides the human/operator surfaces (Terminal, Ledger, Dashboard) and never grants authority itself.
-
-## Layering
-
-┌─────────────────────────────────────────┐│              Cranium OS                 ││  Substrate Terminal · Ledger · Dashboard││         AuthorityBridge (submit only)   │└──────────────────┬──────────────────────┘                   │ AuthorityTransitionRequest                   ▼┌─────────────────────────────────────────┐│             Convertible Cranium Core                ││     Sole Authority Issuance Boundary    ││  Engine · Validator · ReplayGuard · ... │└─────────────────────────────────────────┘
-
-## Key Rule
-
-No component inside Cranium OS is permitted to mutate authority.
-Every privileged action is expressed as an `AuthorityTransitionRequest` and submitted through the bridge to Convertible Cranium Core.
+© 2026 Wyl Mathes · WorthWyl Media. All rights reserved. No license is granted without explicit written permission.

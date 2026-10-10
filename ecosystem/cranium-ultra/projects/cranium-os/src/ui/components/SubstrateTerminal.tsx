@@ -22,7 +22,7 @@ export default function SubstrateTerminal() {
 
     const snapshot = bridge.getSnapshot();
 
-    // Build a Kernel-shaped request. The browser does not evaluate it.
+    // Prepare a request for the Kernel. The browser does not evaluate it.
     const request: AuthorityTransitionRequest = {
       requestId: `req_${Date.now()}`,
       idempotencyKey: `idem_${Date.now()}`,
@@ -38,28 +38,22 @@ export default function SubstrateTerminal() {
       targetAuthorityVersion: snapshot.authorityVersion ?? 0,
     };
 
-    // Illustrative deliberation trace for the UI
-    const steps = [
-      { step: "INTENTION_RECEIVED", status: "ACTIVE", detail: "Operator intention accepted by OS layer" },
-      { step: "CANONICAL_HASH", status: "PROCESSING", detail: "Request submitted to Convertible Cranium Core for canonical hashing" },
-      { step: "BOUNDARY_EVALUATION", status: "PROCESSING", detail: "Sole authority issuance boundary evaluating request" },
-      { step: "CONSTITUTIONAL_CHECK", status: "PROCESSING", detail: "CORE_CONSTITUTION principles applied" },
-    ];
-
-    for (let i = 0; i < steps.length; i++) {
-      await new Promise((r) => setTimeout(r, 320));
-      setTrace((prev) => [...prev, steps[i]]);
-    }
+    setTrace([{
+      step: "REQUEST_PREPARED",
+      status: "PREPARED",
+      detail: "The browser prepared a request. No constitutional or evidence evaluation occurs in this interface.",
+    }]);
 
     const submission = await bridge.submit(request);
 
-    const finalStatus = "LOCKED";
     setTrace((prev) => [
       ...prev,
       {
-        step: "ISSUANCE_DECISION",
-        status: finalStatus,
-        detail: "No authenticated cranium-kernel endpoint is configured; no evaluation or receipt was produced.",
+        step: "AUTHORITY_EVALUATION",
+        status: "NOT_EVALUATED",
+        detail: submission.reason === "KERNEL_ENDPOINT_REQUIRED"
+          ? "No authenticated Convertible Cranium Kernel endpoint is configured. No evaluation, authority grant, or receipt was produced."
+          : "The request was not evaluated by the canonical authority boundary.",
       },
     ]);
 
@@ -76,7 +70,7 @@ export default function SubstrateTerminal() {
         <div>
           <h1 className="text-xl font-bold text-zinc-100 tracking-tight">Substrate Terminal</h1>
           <p className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest mt-0.5">
-            Intention → Convertible Cranium Core Issuance Boundary
+            Intention → Convertible Cranium Kernel Issuance Boundary
           </p>
         </div>
       </header>
@@ -100,7 +94,7 @@ export default function SubstrateTerminal() {
             disabled={isSubmitting || !intention.trim()}
             className="w-full flex items-center justify-center gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 disabled:opacity-30 text-cyan-400 font-medium py-3.5 rounded-xl transition-all font-mono text-xs uppercase tracking-widest"
           >
-            {isSubmitting ? "Submitting to Core…" : "Submit to Convertible Cranium Core"}
+            {isSubmitting ? "Submitting to Kernel adapter…" : "Submit to Convertible Cranium Kernel"}
             <Send size={15} />
           </button>
 

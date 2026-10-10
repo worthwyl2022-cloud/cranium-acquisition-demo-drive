@@ -17,7 +17,7 @@ The drive opens a visual executive overview with a guided tour, ecosystem archit
 
 ## Ecosystem included
 
-The payload contains the assembled local source and documentation surfaces for Convertible Cranium AI, Core/Kernel, Synapse, Ultra, Miracle Memory, Cognitive Tracker, WorthWyl Forge, the acquisition package, the Constitution, architecture documentation, deployment guidance, and health checks.
+The payload contains the assembled local source and documentation surfaces for Convertible Cranium AI, Convertible Cranium Kernel, Synapse, Ultra, Miracle Meta Memory, Cognitive Tracker, WorthWyl Forge, the acquisition package, the Constitution, architecture documentation, deployment guidance, and health checks.
 
 Each product is presented as independently valuable. The demonstration also explains how the products compose into the Cognitive Substrate Governance Ecosystem.
 

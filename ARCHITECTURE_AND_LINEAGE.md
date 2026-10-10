@@ -1,58 +1,17 @@
-# Convertible Cranium Acquisition Demo Drive: Current Architecture and Lineage
+# Convertible Cranium Architecture and Lineage
 
-The acquisition appliance is a **buyer-facing distribution and evidence surface for the Convertible Cranium substrate**. It is not a separate governance system and does not redefine canonical authority.
+This document is derived from `CANONICAL_ARCHITECTURE.md` and is intended for acquisition review.
 
-## Canonical substrate model
+Canonical authority path:
 
-```text
-Human / external intent
-        |
-        v
-Cognition
-        |
-        v
-Cognitive Subconscious
-observe -> associate -> hypothesize -> challenge -> quarantine/propose
-        |
-        +------------------- evidence / proposal -------------------+
-                                                                     |
-                                                                     v
-                 +-----------------------------------------------+
-                 |              CRANIUM KERNEL                    |
-                 | Constitution -> boundary -> authority ->      |
-                 | durable commit -> canonical receipt            |
-                 +----------------------+------------------------+
-                                        |
-                                    authority
-                                        |
-                                        v
-                                  Governed action
-                                        |
-                                        v
-                                  Miracle Memory
+Human/external intent → Listener → Synapse → independent Constitutional Authority substrate (A) + independent Evidence Grounding substrate (B) → Cranium Kernel convergence → governed execution → receipt/lineage.
 
-Synapse = bounded capability/evidence plane.
-COMA = cross-cutting containment and operational-state boundary.
-```
+The Chromium Edition is a distribution and evidence surface, not a second authority system.
 
-## Buyer-facing layers
+Every registered box is required to be executable, contract-bound, test-bound, integration-bound, and authority-classified. The current machine-checkable registry is `EXECUTABLE_ARCHITECTURE.json`, enforced by `scripts/verify-architecture-contracts.mjs`.
 
-- **Presentation:** offline executive overview and guided tour.
-- **Architecture:** current Core/Synapse, cognition, subconscious, memory, COMA, and authority model.
-- **Evidence:** source snapshots, tests, receipts, manifests, and reproducibility material.
-- **Products:** independently identifiable product surfaces and their integration boundaries.
-- **Deployment:** Linux appliance build and safe operating modes.
+The Quad Engine/Dual Substrate architecture is canonical and the independent A/B substrate boundary is now implemented and verified. See EXECUTABLE_ARCHITECTURE.json and EXECUTABLE_ARCHITECTURE_MAP.md for the evidence-backed inventory.
 
-The demo explains composition without claiming that presentation code itself is canonical authority.
+Miracle Memory provides governed continuity. Metabolic Memory v2 provides resource governance, including flux, residency, eviction, reservoir, subsidy, and metabolic ledger controls. Neither can create canonical authority.
 
-## Canonicality rule
-
-`cranium-kernel` is the sole canonical authority source. Supporting repositories and bundled snapshots may submit proposals, evidence, requests, or presentation state, but may not issue canonical authority independently.
-
-## Snapshot and evidence rule
-
-Every bundled canonical component must identify its source repository and pinned revision. A demonstration artifact is evidence of the demonstration unless separately reproduced as executable technical evidence. Synthetic fixtures and hypothetical scenarios must remain explicitly labeled.
-
-## Security boundary
-
-The acquisition drive is read-only by default and contains no live credentials. It demonstrates architecture and evidence without pretending that an offline demo is itself a production autonomous deployment.
+Source lineage, release identity, evidence, and verification must remain bound to the exact revision used for an acquisition or Chromium Edition build.

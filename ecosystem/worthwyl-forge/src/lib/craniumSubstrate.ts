@@ -317,10 +317,120 @@ export class MultiScaleMemory {
 }
 
 // -------------------------------------------------------------
+// METABOLIC MEMORY V2: COUPLED DISSIPATION + CONSTITUTIONAL RESERVOIRS
+// Resource governance only. Metabolism never grants authority.
+// -------------------------------------------------------------
+export interface MetabolicSubsidy {
+  sourceId: string;
+  targetId: string;
+  amount: number;
+  approvedByHuman: boolean;
+  constitutionRatified: boolean;
+  cycle: number;
+}
+
+export interface MetabolicLedger {
+  flux_demand: number;
+  flux_capacity: number;
+  flux_ok: boolean;
+  evicted: string[];
+  subsidy_pool: number;
+  subsidies: MetabolicSubsidy[];
+  total_evictions: number;
+  total_subsidy_transferred: number;
+}
+
+export class MetabolicGovernance {
+  flux_capacity = 1.85;
+  locked_multiplier = 2.0;
+  surplus_rate = 0.10;
+  ledger: MetabolicLedger = {
+    flux_demand: 0, flux_capacity: 1.85, flux_ok: true, evicted: [],
+    subsidy_pool: 0, subsidies: [], total_evictions: 0, total_subsidy_transferred: 0
+  };
+  private reservoir = 0;
+
+  residencyPriority(atom: CognitiveAtom): number {
+    const K_lock = atom.locked || atom.kind === "identity" ? this.locked_multiplier : 1.0;
+    const h = Math.max(0, Math.min(1, atom.humanImportance ?? 0));
+    const E = Math.max(0, atom.energy);
+    return Math.max(0, atom.mass) * K_lock * (1 + h) * E;
+  }
+
+  metabolicRate(atom: CognitiveAtom): number {
+    // Coupled dissipation: active mass and energy determine instantaneous demand.
+    return Math.max(0, atom.mass) * Math.max(0, atom.energy) / 100.0;
+  }
+
+  private rebuildPool(atoms: CognitiveAtom[]): void {
+    let generated = 0;
+    for (const atom of atoms) {
+      if (atom.locked || atom.kind === "identity") {
+        generated += Math.max(0, atom.mass * Math.max(0, atom.energy)) * this.surplus_rate / 100.0;
+      }
+    }
+    this.reservoir += generated;
+  }
+
+  reconcile(atoms: CognitiveAtom[]): string[] {
+    const active = atoms.filter(a => a.energy > 0.04);
+    const demand = active.reduce((sum, a) => sum + this.metabolicRate(a), 0);
+    this.rebuildPool(active);
+    const evicted: string[] = [];
+
+    if (demand > this.flux_capacity) {
+      const candidates = active
+        .filter(a => !a.locked && a.kind !== "identity")
+        .sort((a, b) => this.residencyPriority(a) - this.residencyPriority(b));
+      let remaining = demand;
+      for (const atom of candidates) {
+        if (remaining <= this.flux_capacity) break;
+        remaining -= this.metabolicRate(atom);
+        atom.energy = 0;
+        evicted.push(atom.id);
+      }
+    }
+
+    const finalDemand = this.memoryDemand(atoms);
+    this.ledger.flux_demand = finalDemand;
+    this.ledger.flux_capacity = this.flux_capacity;
+    this.ledger.flux_ok = finalDemand <= this.flux_capacity;
+    this.ledger.evicted = evicted;
+    this.ledger.subsidy_pool = this.reservoir;
+    this.ledger.total_evictions += evicted.length;
+    return evicted;
+  }
+
+  private memoryDemand(atoms: CognitiveAtom[]): number {
+    return atoms.filter(a => a.energy > 0.04).reduce((sum, a) => sum + this.metabolicRate(a), 0);
+  }
+
+  subsidize(source: CognitiveAtom, target: CognitiveAtom, amount: number, cycle: number, humanApproved = false, constitutionRatified = false): boolean {
+    if (!Number.isFinite(amount) || amount <= 0) return false;
+    if (!(source.locked || source.kind === "identity")) return false;
+    if (target.locked || target.kind === "identity") return false;
+    if (!humanApproved && !constitutionRatified) return false;
+    if (amount > this.reservoir) return false;
+    target.energy = Math.min(1.0, target.energy + amount);
+    this.reservoir -= amount;
+    const entry = { sourceId: source.id, targetId: target.id, amount, approvedByHuman: humanApproved, constitutionRatified, cycle };
+    this.ledger.subsidies.push(entry);
+    this.ledger.total_subsidy_transferred += amount;
+    this.ledger.subsidy_pool = this.reservoir;
+    return true;
+  }
+
+  summary(): MetabolicLedger {
+    return { ...this.ledger, subsidies: this.ledger.subsidies.map(s => ({ ...s })) };
+  }
+}
+
+// -------------------------------------------------------------
 // RESONANCE FIELD SIMULATOR (Dynamic Particle Kinematics & Metrics)
 // -------------------------------------------------------------
 export class ResonanceField {
   memory = new MultiScaleMemory();
+  metabolism = new MetabolicGovernance();
   time = 0.0;
 
   inject(atom: CognitiveAtom) {
@@ -409,6 +519,8 @@ export class ResonanceField {
       }
     });
     this.memory.quarantine = this.memory.quarantine.filter(it => it.energy > 0.05);
+    // Metabolic governance runs after physics/decay and can only evict non-locked material.
+    this.metabolism.reconcile(this.memory.allActive());
     this.time += dt;
   }
 
@@ -925,6 +1037,21 @@ export class CraniumSubstrateCore {
     return this.field.metrics();
   }
 
+  metabolic_summary(): MetabolicLedger {
+    return this.field.metabolism.summary();
+  }
+
+  subsidize(atom_id: string, amount: number, human_approved = false, constitution_ratified = false): boolean {
+    const atoms = this.field.memory.allActive();
+    const source = atoms.find(a => (a.locked || a.kind === "identity") && a.id === atom_id);
+    if (!source) return false;
+    const target = atoms
+      .filter(a => !(a.locked || a.kind === "identity") && a.id !== atom_id)
+      .sort((a, b) => this.field.metabolism.residencyPriority(a) - this.field.metabolism.residencyPriority(b))[0];
+    if (!target) return false;
+    return this.field.metabolism.subsidize(source, target, amount, this.cycle, human_approved, constitution_ratified);
+  }
+
   isCanonProbe(text: string): boolean {
     const t = text.toLowerCase().trim();
     const starters = [
@@ -1002,6 +1129,7 @@ export class CraniumSubstrateCore {
     };
     this.field.inject(atom);
     this.field.step(0.1);
+    this.log.push({ cycle: this.cycle, event: "metabolic", metabolic: this.field.metabolism.summary() });
 
     // 3. Field Metrics & Dual-Lane Evaluation
     const metrics = this.field.metrics();
@@ -1155,3 +1283,5 @@ Produce the response obeying all procedures and constitutional constraints.`;
 
 // Export singleton instance
 export const craniumSubstrate = new CraniumSubstrateCore();
+
+export const SUBSTRATE_VERSION = "3.6.1-metabolic-v2";

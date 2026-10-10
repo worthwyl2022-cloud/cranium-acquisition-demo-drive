@@ -154,7 +154,30 @@ export type TransitionDecision =
   | { type: 'Granted'; grantedAuthority: AuthorityLevel; rationale: string }
   | { type: 'Denied'; reason: string; violationCode?: BoundaryViolation };
 
+/**
+ * Cryptographic projection of a canonical durable receipt.
+ *
+ * The durable CanonicalReceipt in authority/authorityProxy.ts remains the
+ * authoritative lineage record. This projection is bound to the same
+ * transition/request/decision and cannot independently grant authority.
+ */
+export interface AuthorityReceipt {
+  receiptVersion: '1.0';
+  issuer: 'CRANIUM_KERNEL';
+  transitionId: string;
+  subjectAtomId: string;
+  authority: AuthorityLevel;
+  authorityVersion: number;
+  constitutionalVersion: string;
+  requestHash: RequestHash;
+  evidenceRefs: string[];
+  decision: 'Granted' | 'Denied';
+  issuedAt: number;
+  receiptDigest: string;
+}
+
 export interface AuthorityTransition {
+  authorityReceipt?: AuthorityReceipt;
   id: string;
   subjectAtomId: string;
   sourceAuthority: AuthorityLevel;

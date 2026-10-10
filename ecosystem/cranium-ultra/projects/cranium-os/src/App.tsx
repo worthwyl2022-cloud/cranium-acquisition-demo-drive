@@ -25,7 +25,7 @@ export default function App() {
             >
               <Menu size={22} />
             </button>
-            <span className="font-semibold text-zinc-200 tracking-tight">Cranium OS</span>
+            <span className="font-semibold text-zinc-200 tracking-tight">Convertible Cranium OS</span>
           </div>
           <ThreatBadge level={snapshot.threatLevel} />
         </header>
@@ -110,9 +110,9 @@ function Sidebar({
               <Activity className="text-cyan-400" size={20} />
             </div>
             <div>
-              <div className="font-bold text-zinc-100 tracking-tight">Cranium OS</div>
+              <div className="font-bold text-zinc-100 tracking-tight">Convertible Cranium OS</div>
               <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
-                on Convertible Cranium Core
+                governed by Convertible Cranium Kernel
               </div>
             </div>
           </div>
@@ -171,7 +171,7 @@ function Sidebar({
           </div>
           <div className="text-[10px] text-zinc-600 font-mono leading-relaxed pt-1">
             Authority is not claimed.<br />
-            It is granted—only through Convertible Cranium Core.
+            It is granted—only through Convertible Cranium Kernel.
           </div>
         </div>
       </div>

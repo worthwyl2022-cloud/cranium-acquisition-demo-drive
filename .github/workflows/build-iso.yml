@@ -57,16 +57,21 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          firmware="/usr/share/OVMF/OVMF_CODE_4M.fd"
-          if [[ ! -f "$firmware" ]]; then firmware="/usr/share/OVMF/OVMF_CODE.fd"; fi
-          if [[ ! -f "$firmware" ]]; then
-            firmware="$(find /usr/share/OVMF -maxdepth 1 -type f -name 'OVMF_CODE*.fd' ! -name '*.secboot.fd' ! -name '*.ms.fd' -print -quit)"
+          firmware_code="/usr/share/OVMF/OVMF_CODE_4M.fd"
+          firmware_vars_template="/usr/share/OVMF/OVMF_VARS_4M.fd"
+          if [[ ! -f "$firmware_code" || ! -f "$firmware_vars_template" ]]; then
+            firmware_code="/usr/share/OVMF/OVMF_CODE.fd"
+            firmware_vars_template="/usr/share/OVMF/OVMF_VARS.fd"
           fi
-          [[ -n "$firmware" ]] || { echo "OVMF firmware not found" >&2; exit 1; }
+          [[ -f "$firmware_code" && -f "$firmware_vars_template" ]] || { echo "Compatible OVMF code/vars firmware pair not found" >&2; exit 1; }
+          firmware_vars="$RUNNER_TEMP/convertible-cranium-OVMF_VARS.fd"
+          cp "$firmware_vars_template" "$firmware_vars"
           serial_log="$RUNNER_TEMP/convertible-cranium-boot.log"
           set +e
           timeout --signal=TERM 180s qemu-system-x86_64 \
-            -machine accel=tcg -m 4096 -smp 2 -bios "$firmware" \
+            -machine accel=tcg -m 4096 -smp 2 \
+            -drive if=pflash,format=raw,readonly=on,file="$firmware_code" \
+            -drive if=pflash,format=raw,file="$firmware_vars" \
             -cdrom dist/cranium-acquisition-demo.iso -boot d -display none -serial "file:$serial_log" \
             -monitor none -no-reboot -no-shutdown
           qemu_status=$?

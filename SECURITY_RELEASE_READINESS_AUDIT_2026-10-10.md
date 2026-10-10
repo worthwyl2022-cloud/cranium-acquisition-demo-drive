@@ -61,9 +61,9 @@ The hardened-core npm audit initially reported 20 moderate findings through the 
 | Repository / PR | Checks observed | Remaining issue |
 |---|---|---|
 | Commercial Boot Drive #17 | Appliance contract/launcher smoke test PASS; Convertible Cranium AI checks PASS | Commercial ISO job SKIPPED. |
-| Commercial Boot Drive #18 | Appliance contract/launcher smoke test PASS; AI checks PENDING | Commercial ISO job SKIPPED; wait for AI checks. |
-| Commercial Boot Drive #19 | Appliance contract/launcher smoke test PENDING; AI checks PENDING | Commercial ISO job not yet verified; wait for CI. |
-| Acquisition Demo Drive #18 | Validation, stress suite, CodeQL, dependency audit/review, SBOM, Trivy, Kernel authority-path proof, and pnpm audit PASS | Acquisition ISO job SKIPPED. |
+| Commercial Boot Drive #18 | Appliance contract/launcher smoke test PASS; Convertible Cranium AI checks PASS | Commercial ISO job SKIPPED. |
+| Commercial Boot Drive #19 | Appliance contract/launcher smoke test PASS; Convertible Cranium AI checks PASS | Commercial ISO job SKIPPED. Local OS/core typecheck, tests, builds, and npm audits passed; the CI workflow does not replace those release gates. |
+| Acquisition Demo Drive #18 | Validation, dependency audit, SBOM, Trivy, and pnpm audit PASS; stress suite, CodeQL, dependency review, and one Kernel authority-path proof PENDING | Acquisition ISO job SKIPPED. |
 
 Statuses can change after this snapshot. Recheck the live PR pages before making a merge decision.
 

@@ -28,22 +28,27 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install ISO build dependencies
         run: sudo apt-get update && sudo apt-get install -y live-build xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools dosfstools syslinux-utils qemu-system-x86 ovmf
-      - name: Build ISO with release key or ephemeral validation key
-        env:
-          CRANIUM_RELEASE_SIGNING_KEY: ${{ secrets.CRANIUM_RELEASE_SIGNING_KEY }}
+      - name: Build validation-only ISO with ephemeral key
+        if: github.event_name == 'pull_request'
         run: |
           set -euo pipefail
           key_file="$(mktemp /tmp/convertible-cranium-validation-key.XXXXXX.pem)"
           cleanup() { rm -f "$key_file"; }
           trap cleanup EXIT
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            # PR code must never receive the repository's real release-signing key.
-            openssl genpkey -algorithm ED25519 -out "$key_file" >/dev/null 2>&1
-            echo "VALIDATION_ONLY_ISO=true" >> "$GITHUB_ENV"
-          else
-            [[ -n "${CRANIUM_RELEASE_SIGNING_KEY:-}" ]] || { echo "Missing CRANIUM_RELEASE_SIGNING_KEY for trusted release build." >&2; exit 1; }
-            printf "%s\n" "$CRANIUM_RELEASE_SIGNING_KEY" > "$key_file"
-          fi
+          openssl genpkey -algorithm ED25519 -out "$key_file" >/dev/null 2>&1
+          chmod 600 "$key_file"
+          sudo env CRANIUM_RELEASE_SIGNING_KEY="$key_file" bash BUILD_ACQUISITION_ISO.sh
+      - name: Build signed release ISO
+        if: github.event_name != 'pull_request'
+        env:
+          CRANIUM_RELEASE_SIGNING_KEY: ${{ secrets.CRANIUM_RELEASE_SIGNING_KEY }}
+        run: |
+          set -euo pipefail
+          [[ -n "${CRANIUM_RELEASE_SIGNING_KEY:-}" ]] || { echo "Missing CRANIUM_RELEASE_SIGNING_KEY for trusted release build." >&2; exit 1; }
+          key_file="$(mktemp /tmp/convertible-cranium-release-key.XXXXXX.pem)"
+          cleanup() { rm -f "$key_file"; }
+          trap cleanup EXIT
+          printf "%s\n" "$CRANIUM_RELEASE_SIGNING_KEY" > "$key_file"
           chmod 600 "$key_file"
           sudo env CRANIUM_RELEASE_SIGNING_KEY="$key_file" bash BUILD_ACQUISITION_ISO.sh
       - name: Verify ISO artifact

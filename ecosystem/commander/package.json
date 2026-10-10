@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "node ./node_modules/vite/bin/vite.js build && node ./node_modules/esbuild/bin/esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "build": "node ./node_modules/vite/bin/vite.js build && node ./scripts/build-server.mjs",
     "start": "node dist/server.cjs",
     "lint": "node ./node_modules/typescript/bin/tsc --noEmit",
     "verify:architecture": "node scripts/verify-architecture.mjs"
   },
   "dependencies": {
     "express": "^5.1.0",
+    "express-rate-limit": "^8.7.1",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
     "vite": "^6.2.3"

@@ -1,10 +1,14 @@
 import express from 'express';
 import path from 'node:path';
+import { rateLimit } from 'express-rate-limit';
 
 const app = express();
 const port = Number(process.env.PORT || 3000);
 const root = process.cwd();
 
+// Bound request volume before routes or filesystem-backed SPA responses run.
+app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 600, standardHeaders: true, legacyHeaders: false }));
+app.use('/api', rateLimit({ windowMs: 15 * 60 * 1000, limit: 60, standardHeaders: true, legacyHeaders: false }));
 app.use(express.json({ limit: '256kb' }));
 
 app.get('/api/architecture/status', (_req, res) => {

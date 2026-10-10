@@ -70,7 +70,11 @@ EOF
 
 cd "$WORK"
 lb config \
+  --mode debian \
   --distribution bookworm \
+  --mirror-bootstrap https://deb.debian.org/debian/ \
+  --mirror-chroot https://deb.debian.org/debian/ \
+  --mirror-binary https://deb.debian.org/debian/ \
   --archive-areas 'main contrib non-free non-free-firmware' \
   --binary-images iso-hybrid \
   --bootloader syslinux \

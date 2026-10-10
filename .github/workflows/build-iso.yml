@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install ISO build dependencies
-        run: sudo apt-get update && sudo apt-get install -y live-build xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools dosfstools syslinux-utils qemu-system-x86 ovmf
+        run: sudo apt-get update && sudo apt-get install -y live-build xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools dosfstools syslinux-utils debian-archive-keyring qemu-system-x86 ovmf
       - name: Build validation-only ISO with ephemeral key
         if: github.event_name == 'pull_request'
         run: |

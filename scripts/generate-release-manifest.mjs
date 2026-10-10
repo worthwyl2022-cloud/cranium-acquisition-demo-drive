@@ -27,6 +27,7 @@ const evidenceFiles = {
   acquisitionDemoDrive: [
     "HEALTH_CHECK.sh",
     "README.md",
+    "SECURITY_RELEASE_READINESS_AUDIT_2026-10-10.md",
     "ecosystem/commander/package.json",
     "ecosystem/commander/package-lock.json",
     "ecosystem/commander/server.ts",
@@ -95,7 +96,7 @@ const manifest = {
   proposedOpeningAcquisitionPositionUSD: 20000000,
   valuationDisclaimer: "Opening negotiation position only; not an independently substantiated fair-market valuation.",
   releaseEligible: false,
-  releaseEligibilityReason: "Not release-eligible. The commercial working copy contains uncommitted OS/Tailwind changes; both ISO build jobs are skipped; and clean-host build, bootable-image boot test, live-provider verification, independent security review, and attorney-verified IP-title review remain open. The captured demo-branch CI passed CodeQL, dependency audit/review, Trivy, CycloneDX SBOM generation, acquisition stress, and Kernel authority-path proof, but those checks do not replace the open release gates.",
+  releaseEligibilityReason: "Not release-eligible. The commercial source is on an unmerged security review branch; both ISO build jobs are skipped; and clean-host build, bootable-image boot test, live-provider verification, independent security review, and attorney-verified IP-title review remain open. The captured demo-branch CI passed CodeQL, dependency audit/review, Trivy, CycloneDX SBOM generation, acquisition stress, and Kernel authority-path proof, but those checks do not replace the open release gates.",
   repositories: {
     commercialBootDrive: repoRecord("commercialBootDrive", repos.commercialBootDrive),
     acquisitionDemoDrive: repoRecord("acquisitionDemoDrive", repos.acquisitionDemoDrive),

@@ -70,8 +70,8 @@ EOF
 
 cd "$WORK"
 lb config \
-  --distribution noble \
-  --archive-areas 'main restricted universe multiverse' \
+  --distribution bookworm \
+  --archive-areas 'main contrib non-free non-free-firmware' \
   --binary-images iso-hybrid \
   --bootloader syslinux \
   --bootappend-live 'boot=live components username=live hostname=cranium-demo console=ttyS0,115200n8'

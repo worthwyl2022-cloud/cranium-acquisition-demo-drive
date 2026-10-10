@@ -57,7 +57,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          firmware="$(find /usr/share/OVMF -maxdepth 1 -type f -name 'OVMF_CODE*.fd' -print -quit)"
+          firmware="/usr/share/OVMF/OVMF_CODE_4M.fd"
+          if [[ ! -f "$firmware" ]]; then firmware="/usr/share/OVMF/OVMF_CODE.fd"; fi
+          if [[ ! -f "$firmware" ]]; then
+            firmware="$(find /usr/share/OVMF -maxdepth 1 -type f -name 'OVMF_CODE*.fd' ! -name '*.secboot.fd' ! -name '*.ms.fd' -print -quit)"
+          fi
           [[ -n "$firmware" ]] || { echo "OVMF firmware not found" >&2; exit 1; }
           serial_log="$RUNNER_TEMP/convertible-cranium-boot.log"
           set +e

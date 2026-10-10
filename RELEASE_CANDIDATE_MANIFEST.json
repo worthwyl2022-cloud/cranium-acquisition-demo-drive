@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-10T11:18:40.773Z",
+  "generatedAt": "2026-10-10T11:20:12.801Z",
   "purpose": "Internal acquisition-readiness evidence snapshot, not a signed release attestation. Repository head fields identify the source commits present when this snapshot was generated; the manifest's own commit is subsequent and is intentionally not self-referenced.",
   "proposedOpeningAcquisitionPositionUSD": 20000000,
   "valuationDisclaimer": "Opening negotiation position only; not an independently substantiated fair-market valuation.",
@@ -32,14 +32,14 @@
     "acquisitionDemoDrive": {
       "path": "cranium-acquisition-demo-drive",
       "branch": "feat/metabolic-memory-v2",
-      "head": "1a9e69364fd9cde3c74860c1fc7e98b70f14934d",
+      "head": "1c4cfd296ccf1a1cfff6763c4f84dfce085a7258",
       "dirty": false,
       "dirtyPathCount": 0,
       "dirtyPaths": [],
       "evidenceSha256": {
         "HEALTH_CHECK.sh": "d012bc2912ee924a2682ebdca3040d8d0c7054bd12233f9b771d095f042caba3",
         "README.md": "ffc432ab608ace8a2f0ba97a0eb3d091ef6c013f5bdfcfbd95af7793c8f88138",
-        "SECURITY_RELEASE_READINESS_AUDIT_2026-10-10.md": "7492e4163a059723a0933999531ff09e1aa329ae0f36fb6e711a39041cb0ffcb",
+        "SECURITY_RELEASE_READINESS_AUDIT_2026-10-10.md": "a6345332058837f80f32b9bd5eb0e355b41162b22eaaadaab0baccc654be3cbd",
         "ecosystem/commander/package.json": "4715a325297a8ccd0b07a7d982b3c12d5153f130a04efb25d657a37b44c8f5e6",
         "ecosystem/commander/package-lock.json": "48a90c04fd2a491a1cbc08e666bfd379e687a1373b537855c7b04a5a03d4f8c5",
         "ecosystem/commander/server.ts": "f3720e5187d0c406426236590ffdd293b509b0deaae7adba33603597cb90c306",

@@ -25,6 +25,7 @@ The $20 million figure remains a proposed opening negotiation position only, not
 | Convertible Cranium OS | Typecheck PASS; 2/2 tests PASS; production build PASS; npm audit reports 0 vulnerabilities | Executed in the connected Android/Termux workspace, not a clean Linux host. |
 | Hardened authority core | 6/6 unit tests PASS; 6/6 adversarial cases PASS; build PASS; npm audit reports 0 vulnerabilities | Unit tests now use Node's built-in test runner through the existing `tsx` package. This removes the Jest/ts-jest dependency chain that pulled in an unpatched `sprintf-js` advisory. |
 | Demo Commander and legacy Commander | Lint/build PASS; each local npm audit reported 0 vulnerabilities | Applies to those two package trees, not every repository dependency. |
+| Commercial Commander at PR #17 head 91d8a5b | Isolated exact-head npm audit: 0 vulnerabilities | Audited from a detached worktree at the PR's current head. This does not cover the OS/AI manifests. |
 | Architecture contract | PASS: 30 registered boxes | Confirms the repository's architecture-contract and executable-architecture gates, not an independent proof of every runtime deployment scenario. |
 | Demo branch GitHub Actions | Pass: validation, stress suite, CodeQL, dependency audit/review, CycloneDX SBOM generation, Trivy scan, Kernel authority-path proof, and pnpm dependency audit | The ISO build job is skipped. A generated SBOM is not a completed license/legal review. |
 | AI dependency remediation branch | Updated lockfile's local `pnpm audit`: 0 vulnerabilities | The full package installation/build/test sequence was not completed locally on Android/Termux. GitHub Actions must validate this PR before merge. |
@@ -60,7 +61,7 @@ The hardened-core npm audit initially reported 20 moderate findings through the 
 
 | Repository / PR | Checks observed | Remaining issue |
 |---|---|---|
-| Commercial Boot Drive #17 | Appliance contract/launcher smoke test PASS; Convertible Cranium AI checks PASS | Commercial ISO job SKIPPED. |
+| Commercial Boot Drive #17 | Appliance contract/launcher smoke test PASS; Convertible Cranium AI checks PASS; exact-head Commander npm audit reports 0 vulnerabilities | Commercial ISO job SKIPPED. |
 | Commercial Boot Drive #18 | Appliance contract/launcher smoke test PASS; Convertible Cranium AI checks PASS | Commercial ISO job SKIPPED. |
 | Commercial Boot Drive #19 | Appliance contract/launcher smoke test PASS; Convertible Cranium AI checks PASS | Commercial ISO job SKIPPED. Local OS/core typecheck, tests, builds, and npm audits passed; the CI workflow does not replace those release gates. |
 | Acquisition Demo Drive #18 | Validation, dependency audit, SBOM, Trivy, and pnpm audit PASS; stress suite, CodeQL, dependency review, and one Kernel authority-path proof PENDING | Acquisition ISO job SKIPPED. |

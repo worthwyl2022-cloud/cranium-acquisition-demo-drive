@@ -1,27 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-10T11:08:14.386Z",
+  "generatedAt": "2026-10-10T11:17:40.440Z",
   "purpose": "Internal acquisition-readiness evidence snapshot, not a signed release attestation. Repository head fields identify the source commits present when this snapshot was generated; the manifest's own commit is subsequent and is intentionally not self-referenced.",
   "proposedOpeningAcquisitionPositionUSD": 20000000,
   "valuationDisclaimer": "Opening negotiation position only; not an independently substantiated fair-market valuation.",
   "releaseEligible": false,
-  "releaseEligibilityReason": "Not release-eligible. The commercial working copy contains uncommitted OS/Tailwind changes; both ISO build jobs are skipped; and clean-host build, bootable-image boot test, live-provider verification, independent security review, and attorney-verified IP-title review remain open. The captured demo-branch CI passed CodeQL, dependency audit/review, Trivy, CycloneDX SBOM generation, acquisition stress, and Kernel authority-path proof, but those checks do not replace the open release gates.",
+  "releaseEligibilityReason": "Not release-eligible. The commercial source is on an unmerged security review branch; both ISO build jobs are skipped; and clean-host build, bootable-image boot test, live-provider verification, independent security review, and attorney-verified IP-title review remain open. The captured demo-branch CI passed CodeQL, dependency audit/review, Trivy, CycloneDX SBOM generation, acquisition stress, and Kernel authority-path proof, but those checks do not replace the open release gates.",
   "repositories": {
     "commercialBootDrive": {
       "path": "cranium-boot-drive",
       "branch": "security/os-tailwind-v4-upgrade",
-      "head": "c263896c0987bf843e9656c854cdc36664358462",
-      "dirty": true,
-      "dirtyPathCount": 7,
-      "dirtyPaths": [
-        "cranium-ultra/projects/cranium-core-hardened/package-lock.json",
-        "cranium-ultra/projects/cranium-core-hardened/package.json",
-        "cranium-ultra/projects/cranium-os/package-lock.json",
-        "cranium-ultra/projects/cranium-os/package.json",
-        "cranium-ultra/projects/cranium-os/postcss.config.js",
-        "cranium-ultra/projects/cranium-os/src/index.css",
-        "cranium-ultra/projects/cranium-os/vite.config.ts"
-      ],
+      "head": "6e358148ed29aa9abed4f0b41cc25c5d7921341f",
+      "dirty": false,
+      "dirtyPathCount": 0,
+      "dirtyPaths": [],
       "evidenceSha256": {
         "HEALTH_CHECK.sh": "28279ed39c7c85a102144bfe8d855cdee7032a31449cc0a8045a8f6a2fab74fe",
         "chromiumos/manifest.env": "ac3cca3cacb7a829ab1c4305f05d21c5dd8ce19b77c98046ceab5d9e4f715fa7",
@@ -40,13 +32,14 @@
     "acquisitionDemoDrive": {
       "path": "cranium-acquisition-demo-drive",
       "branch": "feat/metabolic-memory-v2",
-      "head": "3288c2ca752f0a352dae7d912e260eb366fa7823",
+      "head": "92eb6fa69b7d65ec134b381699ce3266437c787b",
       "dirty": false,
       "dirtyPathCount": 0,
       "dirtyPaths": [],
       "evidenceSha256": {
         "HEALTH_CHECK.sh": "d012bc2912ee924a2682ebdca3040d8d0c7054bd12233f9b771d095f042caba3",
         "README.md": "ffc432ab608ace8a2f0ba97a0eb3d091ef6c013f5bdfcfbd95af7793c8f88138",
+        "SECURITY_RELEASE_READINESS_AUDIT_2026-10-10.md": "4a2b7350925f1200f283cf613579290f1afa982689ed1803e1e52040fa1aa1f3",
         "ecosystem/commander/package.json": "4715a325297a8ccd0b07a7d982b3c12d5153f130a04efb25d657a37b44c8f5e6",
         "ecosystem/commander/package-lock.json": "48a90c04fd2a491a1cbc08e666bfd379e687a1373b537855c7b04a5a03d4f8c5",
         "ecosystem/commander/server.ts": "f3720e5187d0c406426236590ffdd293b509b0deaae7adba33603597cb90c306",
@@ -69,7 +62,7 @@
         "scripts/verify-executable-architecture.mjs": "1ab9c75eb7d81dc4e7c201a6dbc010342378b7884360fca5eacd66d456bd9cce",
         "scripts/ultra-surface-check.mjs": "8fa4a8582aefc56a6fab4adaa36f03b29ff5e240fe1698bcac47845971231c8e",
         "EXECUTABLE_ARCHITECTURE.json": "01f3693a8ed911a727f390114751cbc877a60573b6a96573249763d74e1f0c7a",
-        "scripts/generate-release-manifest.mjs": "80678f60cd209c31d0237c120e484e8f603f5c1592958aa4d68ddbaad4d0d775",
+        "scripts/generate-release-manifest.mjs": "463c4a99e4d3c8d8dc3c375beac563005e343e188f88f264114989047d40813b",
         "ecosystem/cranium-ultra/projects/cranium-os/README.md": "71d53de946e61cb8d867c992ff78082c0ce548a03dfe6584a0a13aa2ae858fbd",
         "ecosystem/cranium-ultra/projects/cranium-os/index.html": "82159334b1cb1477863c5f09455dc4bb960e186bdf0b0d5d2a9d95e67b5df575",
         "ecosystem/cranium-ultra/projects/cranium-os/package.json": "3d79343ff2a074d7c2d30572ccddc62f8fa3ed011780bebe07920c9b860dbba3",

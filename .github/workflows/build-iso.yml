@@ -69,11 +69,13 @@ jobs:
           xorriso -indev "$iso_path" -report_el_torito plain | tee "$boot_report"
           grep -Eq 'BIOS|0x00' "$boot_report" || { echo "ISO is missing a BIOS El Torito boot entry" >&2; exit 1; }
       - name: Upload ISO
+        if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: cranium-acquisition-demo-${{ github.event_name }}-${{ github.run_number }}
           path: dist/cranium-acquisition-demo.iso
           if-no-files-found: error
+          retention-days: 7
       - name: Boot ISO under QEMU and verify Linux reaches systemd
         shell: bash
         run: |

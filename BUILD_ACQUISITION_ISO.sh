@@ -92,8 +92,8 @@ lb config \
   --bootappend-live 'boot=live components username=live hostname=cranium-demo console=ttyS0,115200n8'
 
 # Syslinux's shipped timeout 0 waits forever in headless CI. Start the default entry automatically.
-mkdir -p "$WORK/config/bootloaders/syslinux"
-cat > "$WORK/config/bootloaders/syslinux/syslinux.cfg" <<'EOF'
+mkdir -p "$WORK/config/bootloaders/isolinux"
+cat > "$WORK/config/bootloaders/isolinux/isolinux.cfg" <<'EOF'
 include menu.cfg
 default vesamenu.c32
 prompt 0

@@ -27,7 +27,15 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install ISO build dependencies
-        run: sudo apt-get update && sudo apt-get install -y live-build xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools dosfstools syslinux-utils debian-archive-keyring qemu-system-x86 ovmf
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y debootstrap xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools dosfstools syslinux-utils debian-archive-keyring qemu-system-x86 ovmf
+          live_build_deb="$RUNNER_TEMP/live-build_20230502_all.deb"
+          curl -fsSL --retry 3 https://deb.debian.org/debian/pool/main/l/live-build/live-build_20230502_all.deb -o "$live_build_deb"
+          echo "a863905724e7b69d45066ebab113cb6de12a11984349847ad49f6151c10f017d  $live_build_deb" | sha256sum --check
+          sudo dpkg -i "$live_build_deb"
+          lb --version | grep -F '1:20230502'
       - name: Build validation-only ISO with ephemeral key
         if: github.event_name == 'pull_request'
         run: |

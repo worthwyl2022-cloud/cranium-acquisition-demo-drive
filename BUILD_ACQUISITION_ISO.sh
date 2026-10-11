@@ -14,6 +14,16 @@ mkdir -p "$WORK/config/includes.chroot/opt/cranium-acquisition-demo"
 mkdir -p "$WORK/config/package-lists"
 printf 'syslinux-utils\n' > "$WORK/config/package-lists/syslinux-utils.list.chroot"
 
+# Current live-build releases may emit the retired bookworm/updates security suite.
+# Disable that generated entry and define the supported bookworm-security suite explicitly.
+mkdir -p "$WORK/config/archives"
+cat > "$WORK/config/archives/convertible-cranium-security.list.chroot" <<'EOF'
+deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+EOF
+cat > "$WORK/config/archives/convertible-cranium-security.list.binary" <<'EOF'
+deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+EOF
+
 # Record the exact source revision used for this appliance build.
 REVISION="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null || printf 'unversioned')"
 CORE_SNAPSHOT_SHA256="$(find "$ROOT/ecosystem/cranium-kernel" -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | awk '{print $1}')"
@@ -72,6 +82,7 @@ cd "$WORK"
 lb config \
   --mode debian \
   --distribution bookworm \
+  --security false \
   --mirror-bootstrap https://deb.debian.org/debian/ \
   --mirror-chroot https://deb.debian.org/debian/ \
   --mirror-binary https://deb.debian.org/debian/ \

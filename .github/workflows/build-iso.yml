@@ -35,7 +35,7 @@ jobs:
           curl -fsSL --retry 3 https://deb.debian.org/debian/pool/main/l/live-build/live-build_20230502_all.deb -o "$live_build_deb"
           echo "a863905724e7b69d45066ebab113cb6de12a11984349847ad49f6151c10f017d  $live_build_deb" | sha256sum --check
           sudo dpkg -i "$live_build_deb"
-          lb --version | grep -F '1:20230502'
+          dpkg-query -W -f='${Version}\n' live-build | grep -Fx '1:20230502'
       - name: Build validation-only ISO with ephemeral key
         if: github.event_name == 'pull_request'
         run: |

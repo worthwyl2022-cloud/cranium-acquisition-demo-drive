@@ -89,6 +89,7 @@ lb config \
   --archive-areas 'main contrib non-free non-free-firmware' \
   --binary-images iso-hybrid \
   --bootloader syslinux \
+  --bootloader-timeout 5 \
   --bootappend-live 'boot=live components username=live hostname=cranium-demo console=ttyS0,115200n8'
 
 lb build

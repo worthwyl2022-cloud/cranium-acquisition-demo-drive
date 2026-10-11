@@ -84,7 +84,7 @@ jobs:
           set +e
           timeout --signal=TERM 180s qemu-system-x86_64 \
             -machine accel=tcg -m 4096 -smp 2 \
-            -cdrom dist/cranium-acquisition-demo.iso -boot order=d,menu=on -display none -serial "file:$serial_log" \
+            -cdrom dist/cranium-acquisition-demo.iso -boot order=d -display none -serial "file:$serial_log" \
             -monitor none -no-reboot -no-shutdown
           qemu_status=$?
           set -e

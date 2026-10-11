@@ -89,8 +89,16 @@ lb config \
   --archive-areas 'main contrib non-free non-free-firmware' \
   --binary-images iso-hybrid \
   --bootloader syslinux \
-  --bootloader-timeout 5 \
   --bootappend-live 'boot=live components username=live hostname=cranium-demo console=ttyS0,115200n8'
+
+# Syslinux's shipped timeout 0 waits forever in headless CI. Start the default entry automatically.
+mkdir -p "$WORK/config/bootloaders/syslinux"
+cat > "$WORK/config/bootloaders/syslinux/syslinux.cfg" <<'EOF'
+include menu.cfg
+default vesamenu.c32
+prompt 0
+timeout 50
+EOF
 
 lb build
 

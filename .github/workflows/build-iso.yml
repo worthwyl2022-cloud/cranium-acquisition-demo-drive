@@ -3,13 +3,10 @@ name: Acquisition Demo ISO
 on:
   push:
     branches: [main]
-    tags: ['v*']
   pull_request:
 
 permissions:
-  contents: write
-  attestations: write
-  id-token: write
+  contents: read
 
 jobs:
   validate:
@@ -62,10 +59,6 @@ jobs:
           test -s RELEASE_LINEAGE.json
           test -s RELEASE_LINEAGE.json.sig
           test -s .cranium-trust/release-root.pub.pem
-      - name: Attest ISO build provenance
-        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.2.3
-        with:
-          subject-path: dist/cranium-acquisition-demo.iso
       - name: Upload ISO
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -78,16 +71,3 @@ jobs:
             .cranium-trust/release-root.pub.pem
           if-no-files-found: error
           retention-days: 30
-      - name: Publish durable signed release for version tags
-        if: startsWith(github.ref, 'refs/tags/v')
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release create "$GITHUB_REF_NAME" \
-            dist/cranium-acquisition-demo.iso \
-            dist/cranium-acquisition-demo.iso.sha256 \
-            RELEASE_LINEAGE.json \
-            RELEASE_LINEAGE.json.sig \
-            .cranium-trust/release-root.pub.pem \
-            --title "Cranium Acquisition Demo $GITHUB_REF_NAME" \
-            --generate-notes

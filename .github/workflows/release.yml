@@ -1,0 +1,59 @@
+name: Acquisition Demo Signed Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+  attestations: write
+  id-token: write
+
+concurrency:
+  group: acquisition-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build and publish signed acquisition release
+    runs-on: ubuntu-latest
+    environment: release
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install ISO build dependencies
+        run: sudo apt-get update && sudo apt-get install -y live-build xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools dosfstools syslinux-utils
+      - name: Build signed ISO
+        env:
+          CRANIUM_RELEASE_SIGNING_KEY: ${{ secrets.CRANIUM_RELEASE_SIGNING_KEY }}
+        run: |
+          set -euo pipefail
+          key_file="$(mktemp /tmp/cranium-release-signing-key.XXXXXX.pem)"
+          cleanup() { rm -f "$key_file"; }
+          trap cleanup EXIT
+          printf "%s\n" "$CRANIUM_RELEASE_SIGNING_KEY" > "$key_file"
+          chmod 600 "$key_file"
+          sudo env CRANIUM_RELEASE_SIGNING_KEY="$key_file" bash BUILD_ACQUISITION_ISO.sh
+      - name: Verify ISO and release provenance
+        run: |
+          set -euo pipefail
+          xorriso -indev dist/cranium-acquisition-demo.iso -toc >/dev/null
+          sha256sum dist/cranium-acquisition-demo.iso > dist/cranium-acquisition-demo.iso.sha256
+          test -s RELEASE_LINEAGE.json
+          test -s RELEASE_LINEAGE.json.sig
+          test -s .cranium-trust/release-root.pub.pem
+      - name: Attest ISO build provenance
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.2.3
+        with:
+          subject-path: dist/cranium-acquisition-demo.iso
+      - name: Publish durable signed release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            dist/cranium-acquisition-demo.iso \
+            dist/cranium-acquisition-demo.iso.sha256 \
+            RELEASE_LINEAGE.json \
+            RELEASE_LINEAGE.json.sig \
+            .cranium-trust/release-root.pub.pem \
+            --title "Cranium Acquisition Demo $GITHUB_REF_NAME" \
+            --generate-notes

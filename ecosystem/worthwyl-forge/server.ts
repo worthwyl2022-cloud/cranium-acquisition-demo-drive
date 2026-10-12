@@ -9,8 +9,36 @@ const __dirname = process.cwd();
 
 async function startServer() {
   const app = express();
-  app.use(express.json({ limit: "50mb" }));
-  app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+  app.set("trust proxy", false);
+  app.use(express.json({ limit: "10mb" }));
+  app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+  const requestWindowMs = Number(process.env.CRANIUM_FORGE_RATE_WINDOW_MS || 60_000);
+  const requestLimit = Number(process.env.CRANIUM_FORGE_RATE_LIMIT || 120);
+  const requestMaxEntries = Number(process.env.CRANIUM_FORGE_RATE_MAX_ENTRIES || 10_000);
+  const requestCounters = new Map<string, { started: number; count: number }>();
+  app.use((req, res, next) => {
+    const now = Date.now();
+    for (const [key, counter] of requestCounters) {
+      if (now - counter.started >= requestWindowMs) requestCounters.delete(key);
+    }
+    const key = req.socket.remoteAddress || "unknown";
+    let counter = requestCounters.get(key);
+    if (!counter) {
+      while (requestCounters.size >= requestMaxEntries) {
+        const oldest = requestCounters.keys().next().value as string | undefined;
+        if (oldest === undefined) break;
+        requestCounters.delete(oldest);
+      }
+      counter = { started: now, count: 0 };
+      requestCounters.set(key, counter);
+    }
+    counter.count += 1;
+    if (counter.count > requestLimit) {
+      res.status(429).json({ error: "Rate limit exceeded" });
+      return;
+    }
+    next();
+  });
   const PORT = 3000;
 
   const ai = new GoogleGenAI({
@@ -29,7 +57,7 @@ async function startServer() {
 
   // Standard non-streaming chat & cognitive analysis
   app.post("/api/chat", async (req, res) => {
-    const { message, systemPrompt, prompt } = req.body;
+    const { message, prompt } = req.body;
     const contentToProcess = message || prompt || "Signal query";
 
     try {
@@ -58,7 +86,6 @@ async function startServer() {
       const response = await ai.models.generateContent({
         model: "gemini-3.7-flash",
         contents: contentToProcess,
-        config: systemPrompt ? { systemInstruction: systemPrompt } : undefined,
       });
 
       res.json({

@@ -209,7 +209,11 @@
       "mysql2@<=3.23.0": ">=3.23.1",
       "vitest@>=2.1.0 <4.1.11": ">=4.1.11",
       "@vitest/mocker@>=2.1.0 <4.1.11": ">=4.1.11",
-      "baseline-browser-mapping@>=2.0.0 <2.11.0": ">=2.11.0"
+      "baseline-browser-mapping@>=2.0.0 <2.11.0": ">=2.11.0",
+      "katex@>=0.11.0 <0.18.2": ">=0.18.2",
+      "source-map-js@>=1.0.0 <1.2.2": ">=1.2.2",
+      "proxy-addr@>=1.1.0 <2.0.8": ">=2.0.8",
+      "postcss-selector-parser@<7.1.6": ">=7.1.6"
     },
     "onlyBuiltDependencies": [
       "@tailwindcss/oxide",

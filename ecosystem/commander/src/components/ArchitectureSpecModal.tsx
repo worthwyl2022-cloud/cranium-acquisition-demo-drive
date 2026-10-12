@@ -20,7 +20,7 @@ export default function ArchitectureSpecModal({ isOpen, onClose }: Props) {
             <div className="flex items-center gap-2">
               <Server className="w-5 h-5 text-blue-600" />
               <h2 className="text-base font-bold text-neutral-900">
-                WorthWyl Creative OS — Technical Architecture & Acquisition Spec
+                Cranium Command — Technical Architecture & Acquisition Spec
               </h2>
             </div>
             <p className="text-xs text-neutral-500 mt-0.5 font-mono">
@@ -68,7 +68,7 @@ export default function ArchitectureSpecModal({ isOpen, onClose }: Props) {
                   Unified Creative OS Paradigm
                 </h3>
                 <p className="text-xs text-blue-800 leading-relaxed">
-                  Unlike fragmented creator utilities (DAWs, word processors, video editors), WorthWyl Creative OS
+                  Unlike fragmented creator utilities (DAWs, word processors, video editors), Cranium Command
                   integrates cognitive feedback, media rendering, and generational storage into an orchestrated microservice constellation.
                 </p>
               </div>
@@ -77,7 +77,7 @@ export default function ArchitectureSpecModal({ isOpen, onClose }: Props) {
                 <div className="p-4 rounded-xl border border-neutral-200 bg-neutral-50/50 space-y-2">
                   <div className="flex items-center gap-2 text-xs font-bold text-neutral-900">
                     <Cpu className="w-4 h-4 text-blue-600" />
-                    1. Convertible Cranium Core Supercluster
+                    1. Cranium governance substrate Supercluster
                   </div>
                   <p className="text-xs text-neutral-600 leading-relaxed">
                     ML serving layer (vLLM / KServe) evaluating real-time emotional baseline, tension, coherence, continuity, and theme drift. Latency benchmark &lt; 150ms.

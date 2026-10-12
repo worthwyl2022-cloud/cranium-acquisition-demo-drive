@@ -4,7 +4,7 @@
 
 ## Authority boundary
 
-Only `cranium-kernel` / Convertible Cranium Core may evaluate and grant an authority transition, mutate protected canonical state, and issue the authoritative receipt. Models, agents, users, tools, UI surfaces, integrations, memory, retrieval, and Synapse may propose, contextualize, or provide evidence. They must not bypass the Core authority boundary.
+Only `cranium-kernel` / Cranium Core may evaluate and grant an authority transition, mutate protected canonical state, and issue the authoritative receipt. Models, agents, users, tools, UI surfaces, integrations, memory, retrieval, and Synapse may propose, contextualize, or provide evidence. They must not bypass the Core authority boundary.
 
 ## Repository roles
 

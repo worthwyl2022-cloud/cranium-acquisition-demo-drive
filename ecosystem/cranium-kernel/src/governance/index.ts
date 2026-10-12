@@ -14,6 +14,18 @@ export {
   type SynapsePolicyEnvelope,
 } from './SynapseRuntimeAdapter';
 export {
+  SynapseController,
+  SynapseControllerError,
+  mapModeToAttestation,
+  type InterventionMode,
+  type RiskAxisId,
+  type ObservationProfile,
+  type InterventionBudget,
+  type SynapseObservation,
+  type ControllerConfig,
+  type ControlDecision,
+} from './SynapseController';
+export {
   CraniumCoreTransactionGate,
   hashTransactionValue,
   type ActionExecutionResult,
@@ -28,7 +40,19 @@ export {
   type SynapseTransactionAttestation,
   type TransactionJson,
   type TransactionRiskTier,
+  type TransactionGateOptions,
 } from './SynapseCoreTransaction';
+export {
+  KeyManager,
+  MemoryKeyCustodyStore,
+  type CustodiedKey,
+  type KeyAuditEvent,
+  type KeyCustodyStore,
+  type KeyStatus,
+  type PublicKeyRegistrySnapshot,
+  type RegisterKeyInput,
+  type RotateKeyInput,
+} from './KeyManager';
 export {
   TrustedKeyRegistry,
   exportPublicKey,
@@ -38,3 +62,12 @@ export {
   type TrustedKey,
   type TrustedSubject,
 } from './Signatures';
+export {
+  rawKeyAsSigner,
+  sealSynapseAttestation,
+  sealCoreReceipt,
+  verifyCoreReceiptSignature,
+  verifySynapseAttestationSignature,
+  type SubjectSigner,
+  type RawKeySigner,
+} from './ArtifactLifecycle';

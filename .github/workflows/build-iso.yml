@@ -19,6 +19,15 @@ jobs:
           python-version: '3.12'
       - run: bash -n BUILD_ACQUISITION_ISO.sh HEALTH_CHECK.sh
       - run: bash HEALTH_CHECK.sh
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - name: Validate Commander build
+        working-directory: ecosystem/commander
+        run: |
+          npm ci --ignore-scripts
+          npm run lint
+          npm run build
 
   build-iso:
     if: github.event_name != 'pull_request'
@@ -43,7 +52,7 @@ jobs:
       - name: Verify ISO artifact
         run: xorriso -indev dist/cranium-acquisition-demo.iso -toc >/dev/null
       - name: Upload ISO
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: cranium-acquisition-demo
           path: dist/cranium-acquisition-demo.iso

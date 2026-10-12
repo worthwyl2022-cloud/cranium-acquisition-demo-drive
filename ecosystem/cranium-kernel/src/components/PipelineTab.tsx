@@ -46,15 +46,31 @@ export const PipelineTab: React.FC<PipelineTabProps> = ({
     'Promotion validated via cryptographic evidence digest from peer-reviewed benchmark run.'
   );
   const [includeEvidence, setIncludeEvidence] = useState<boolean>(true);
-  const [evidenceUri, setEvidenceUri] = useState<string>('https://evidence.cranium.ai/audit/receipt-441.json');
-  const [evidenceDigest, setEvidenceDigest] = useState<string>(
-    '7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069'
-  );
-  const [evidenceVerified, setEvidenceVerified] = useState<boolean>(true);
+  const [evidenceUri, setEvidenceUri] = useState<string>('/receipts/audit_50000_receipt.json');
+  const [evidenceDigest, setEvidenceDigest] = useState<string>('');
+  const [evidenceVerified, setEvidenceVerified] = useState<boolean>(false);
+  const [evidenceVerificationError, setEvidenceVerificationError] = useState<string>('');
 
   const [lastResult, setLastResult] = useState<AuthorityTransition | null>(null);
 
   const selectedAtom = state.atomsById[selectedAtomId] || atoms[0];
+
+  const verifyEvidence = async () => {
+    setEvidenceVerified(false);
+    setEvidenceVerificationError('');
+    try {
+      const response = await fetch(evidenceUri, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const bytes = await response.arrayBuffer();
+      const digest = await crypto.subtle.digest('SHA-256', bytes);
+      const hex = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join('');
+      setEvidenceDigest(hex);
+      setEvidenceVerified(true);
+    } catch (error) {
+      setEvidenceDigest('');
+      setEvidenceVerificationError(error instanceof Error ? error.message : 'Evidence could not be verified.');
+    }
+  };
 
   const handleExecuteTransition = () => {
     if (!selectedAtom) return;

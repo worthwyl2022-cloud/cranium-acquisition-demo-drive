@@ -3,10 +3,13 @@ name: Acquisition Demo ISO
 on:
   push:
     branches: [main]
+    tags: ['v*']
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
+  attestations: write
+  id-token: write
 
 jobs:
   validate:
@@ -51,10 +54,40 @@ jobs:
           sudo env CRANIUM_RELEASE_SIGNING_KEY="$key_file" bash BUILD_ACQUISITION_ISO.sh
       - name: Verify ISO artifact
         run: xorriso -indev dist/cranium-acquisition-demo.iso -toc >/dev/null
+      - name: Create release checksum and provenance bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum dist/cranium-acquisition-demo.iso > dist/cranium-acquisition-demo.iso.sha256
+          test -s RELEASE_LINEAGE.json
+          test -s RELEASE_LINEAGE.json.sig
+          test -s .cranium-trust/release-root.pub.pem
+      - name: Attest ISO build provenance
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2.2.3
+        with:
+          subject-path: dist/cranium-acquisition-demo.iso
       - name: Upload ISO
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: cranium-acquisition-demo
-          path: dist/cranium-acquisition-demo.iso
+          path: |
+            dist/cranium-acquisition-demo.iso
+            dist/cranium-acquisition-demo.iso.sha256
+            RELEASE_LINEAGE.json
+            RELEASE_LINEAGE.json.sig
+            .cranium-trust/release-root.pub.pem
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 30
+      - name: Publish durable signed release for version tags
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            dist/cranium-acquisition-demo.iso \
+            dist/cranium-acquisition-demo.iso.sha256 \
+            RELEASE_LINEAGE.json \
+            RELEASE_LINEAGE.json.sig \
+            .cranium-trust/release-root.pub.pem \
+            --title "Cranium Acquisition Demo $GITHUB_REF_NAME" \
+            --generate-notes

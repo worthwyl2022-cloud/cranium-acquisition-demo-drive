@@ -32,15 +32,23 @@ jobs:
       - name: Install kernel dependencies
         run: npm ci
 
-      - name: Run 14-case acquisition suite
-        run: npm run verify:acquisition-stress
-
-      - name: Upload suite evidence
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: acquisition-stress-suite-evidence
-          path: |
-            ecosystem/cranium-kernel/artifacts/acquisition-stress-suite-report.json
-            ecosystem/cranium-kernel/artifacts/acquisition-stress-suite-report.md
-          if-no-files-found: error
+      - name: Run current acquisition verification suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run verify:keys
+          npm run verify:memory
+          npm run verify:synapse
+          npm run verify:keys-bound
+          npm run verify:synapse-controller
+          npm run atomic:recovery-check
+          npm run verify:durable
+          npm run verify:lifecycle
+          npm run verify:conformance
+          npm run verify:constitution
+          npm run verify:constitution-runtime
+          npm run verify:coma
+          npm run verify:cognitive-subconscious
+          npm run verify:proofing
+          npm run verify:session-circuit-breaker
+          npm run verify:synapse-adapter

@@ -1,8 +1,8 @@
-# Convertible Cranium Synapse / Convertible Cranium Core Evidence Record
+# Cranium Synapse / Cranium Core Evidence Record
 
 ## Scope
 
-This record covers the deterministic Synapse-to-Core governance transaction and controlled action gateway in the `cranium-kernel` repository. Synapse carries policy-contextualized inference/runtime evidence; Convertible Cranium Core alone authorizes state transitions and external action.
+This record covers the deterministic Synapse-to-Core governance transaction and controlled action gateway in the `cranium-kernel` repository. Synapse carries policy-contextualized inference/runtime evidence; Cranium Core alone authorizes state transitions and external action.
 
 ## Verification commands
 

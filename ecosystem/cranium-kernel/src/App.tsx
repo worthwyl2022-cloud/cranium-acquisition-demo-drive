@@ -5,6 +5,7 @@ import { AdversarialTab } from './components/AdversarialTab';
 import { CanonTab } from './components/CanonTab';
 import { LedgerTab } from './components/LedgerTab';
 import { DiligenceTab } from './components/DiligenceTab';
+import { Stress50kTab } from './components/Stress50kTab';
 import { InMemoryReplayGuard } from './kernel/replayGuard';
 import { DefaultAuthorityTransitionEngine } from './kernel/engine';
 import { createInitialKernelState } from './data/initialState';
@@ -46,6 +47,7 @@ export const App: React.FC = () => {
           />
         )}
 
+        {selectedTab === 'stress50k' && <Stress50kTab />}
 
         {selectedTab === 'adversarial' && (
           <AdversarialTab
@@ -66,7 +68,7 @@ export const App: React.FC = () => {
       </main>
 
       <footer className="border-t border-slate-900 bg-slate-950/80 py-4 px-6 text-center text-xs font-mono text-slate-500">
-        Convertible Cranium substrate v1-Kernel &bull; Authority Boundary Contract &bull; Immutable Canonical SHA-256
+        Cranium Substrate v1-Kernel &bull; Authority Boundary Contract &bull; Immutable Canonical SHA-256
       </footer>
     </div>
   );
